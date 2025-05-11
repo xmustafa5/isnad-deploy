@@ -90,7 +90,7 @@
 --opacity-secondary-10%: #08182f;
 --text-main: var(--color-primary-5);
 --stroke-primary: var(--bg-primary);
---stroke-error: var(--color-red-60);
+--color-stroke-error: var(--color-red-60);
 --text-whaite: var(--color-primary-5);
 --button-primary: var(--color-primary-50);
 --button-error: #f34e3f;
@@ -109,8 +109,7 @@
 --bg-black: var(--color-secondary-900);
 --opacity-white-5%: #ffffff;
 --stroke-white-5%: #ffffff;
-
-
+--color-opacity-white-10: rgba(255, 255, 255, 0.10);
 }
 @utility body-14-medium {
   font-family: var(--main-font, "Expo Arabic");
