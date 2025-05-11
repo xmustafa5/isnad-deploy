@@ -1,74 +1,36 @@
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-:root {
-  /* Color Primitives */
-  --color-green-5: #FFFBF6;
-  --color-green-10: #EEFCF7;
-  --color-green-20: #CBF7E8;
-  --color-green-30: #A8F1D9;
-  --color-green-40: #64E7BB;
-  --color-green-50: #53E4B3;
-  --color-green-60: #30DFA4;
-  --color-green-70: #22D89B;
-  --color-green-80: #1EC78F;  /* main */
-  --color-green-90: #1AAA79;
-  --color-green-100: #189C70;
+@theme{
+  
 
-  /* Primary Colors */
-  --color-primary-5: #FBF5EF;
-  --color-primary-10: #F2E4D3;
-  --color-primary-20: #E5C8A2;
-  --color-primary-30: #E5C8A2;
-  --color-primary-40: #D7A672;
-  --color-primary-50: #CE8C51;
-  --color-primary-60: #C57340;
-  --color-primary-70: #90402D;  /* main */
-  --color-primary-80: #90402D;
-  --color-primary-90: #76342A;
   --color-primary-100: #371511;
-
-  /* Secondary Colors */
-  --color-secondary-100: #EEF5FF;
-  --color-secondary-200: #B8C6E3;
-  --color-secondary-300: #9AB0CE;
-  --color-secondary-400: #97A8BF;
-  --color-secondary-600: #213458;
-  --color-secondary-700: #395174;
-  --color-secondary-800: #212F43;
-  --color-secondary-900: #071427;
-  --color-secondary-950: #08182F;
-
-  /* Neutral Colors */
-  --color-neutral-80: #5F616C;  /* main */
-  --color-neutral-90: #393B43;
-  --color-neutral-100: #1B1C20;
-
-  /* Distances */
+  --color-primary-90: #76342a;
+  --color-primary-80: #90402d;
+  --color-primary-70(main): #90402d;
+  --color-primary-60: #c57340;
+  --color-primary-50: #ce8c51;
+  --color-primary-40: #d7a672;
+  --color-primary-30: #e5c8a2;
+  --color-primary-20: #e5c8a2;
+  --color-primary-10: #f2e4d3;
+  --color-red-100: #5d0a02;
+  --color-red-90: #7f150b;
+  --color-red-80(main): #a12519;
+  --color-red-70: #ed301e;
+  --color-red-60: #f34e3f;
+  --color-red-50: #e55143;
+  --color-red-40: #ff8c81;
+  --color-red-30: #ffada5;
+  --color-red-20: #ffcfca;
+  --color-red-10: #fff0ee;
+  --color-neutral-100: #1b1c20;
+  --color-neutral-90: #393b43;
+  --color-neutral-80(main): #5f616c;
   --distance-0: 0px;
   --distance-4: 4px;
   --distance-8: 8px;
@@ -82,49 +44,78 @@ body {
   --distance-48: 48px;
   --distance-56: 56px;
   --distance-64: 64px;
+  --color-red-5: #fffbf6;
+  --color-primary-5: #fbf5ef;
+  --color-green-100: #189c70;
+  --color-green-90: #1aaa79;
+  --color-green-80(main): #1ec78f;
+  --color-green-70: #22d89b;
+  --color-green-60: #30dfa4;
+  --color-green-50: #53e4b3;
+  --color-green-40: #64e7bb;
+  --color-green-30: #a8f1d9;
+  --color-green-20: #cbf7e8;
+  --color-green-10: #eefcf7;
+  --color-green-5: #fffbf6;
+  --number: 1px;
+  --color-secondary-800: #212f43;
+  --color-secondary-900: #071427;
+  --color-secondary-950: #08182f;
+  --color-secondary-100: #eef5ff;
+  --color-secondary-200: #b8c6e3;
+  --color-secondary-300: #9ab0ce;
+  --color-secondary-400: #97a8bf;
+  --color-secondary-600: #213458;
+  --color-secondary-700: #395174;
+  
 
-  /* Design Tokens */
-  --text-main: var(--color-primary-5);
-  --text-primary: var(--color-primary-60);
-  --text-secondary: var(--color-secondary-950);
-  --text-accent: #FFFFFF;
-  --text-disabled: var(--color-secondary-400);
-  --text-error: var(--color-red-60);
-  --text-gray1: var(--color-secondary-100);
-  --text-gray2: var(--color-secondary-200);
-  --text-gray3: var(--color-secondary-400);
-  --text-white: var(--color-primary-5);
 
-  /* Background Tokens */
-  --bg-main: #FFFFFF;
-  --bg-primary: var(--color-primary-60);
-  --bg-secondary: var(--color-secondary-950);
-  --bg-black: var(--color-secondary-900);
-  --bg-white: var(--color-primary-5);
-  --bg-bg-2: #0D1F39;
+/*token*/
+--bg-primary: var(--color-primary-60);
+--bg-secondry: var(--color-secondary-950);
+--opacity-primary-70%: #c57340;
+--opacity-primary-80%: #c57340;
+--opacity-primary-90%: #c57340;
+--opacity-secondary-70%: #08182f;
+--opacity-secondary-80%: #08182f;
+--opacity-secondary-90%: #08182f;
+--color: #ffffff;
+--text-primary: var(--color-primary-60);
+--text-secondary: var(--color-secondary-950);
+--color-text-error: var(--color-red-60);
+--text-disabled: var(--color-secondary-400);
+--text-accent: #ffffff;
+--opacity-white-10%: #ffffff;
+--opacity-whaite: #ffffff;
+--opacity-secondary-10%: #08182f;
+--text-main: var(--color-primary-5);
+--stroke-primary: var(--bg-primary);
+--stroke-error: var(--color-red-60);
+--text-whaite: var(--color-primary-5);
+--button-primary: var(--color-primary-50);
+--button-error: #f34e3f;
+--button-primary-light: #252d3e;
+--text-gray1: var(--color-secondary-100);
+--text-gray2: var(--color-secondary-200);
+--text-gray3: var(--color-secondary-400);
+--stroke-disabled: var(--color-secondary-400);
+--color-2: #ffffff;
+--stroke-whaite: var(--color-primary-5);
+--bg-whaite: var(--color-primary-5);
+--main-bg: #576e94;
+--bg-main: #ffffff;
+--stroke-border: var(--color-secondary-800);
+--bg-bg-2: #0d1f39;
+--bg-black: var(--color-secondary-900);
+--opacity-white-5%: #ffffff;
+--stroke-white-5%: #ffffff;
 
-  /* Button Tokens */
-  --button-primary: var(--color-primary-50);
-  --button-primary-light: #252D3E;
-  --button-error: #F34E3F1C;
 
-  /* Stroke Tokens */
-  --stroke-primary: var(--bg-primary);
-  --stroke-border: var(--color-secondary-800);
-  --stroke-disabled: var(--color-secondary-400);
-  --stroke-error: var(--color-red-60);
-  --stroke-white: var(--color-primary-5);
-  --stroke-white-5: #FFFFFF0C;
-
-  /* Opacity Tokens */
-  --opacity-primary-70: #C57340B2;
-  --opacity-primary-80: #C57340CC;
-  --opacity-primary-90: #C57340E5;
-  --opacity-secondary-10: #08182F19;
-  --opacity-secondary-70: #08182FB2;
-  --opacity-secondary-80: #08182FCC;
-  --opacity-secondary-90: #08182FE5;
-  --opacity-white: #FFFFFF;
-  --opacity-white-10: #FFFFFF19;
-  --opacity-white-5: #FFFFFF0C;
+}
+@utility body-14-medium {
+  font-family: var(--main-font, "Expo Arabic");
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
 }

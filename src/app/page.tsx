@@ -1,8 +1,9 @@
+import { Button } from "@/components/Button";
 
 export default function Home() {
   return ( 
-    <div>
-
+    <div className=" body-14-medium">
+      <Button variant="default" size="lg">Click me</Button>
     </div>
   );
 }
