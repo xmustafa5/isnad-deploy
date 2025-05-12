@@ -14,9 +14,9 @@ const buttonVariants = cva(
         error:
           "bg-text-error border-stroke-error ",
         gray:
-          "border-opacity-white-10",
+          "border-opacity-white-10 hover:bg-[#526479] disabled:bg-[rgba(255,255,255,0.40)] active:bg-[#2B3543]",
         buttons:
-          "",
+          "border-opacity-white-5 hover:bg-[rgba(255,255,255,0.05)] hover:border-[rgba(255,255,255,0.40)] active:bg-white text active:text-[#08182F]",
       },
       mode: {
         default:
@@ -24,7 +24,7 @@ const buttonVariants = cva(
         outline:
           "bg-transparent text-primary-60",
         text:
-          "bg-transparent border-transparent ",
+          "bg-transparent border-transparent  ",
       },
       size: {
         m: "h-[48px] py-3",
