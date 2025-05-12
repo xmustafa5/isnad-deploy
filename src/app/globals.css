@@ -111,7 +111,7 @@
 --stroke-white-5%: #ffffff;
 --color-opacity-white-10: rgba(255, 255, 255, 0.10);
 }
-@utility body-14-medium {
+@utility typography-body-14-medium {
   font-family: var(--main-font, "Expo Arabic");
   font-size: 14px;
   font-style: normal;

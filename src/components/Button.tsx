@@ -5,12 +5,12 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "flex w-[252px] justify-center items-center text-text-whaite gap-2 flex-shrink-0 rounded-md backdrop-blur-[16px] border ",
+  "flex w-[252px] justify-center items-center text-text-whaite gap-2 flex-shrink-0 rounded-md backdrop-blur-[16px] border typography-body-14-medium ",
   {
     variants: {
       variant: {
         default:
-          "bg-primary-60 border-primary-60 hover:bg-[linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1))] hover:bg-primary-60 ",
+          "bg-primary-60 border-primary-60 ",
         error:
           "bg-text-error border-stroke-error ",
         gray:
@@ -36,7 +36,7 @@ const buttonVariants = cva(
       {
         variant: "default",
         mode:"default",
-        className: "active:bg-[linear-gradient(0deg,var(--opacity-secondary-10,rgba(8,24,47,0.10))_0%,var(--opacity-secondary-10,rgba(8,24,47,0.10))_100%),var(--bg-primary,#C57340)] disabled:opacity-60"
+        className: "active:bg-[linear-gradient(0deg,var(--opacity-secondary-10,rgba(8,24,47,0.10))_0%,var(--opacity-secondary-10,rgba(8,24,47,0.10))_100%),var(--bg-primary,#C57340)] hover:bg-[linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1))]  disabled:opacity-60"
       },
       {
         variant: "default",
@@ -47,16 +47,20 @@ const buttonVariants = cva(
         variant: "default",
         mode: "text",
         className: "text-primary-60 hover:bg-button-primary-light active:bg-[rgba(197,_115,_64,_0.24)] disabled:border-transparent disabled:bg-transparent disabled:text-text-whaite"
-      },  
+      },
+      {variant: "error",
+        mode: "default",
+        className: "hover:bg-[#F46052] active:bg-[#DB4639] disabled:bg-[#273A55] border-transparent"
+      },
       {
         variant: "error",
         mode: "outline",
-        className: "bg-transparent text-text-error",
+        className: "bg-transparent text-text-error hover:bg-[rgba(243,79,63,0.11)] active:bg-[rgba(243,78,63,0.20)] disabled:-transparent disabled:border-text-gray3 disabled:text-text-gray3 text-text-error",
       },
       {
         variant: "error",
         mode: "text",
-        className: "text-text-error",
+        className: "text-text-error hover:bg-[rgba(243,78,63,0.11)] active:bg-[rgba(243,78,63,0.20)] disabled:bg-transparent  disabled:text-text-gray3 ",
       },
     ],
     defaultVariants: {
