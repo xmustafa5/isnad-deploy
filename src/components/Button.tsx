@@ -5,12 +5,12 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "flex w-[252px] justify-center items-center text-text-whaite gap-2 flex-shrink-0 rounded-md backdrop-blur-[16px] border",
+  "flex w-[252px] justify-center items-center text-text-whaite gap-2 flex-shrink-0 rounded-md backdrop-blur-[16px] border ",
   {
     variants: {
       variant: {
         default:
-          "bg-primary-60 border-primary-60 ",
+          "bg-primary-60 border-primary-60 hover:bg-[linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1))] hover:bg-primary-60 ",
         error:
           "bg-text-error border-stroke-error ",
         gray:
@@ -34,6 +34,21 @@ const buttonVariants = cva(
     },
     compoundVariants: [
       {
+        variant: "default",
+        mode:"default",
+        className: "active:bg-[linear-gradient(0deg,var(--opacity-secondary-10,rgba(8,24,47,0.10))_0%,var(--opacity-secondary-10,rgba(8,24,47,0.10))_100%),var(--bg-primary,#C57340)] disabled:opacity-60"
+      },
+      {
+        variant: "default",
+        mode: "outline",
+        className:"text-text-whaite hover:bg-button-primary-light active:bg-[#724F41] disabled:border-text-gray3"
+      },
+      {
+        variant: "default",
+        mode: "text",
+        className: "text-primary-60 hover:bg-button-primary-light active:bg-[rgba(197,_115,_64,_0.24)] disabled:border-transparent disabled:bg-transparent disabled:text-text-whaite"
+      },  
+      {
         variant: "error",
         mode: "outline",
         className: "bg-transparent text-text-error",
@@ -42,11 +57,6 @@ const buttonVariants = cva(
         variant: "error",
         mode: "text",
         className: "text-text-error",
-      },
-      {
-        variant: "default",
-        mode: "text",
-        className: "text-primary-60",
       },
     ],
     defaultVariants: {
