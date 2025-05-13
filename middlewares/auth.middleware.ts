@@ -11,10 +11,7 @@ export function authMiddleware(middleware: CustomMiddleware) {
 
     // Pages that don't require authentication
     const publicPages = [
-      `/auth/signin`,
-      `/auth/signup`,
-      `/auth/verification`,
-      `/auth/forgot-password`,
+      `/auth/signin`
     ];
     const isPublicPage = publicPages.some((item) => pathname.includes(item));
 

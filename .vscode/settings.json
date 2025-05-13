@@ -1,0 +1,22 @@
+{
+    "cSpell.words": ["alogrtherm", "horizaltly"],
+    "i18n-ally.localesPaths": "./localization/locales",
+    "i18n-ally.namespace": false,
+    "i18n-ally.keystyle": "flat",
+    "i18n-ally.extract.autoDetect": false,
+    "i18n-ally.enabledFrameworks": ["react", "next"],
+    "i18n-ally.extract.keygenStyle": "flat",
+    "i18n-ally.sourceLanguage": "en",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[scss]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
+  }
+  

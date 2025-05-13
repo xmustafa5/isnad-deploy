@@ -5,8 +5,8 @@ type I18nConfig = {
 };
 
 const i18nConfig: I18nConfig = {
-  locales: ['en', 'ar'],
-  defaultLocale: 'en',
+  locales: ["en", "ar", "ku"],
+  defaultLocale: "en",
   prefixDefault: true,
 };
 
