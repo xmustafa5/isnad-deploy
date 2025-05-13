@@ -2,14 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: [
-      "s3-alpha-sig.figma.com",
-      "picsum.photos",
-      "49.13.170.219",
-      "erp.torchcorp.com",
-      "188.245.112.4",
-      "via.placeholder.com",
-    ],
+    domains: ["s3-alpha-sig.figma.com"],
   },
   experimental: {
     serverActions: {

@@ -1,12 +1,15 @@
-// import { getProducts } from "@/actions/Products";
+import { Button } from "@/app/_components/Button";
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-
+export default function Home() {
   return (
-    <div></div>
+    <div className="bg-black w-full grid grid-cols-3 gap-4 justify-center items-center h-screen">
+
+      <Button variant="buttons">Click me</Button>
+      <Button variant="buttons" >Click me</Button>
+      <Button variant="buttons">Click me</Button>
+
+
+
+    </div>
   );
 }
