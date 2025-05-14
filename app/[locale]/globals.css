@@ -1,13 +1,17 @@
-
 @import "tailwindcss";
-
-
-
-
-
-@theme{
-  
-
+.background-login {
+  background-image: url("/images/background-login.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100dvh;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@theme {
   --color-primary-100: #371511;
   --color-primary-90: #76342a;
   --color-primary-80: #90402d;
@@ -67,54 +71,63 @@
   --color-secondary-400: #97a8bf;
   --color-secondary-600: #213458;
   --color-secondary-700: #395174;
-  
 
-
-/*token*/
---bg-primary: var(--color-primary-60);
---bg-secondry: var(--color-secondary-950);
---opacity-primary-70%: #c57340;
---opacity-primary-80%: #c57340;
---opacity-primary-90%: #c57340;
---opacity-secondary-70%: #08182f;
---opacity-secondary-80%: #08182f;
---opacity-secondary-90%: #08182f;
---color: #ffffff;
---text-primary: var(--color-primary-60);
---text-secondary: var(--color-secondary-950);
---color-text-error: var(--color-red-60);
---text-disabled: var(--color-secondary-400);
---text-accent: #ffffff;
---opacity-white-10%: #ffffff;
---opacity-whaite: #ffffff;
---opacity-secondary-10%: #08182f;
---text-main: var(--color-primary-5);
---stroke-primary: var(--bg-primary);
---color-stroke-error: var(--color-red-60);
---color-text-whaite: var(--color-primary-5);
---color-button-primary: var(--color-primary-50);
---color-button-error: #f34e3f;
---color-button-primary-light: #252d3e;
---text-gray1: var(--color-secondary-100);
---text-gray2: var(--color-secondary-200);
---color-text-gray3: var(--color-secondary-400);
---stroke-disabled: var(--color-secondary-400);
---color-2: #ffffff;
---stroke-whaite: var(--color-primary-5);
---bg-whaite: var(--color-primary-5);
---main-bg: #576e94;
---bg-main: #ffffff;
---stroke-border: var(--color-secondary-800);
---bg-bg-2: #0d1f39;
---bg-black: var(--color-secondary-900);
---color-opacity-white-5: rgba(255, 255, 255, 0.05);
---stroke-white-5%: #ffffff;
---color-opacity-white-10: rgba(255, 255, 255, 0.10);
+  /*token*/
+  --bg-primary: var(--color-primary-60);
+  --bg-secondry: var(--color-secondary-950);
+  --opacity-primary-70%: #c57340;
+  --opacity-primary-80%: #c57340;
+  --opacity-primary-90%: #c57340;
+  --opacity-secondary-70%: #08182f;
+  --opacity-secondary-80%: #08182f;
+  --opacity-secondary-90%: #08182f;
+  --color: #ffffff;
+  --text-primary: var(--color-primary-60);
+  --text-secondary: var(--color-secondary-950);
+  --color-text-error: var(--color-red-60);
+  --text-disabled: var(--color-secondary-400);
+  --text-accent: #ffffff;
+  --opacity-white-10%: #ffffff;
+  --opacity-whaite: #ffffff;
+  --opacity-secondary-10%: #08182f;
+  --text-main: var(--color-primary-5);
+  --stroke-primary: var(--bg-primary);
+  --color-stroke-error: var(--color-red-60);
+  --color-text-whaite: var(--color-primary-5);
+  --color-button-primary: var(--color-primary-50);
+  --color-button-error: #f34e3f;
+  --color-button-primary-light: #252d3e;
+  --text-gray1: var(--color-secondary-100);
+  --text-gray2: var(--color-secondary-200);
+  --color-text-gray3: var(--color-secondary-400);
+  --stroke-disabled: var(--color-secondary-400);
+  --color-2: #ffffff;
+  --stroke-whaite: var(--color-primary-5);
+  --bg-whaite: var(--color-primary-5);
+  --main-bg: #576e94;
+  --bg-main: #ffffff;
+  --stroke-border: var(--color-secondary-800);
+  --bg-bg-2: #0d1f39;
+  --bg-black: var(--color-secondary-900);
+  --color-opacity-white-5: rgba(255, 255, 255, 0.05);
+  --stroke-white-5%: #ffffff;
+  --color-opacity-white-10: rgba(255, 255, 255, 0.1);
 }
 @utility typography-body-14-medium {
-  font-family: var(--main-font, "Expo Arabic");
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.4;
+}
+@utility typography-body-14-light {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+@utility typography-title-24-light {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 33.6px */
 }
