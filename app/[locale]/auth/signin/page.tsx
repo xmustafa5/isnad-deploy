@@ -1,27 +1,113 @@
+'use client'
 import { Button } from "@/app/_components/Button";
 import { mobilelogin } from "@/public/svg/login";
+import { useState } from "react";
 
 function Page() {
+  const [isSignin, setIsSignin] = useState(false)
+  function signinwithphone() {
+    setIsSignin(true)
+  }
   return (
-    <div className="background-login h-[100dvh] flex justify-center items-end">
-      <div
+    <div className="background-login h-[100dvh] flex justify-between   flex-col items-center px-4 py-12">
+      {/* <div
         className="w-full absolute top-0 left-0 h-full flex-shrink-0 pointer-events-none"
-        style={{ background: 'linear-gradient(180deg, rgba(8, 24, 47, 0.00) 50%, #08182F 91.19%)' }}
+
+        style={{
+          background: "linear-gradient(180deg, rgba(8, 24, 47, 0.10) 0%, rgba(8, 24, 47, 0.90) 54.18%)",
+          color: "#FFFFFF"
+        }}
+      ></div> */}
+      <div
+        className="w-full absolute top-0 z-1 left-0 h-full flex-shrink-0 pointer-events-none"
+        style={{
+          background:
+            `linear-gradient(180deg, rgba(8, 24, 47, ${isSignin ? "0.10" : "0.00"}) ${isSignin ? "0%" : "50%"},  ${isSignin ? "rgba(8, 24, 47, 0.90) 54.18%" : "#08182F 91.19%"} )`,
+        }}
       ></div>
-      <div className="flex flex-col items-center gap-[29px] w-[398px] ">
+      <div className="flex justify-between items-center w-[398px] h-[47px] relative z-10">
+        <Component2>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M12 18.3476C17.6392 18.3476 20.2481 17.6242 20.5 14.7205C20.5 11.8188 18.6812 12.0054 18.6812 8.44511C18.6812 5.66414 16.0452 2.5 12 2.5C7.95477 2.5 5.31885 5.66414 5.31885 8.44511C5.31885 12.0054 3.5 11.8188 3.5 14.7205C3.75295 17.6352 6.36177 18.3476 12 18.3476Z"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M14.3889 21.3574C13.0247 22.8721 10.8967 22.8901 9.51953 21.3574"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </Component2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="68" height="33" viewBox="0 0 68 33" fill="none">
+          <g clip-path="url(#clip0_1003_11371)">
+            <path d="M5.09311 20.8203H0.933105V32.287H5.03977V20.8203H5.09311Z" fill="#EE7D14" />
+            <path d="M59.6528 20.8203H53.3062V32.287H59.4928C65.1995 32.287 67.0662 29.4603 67.0662 26.1003C67.0662 22.7403 64.9862 20.8203 59.5995 20.8203H59.6528ZM63.0128 26.1536C63.0128 28.767 61.7862 31.2736 59.0662 31.2736H57.4128V21.727H59.0662C61.8928 21.727 62.9595 23.807 63.0128 26.047V26.1536Z" fill="#EE7D14" />
+            <path d="M20.1861 28.873C19.9728 32.553 13.8395 32.713 11.3861 31.913C9.35945 31.273 8.07945 30.313 8.07945 30.313L8.82612 29.1396C8.82612 29.1396 9.83945 30.0996 11.2261 30.4196C13.8928 31.1663 15.9728 30.473 16.0795 29.2463C16.0795 27.3796 7.43945 27.0596 7.43945 23.3263C7.43945 19.593 10.6395 19.6463 15.8128 20.6063C17.7861 20.9796 19.4928 21.7796 19.4928 21.7796C19.3328 22.153 19.0128 22.633 19.0128 22.7396C19.0128 22.7396 17.9461 22.2063 15.9728 21.7796C14.3195 21.4063 11.6528 21.7263 11.6528 23.0596C11.5995 25.2996 20.2928 25.033 20.2928 28.8196L20.1861 28.873Z" fill="#EE7D14" />
+            <path d="M51.5462 32.287H47.5996C45.8396 28.8736 44.2929 25.5136 42.5329 22.1003C41.7329 23.967 40.8796 25.887 40.0796 27.807C39.4396 29.3003 38.7996 30.7936 38.2129 32.287H36.5596C38.3729 28.447 40.0796 24.7136 41.9462 20.8203H46.0529C47.8662 24.5536 49.6796 28.5003 51.5462 32.287Z" fill="#EE7D14" />
+            <path d="M33.3599 20.8199H34.7999V32.2866H30.6399C28.3466 28.6599 26.9599 26.7933 23.7066 22.3133C23.7599 23.9666 23.8132 25.6199 23.8666 27.2733C23.9199 28.9266 23.9732 30.5799 24.0266 32.2333H22.7466V20.7666H26.6932C27.9199 22.4199 29.0932 24.0733 30.3199 25.7799C31.4932 27.4333 32.6132 29.0333 33.7332 30.6333C33.6799 28.9799 33.6266 27.3266 33.5199 25.6733C33.4666 24.0199 33.4132 22.3666 33.3599 20.7666V20.8199Z" fill="#EE7D14" />
+            <path d="M66.853 15.327C65.733 16.0204 64.8796 15.5404 64.8796 15.5404C65.093 14.847 65.4663 14.7404 66.1596 15.167L66.2663 15.0604V14.687C65.4663 14.3137 64.6663 14.4737 64.293 15.8604C64.293 15.8604 64.5063 16.3404 65.1996 16.2337L64.3996 16.5537L64.293 17.0337L66.7463 16.0737L66.9596 15.487L66.853 15.3804V15.327Z" fill="white" />
+            <path d="M21.093 0.820312L12.3997 3.32698L11.813 4.07365L21.253 1.51365L21.4663 1.30031L21.093 0.820312Z" fill="white" />
+            <path d="M43.1727 1.78027C42.4794 1.78027 41.8394 2.47361 41.8394 3.27361C41.8394 4.07361 42.4794 4.60694 43.1727 4.60694C43.866 4.60694 44.506 3.96694 44.506 3.27361C44.506 2.58027 43.866 1.78027 43.1727 1.78027ZM43.8127 3.59361C43.5994 3.80694 43.3327 3.80694 43.1727 3.80694C43.0127 3.80694 42.746 3.80694 42.586 3.59361C42.3727 3.38027 42.3727 3.11361 42.3727 3.06027C42.3727 2.68694 42.6927 2.26027 43.1727 2.26027C43.6527 2.26027 43.9194 2.74027 43.9727 3.06027C43.9727 3.06027 43.9727 3.38027 43.8127 3.59361Z" fill="white" />
+            <path d="M66.3197 0.87294H66.1064C66.1064 0.819606 65.1997 1.93961 65.1997 1.93961V13.7263L65.9997 13.4596C66.053 13.2463 66.2664 12.4996 66.373 11.9129C66.533 11.1129 66.533 7.75294 66.373 0.87294H66.3197Z" fill="white" />
+            <path d="M16.6665 6.52654C16.3998 6.73987 16.1331 6.9532 15.8665 7.21987C15.5998 7.48654 15.3331 7.7532 15.1198 8.01987C14.9065 7.80654 14.6931 7.53987 14.4265 7.2732C14.1598 7.00654 13.8931 6.73987 13.6265 6.52654C13.8931 6.3132 14.1598 6.09987 14.4265 5.8332C14.6931 5.56654 14.9598 5.29987 15.1198 5.0332C15.3331 5.29987 15.5465 5.56654 15.8665 5.8332C16.1331 6.09987 16.3998 6.36654 16.6665 6.52654Z" fill="white" />
+            <path d="M63.4395 13.8329C63.2795 14.4196 62.6395 15.7529 61.0928 15.7529C59.4395 15.6996 58.6928 14.5262 58.5861 12.6596H58.5328C58.4795 13.7796 56.3461 15.8596 52.4528 15.8596C48.5595 15.8596 47.9728 14.3129 47.9728 12.2862H47.8128C45.8395 16.1262 39.1728 15.9129 27.8661 15.8596H27.5995C23.1728 15.8596 19.3862 16.0196 18.6395 12.2862H18.4795C17.7862 14.8996 16.1328 15.8596 13.3062 15.8596C9.89282 15.8062 9.30615 12.7129 9.30615 11.3796V1.83289L10.2128 0.712891L10.4262 0.926224V9.03289C10.4262 9.03289 10.2662 12.3396 13.2528 12.3396C16.2395 12.3396 16.9862 12.3396 18.1595 10.7929C18.2128 10.6329 17.6795 9.08622 17.6795 8.92622H19.1195C19.8128 11.9129 20.0261 12.3396 26.3195 12.3396C31.1728 12.3396 45.6795 12.6062 47.8128 10.3662C48.0795 9.77956 48.3995 8.92622 48.3995 8.92622H49.1995C49.1995 11.0062 51.0661 12.3396 53.1461 12.3396C55.2261 12.3396 57.6261 12.1796 58.3195 11.0062L58.0528 9.29956L59.0661 8.49956L59.2261 10.7929C59.2795 12.2862 61.5728 12.7129 62.5861 11.5929C62.5328 10.0996 61.4661 8.49956 61.4661 8.49956L62.5328 6.79289H62.9061C64.0261 9.56623 63.8661 12.1262 63.5461 13.8329H63.4928H63.4395Z" fill="white" />
+            <path d="M5.67968 5.61974C6.79968 6.95307 8.50635 9.24641 7.97301 14.9531C7.81301 15.3797 5.83968 15.8597 4.02635 15.8597C-0.24032 15.8597 1.14635 10.6331 1.14635 10.6331H1.51968C1.51968 12.9797 5.73301 12.3397 6.74635 11.4864C6.31968 9.56641 4.39968 8.33974 4.39968 8.33974L5.35968 5.77974L5.73301 5.56641L5.67968 5.61974Z" fill="white" />
+          </g>
+          <defs>
+            <clipPath id="clip0_1003_11371">
+              <rect width="66.1333" height="32" fill="white" transform="translate(0.933105 0.5)" />
+            </clipPath>
+          </defs>
+        </svg>
+        <Component2>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+            <path d="M4.31982 19.4746H19.6798" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M4.31982 6.03516H19.6798" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M4.31982 12.7549H19.6798" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </Component2>
+      </div>
+      <div className="flex flex-col items-center gap-[29px] w-[398px] relative z-10 ">
         <div className="flex flex-col items-start gap-4 w-[341.273px]">
-          <p className="self-stretch text-center typography-title-24-light text-white">Finding your ideal property has never been easier</p>
-          <p className="self-stretch text-center typography-body-14-medium text-white">Sign in to your account to continue</p>
+          <p className="self-stretch text-center typography-title-24-light text-white">
+            Finding your ideal property has never been easier
+          </p>
+          <p className="self-stretch text-center typography-body-14-medium text-white">
+            Sign in to your account to continue
+          </p>
         </div>
         <div className="flex flex-col items-start gap-4 self-stretch">
-          <Button size="lg" className="w-full">Sign up with phone number {mobilelogin}</Button>
-          <Button variant="gray" size="lg" className="w-full">Sign up with Google</Button>
-          <Button variant="default" mode="text" size="lg" className="w-full">Login as a guest</Button>
+          <Button size="lg" className="w-full" onClick={() => signinwithphone()}>
+            Sign up with phone number {mobilelogin}
+          </Button>
+          <Button variant="gray" size="lg" className="w-full">
+            Sign up with Google
+          </Button>
+          <Button variant="default" mode="text" size="lg" className="w-full">
+            Login as a guest
+          </Button>
         </div>
-        <div className="flex flex-col items-start gap-4 self-stretch"></div>
       </div>
     </div>
   );
 }
-
+function Component2({ children }: { children: React.ReactNode; }) {
+  return (
+    <div className="flex items-center gap-2 px-3 py-[11px] rounded border border-white/10 bg-white/5 backdrop-blur-[8.5px]">
+      {children}
+    </div >
+  )
+}
 export default Page;
