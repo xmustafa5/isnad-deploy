@@ -78,3 +78,11 @@ export const burgerMenuSvg = (<svg xmlns="http://www.w3.org/2000/svg" width="24"
   <path d="M4.31982 6.03516H19.6798" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
   <path d="M4.31982 12.7549H19.6798" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
 </svg>)
+
+export const svgArrow = (direction: "up" | "down") => {
+  return (
+    <svg className={direction === "up" ? "rotate-180" : ""} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M5.25011 7.4392L12.2501 14.4392L19.2501 7.4392L20.3108 8.4999L12.2501 16.5605L4.18945 8.4999L5.25011 7.4392Z" fill="#08182F" />
+    </svg>
+  )
+}
