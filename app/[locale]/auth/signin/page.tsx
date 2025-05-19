@@ -1,6 +1,6 @@
 'use client'
 import { Button } from "@/app/_components/Button";
-import { burgerMenuSvg, IsnadSvg, mobilelogin, NotificationSvg, svgArrow } from "@/public/svg/login";
+import { burgerMenuSvg, iraqflaq, IsnadSvg, mobilelogin, NotificationSvg, svgArrow } from "@/public/svg/login";
 import { useState } from "react";
 
 function Page() {
@@ -11,16 +11,13 @@ function Page() {
       <div
         className="w-full absolute top-0 z-1 left-0 h-full flex-shrink-0 pointer-events-none"
         style={{
-          background:
-            `linear-gradient(180deg, rgba(8, 24, 47, ${step > 1 ? "0.10" : "0.00"}) ${step > 1 ? "0%" : "50%"},  ${step > 1 ? "rgba(8, 24, 47, 0.90) 54.18%" : "#08182F 91.19%"} )`,
+          background: 'linear-gradient(180deg, rgba(8, 24, 47, 0.40) 13.08%, rgba(25, 76, 149, 0.00) 100%)'
         }}
       ></div>
-      <div className="flex flex-col justify-between relative md:justify-center h-full min-w-[398px] md:max-w-[494px]">
-        <div className="w-full flex flex-col h-full ">
-          <div className="w-full h-full absolute "></div>
-          <div className="flex justify-between bg-red-500  items-center h-full md:h-fit min-w-[398px] relative z-10">
-            {step === 1 ? <Step1 setStep={setStep} /> : <Step2 />}
-          </div>
+      <div className="flex flex-col relative z-10 justify-center md:justify-center h-full max-w-[398px] md:min-w-[494px] ">
+        <div className="md:h-fit h-full  md:p-10 md:rounded-4xl overflow-hidden relative z-10">
+          <div className="md:absolute md:inset-0 md:bg-[rgba(0,0,0,0.08)] md:backdrop-blur-[20px]"></div>
+          {step === 1 ? <Step1 setStep={setStep} /> : <Step2 />}
         </div>
       </div>
     </div>
@@ -28,8 +25,8 @@ function Page() {
 }
 function Step1({ setStep }: { setStep: (step: number) => void }) {
   return (
-    <div className="flex flex-col justify-between md:justify-center h-full md:h-fit items-center w-full">
-      <div className="flex justify-between  md:hidden items-center h-[47px] w-full relative z-10">
+    <div className=" h-full md:h-fit flex flex-col justify-between">
+      <div className="flex justify-between  md:hidden items-center h-[47px] relative z-10">
         <Component2>
           {NotificationSvg}
         </Component2>
@@ -38,7 +35,7 @@ function Step1({ setStep }: { setStep: (step: number) => void }) {
           {burgerMenuSvg}
         </Component2>
       </div>
-      <div className="flex flex-col items-center gap-[29px] w-full  relative z-10 ">
+      <div className="flex flex-col items-center gap-[29px] md:gap-[48px] w-full  relative z-10 ">
         <div className="flex flex-col items-start gap-4 w-[341.273px]">
           <p className="self-stretch text-center typography-title-24-light text-white">
             Finding your ideal property has never been easier
@@ -65,7 +62,7 @@ function Step1({ setStep }: { setStep: (step: number) => void }) {
 function Step2() {
   return (
     <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
-      <div className="flex flex-col items-end gap-2 w-[356px] mb-[33px]">
+      <div className="flex flex-col items-end gap-4 w-[356px] mb-[32px]">
         <p className="self-stretch typography-title-28-light text-white">
           Enter your phone number
         </p>
@@ -74,11 +71,11 @@ function Step2() {
         </p>
       </div>
       <InputPhoneNumber />
-      <div className="flex flex-col gap-4 mt-[48px] min-w-[398px]">
+      <div className="flex flex-col gap-4 mt-[32px] min-w-[398px]">
         <Button size="lg" className="w-full">
           Send via WhatsApp.
         </Button>
-        <Button size="lg" variant="gray" className="w-full">
+        <Button size="lg" variant="buttons" className="w-full">
           Send code
         </Button>
       </div>
@@ -89,10 +86,11 @@ function InputPhoneNumber() {
   return (
     <div className="flex min-w-[398px] flex-col gap-[-1]">
       <div className="flex relative items-center justify-end gap-2 px-5 py-2 rounded-t-lg bg-white w-fit">
+        {iraqflaq}
         <p className="text-right text-[14px] font-medium leading-[140%] text-[#08182F] font-[Alilato]">
           IRAQ
         </p>
-        {svgArrow("up")}
+        {/* {svgArrow("up")} */}
         <svg className="absolute -bottom-5 z-[2] " xmlns="http://www.w3.org/2000/svg" width="25" height="22" viewBox="0 0 25 22" fill="none">
           <path d="M12.7296 21.459L0.839632 0.864927L24.6196 0.864929L12.7296 21.459Z" fill="white" />
         </svg>
@@ -104,7 +102,7 @@ function InputPhoneNumber() {
             +964
           </p>
         </div>
-        <input type="text" className=" relative z-10 text-[#fff] focus:outline-none font-[Alilato] text-[20px] not-italic font-semibold leading-[140%] placeholder:text-[#AEBACD]" />
+        <input type="text" className=" relative z-10 text-[#fff] focus:outline-none font-[Alilato] text-[20px] not-italic font-semibold leading-[140%] placeholder:text-[#AEBACD]" placeholder="Enter your phone number" />
       </div>
 
     </div>
