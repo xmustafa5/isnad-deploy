@@ -1,11 +1,11 @@
 'use client'
 import { Button } from "@/app/_components/Button";
 import { burgerMenuSvg, iraqflaq, IsnadSvg, mobilelogin, NotificationSvg, svgArrow } from "@/public/svg/login";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function Page() {
 
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(3)
   return (
     <div className="background-login h-[100dvh] flex justify-between   flex-col items-center px-4 py-12">
       <div
@@ -17,7 +17,7 @@ function Page() {
       <div className="flex flex-col relative z-10 justify-center md:justify-center h-full max-w-[398px] md:min-w-[494px] ">
         <div className="md:h-fit h-full  md:p-10 md:rounded-4xl overflow-hidden relative z-10">
           <div className="md:absolute md:inset-0 md:bg-[rgba(0,0,0,0.08)] md:backdrop-blur-[20px]"></div>
-          {step === 1 ? <Step1 setStep={setStep} /> : <Step2 />}
+          {step === 1 ? <Step1 setStep={setStep} /> : step === 2 ? <Step2 setStep={setStep} /> : <Step3 />}
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@ function Step1({ setStep }: { setStep: (step: number) => void }) {
     </div>
   )
 }
-function Step2() {
+function Step2({ setStep }: { setStep: (step: number) => void }) {
   return (
     <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
       <div className="flex flex-col items-end gap-4 w-[356px] mb-[32px]">
@@ -72,10 +72,10 @@ function Step2() {
       </div>
       <InputPhoneNumber />
       <div className="flex flex-col gap-4 mt-[32px] min-w-[398px]">
-        <Button size="lg" className="w-full">
+        <Button size="lg" className="w-full" onClick={() => setStep(3)}>
           Send via WhatsApp.
         </Button>
-        <Button size="lg" variant="buttons" className="w-full">
+        <Button size="lg" variant="buttons" className="w-full" onClick={() => setStep(3)}>
           Send code
         </Button>
       </div>
@@ -115,4 +115,104 @@ function Component2({ children }: { children: React.ReactNode; }) {
     </div >
   )
 }
+function Step3() {
+  const [verificationCode, setVerificationCode] = useState(['', '', '', '', '']);
+  const inputRefs = Array(5).fill(0).map(() => useRef<HTMLInputElement>(null));
+  const [timer, setTimer] = useState(45);
+
+  useEffect(() => {
+    if (timer > 0) {
+      const interval = setInterval(() => setTimer(prev => prev - 1), 1000);
+      return () => clearInterval(interval);
+    }
+  }, [timer]);
+
+  const handleInputChange = (index: number, value: string) => {
+    if (value.length <= 1) {
+      const newCode = [...verificationCode];
+      newCode[index] = value;
+      setVerificationCode(newCode);
+
+      // Move to next input if value is entered
+      if (value && index < 4) {
+        inputRefs[index + 1].current?.focus();
+      }
+    }
+  };
+
+  return (
+    <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
+      <div className="flex flex-col items-center gap-4 w-full mb-8">
+        <div className="flex items-center justify-center w-[64px] h-[64px] rounded-full bg-[#E65C40] mb-4">
+          <LockIcon className="text-white" />
+        </div>
+        <p className="text-center text-white text-xl font-medium">
+          Enter verification code
+        </p>
+        <p className="text-center text-[#AEBACD] text-sm">
+          You received a message on your phone number:
+        </p>
+        <p className="text-center text-white text-sm">
+          +964 0771234
+        </p>
+      </div>
+
+      <div className="flex gap-3 mb-4">
+        {verificationCode.map((digit, index) => (
+          <div
+            key={index}
+            className="w-[52px] h-[52px] rounded-lg bg-[#1F2937] flex items-center justify-center"
+          >
+            <input
+              ref={inputRefs[index]}
+              type="password"
+              maxLength={1}
+              value={digit}
+              onChange={(e) => handleInputChange(index, e.target.value)}
+              className="w-full h-full bg-transparent text-center text-white text-2xl focus:outline-none caret-white"
+              inputMode="numeric"
+              pattern="[0-9]*"
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="flex items-center gap-2">
+        <button
+          className={`text-sm ${timer > 0 ? 'text-[#AEBACD]' : 'text-white'}`}
+          disabled={timer > 0}
+        >
+          Resend code
+        </button>
+        {timer > 0 && (
+          <span className="text-[#AEBACD] text-sm">
+            {`00:${timer.toString().padStart(2, '0')}`}
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+const LockIcon = ({ className }: { className?: string }) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 13C11.4477 13 11 13.4477 11 14C11 14.5523 11.4477 15 12 15C12.5523 15 13 14.5523 13 14C13 13.4477 12.5523 13 12 13Z"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <path
+      d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.89 17 10 16.1 10 15C10 13.89 10.89 13 12 13C13.1 13 14 13.89 14 15C14 16.1 13.11 17 12 17ZM15.1 8H8.9V6C8.9 4.29 10.29 2.9 12 2.9C13.71 2.9 15.1 4.29 15.1 6V8Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
 export default Page;
