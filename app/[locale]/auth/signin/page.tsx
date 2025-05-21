@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function Page() {
 
-  const [step, setStep] = useState(3)
+  const [step, setStep] = useState(1)
   return (
     <div className="background-login h-[100dvh] flex justify-between   flex-col items-center px-4 py-12">
       <div
@@ -17,7 +17,7 @@ function Page() {
       <div className="flex flex-col relative z-10 justify-center md:justify-center h-full max-w-[398px] md:min-w-[494px] ">
         <div className="md:h-fit h-full  md:p-10 md:rounded-4xl overflow-hidden relative z-10">
           <div className="md:absolute md:inset-0 md:bg-[rgba(0,0,0,0.08)] md:backdrop-blur-[20px]"></div>
-          {step === 1 ? <Step1 setStep={setStep} /> : step === 2 ? <Step2 /> : <Step3 />}
+          {step === 1 ? <Step1 setStep={setStep} /> : step === 2}
         </div>
       </div>
     </div>
