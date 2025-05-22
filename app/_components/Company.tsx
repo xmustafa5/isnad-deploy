@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Company() {
     return (
-        <div className=" bg-red-60 overflow-hidden flex relative w-[398px] h-[256px] p-4 flex-col justify-end items-end gap-2 flex-shrink-0 rounded-[16px]">
+        <div className=" bg-red-60 overflow-hidden flex relative max-w-[398px] w-[398px] h-[256px] p-4 flex-col justify-end items-end gap-2 flex-shrink-0 rounded-[16px]">
             <Image src={"/images/company.png"} alt='company' fill className='object-cover' />
             <div className="absolute w-[341.184px] h-[243.939px] right-[-25.171px] bottom-[-31.184px]  "
 
