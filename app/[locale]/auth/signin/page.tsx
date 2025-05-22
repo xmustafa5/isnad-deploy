@@ -1,6 +1,6 @@
 'use client'
 import { Button } from "@/app/_components/Button";
-import { burgerMenuSvg, iraqflaq, IsnadSvg, mobilelogin, NotificationSvg, svgArrow } from "@/public/svg/login";
+import { burgerMenuSvg, iraqflaq, IsnadSvg, mobilelogin, NotificationSvg, } from "@/public/svg/login";
 import { useState } from "react";
 
 function Page() {

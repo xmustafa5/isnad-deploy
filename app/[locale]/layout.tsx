@@ -5,16 +5,15 @@ import initTranslations from "@/localization/i18n";
 import localFont from "next/font/local";
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
 
-const sfProArabic = localFont({
-  src: "../fonts/SF-Pro.woff2",
-  variable: "--font-arabic",
-  display: "swap",
-});
-
-const sfPro = localFont({
-  src: "../fonts/SF-Pro.woff2",
-  variable: "--font-english",
-  display: "swap",
+const myFont = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Expo Book SSi Book.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-myFont",
 });
 
 export const metadata: Metadata = {
@@ -35,15 +34,13 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
   const { resources } = await initTranslations(locale, i18bNamespaces);
-  const fontClassName =
-    locale === "ar" ? sfProArabic.className : sfPro.className;
 
   return (
     <html
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
       data-theme="default"
-      className={fontClassName}
+      className={myFont.className}
       suppressHydrationWarning
     >
       <head>
