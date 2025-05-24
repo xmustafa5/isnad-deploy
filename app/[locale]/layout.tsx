@@ -40,7 +40,7 @@ export default async function RootLayout({
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
       data-theme="default"
-      className={myFont.className}
+      // className={myFont.className}
       suppressHydrationWarning
     >
       <head>

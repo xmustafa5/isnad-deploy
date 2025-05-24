@@ -1,0 +1,5 @@
+@font-face {
+  font-family: "EXPO";
+  src: url("/public/fonts/EXPO-ARABIC-BOOK.TTF") format("truetype"),
+    url("/fonts/EXPO-ARABIC-BOOK.TTF") format("truetype");
+}
