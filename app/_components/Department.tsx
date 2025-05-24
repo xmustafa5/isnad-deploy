@@ -1,8 +1,8 @@
-import { DepartmentType } from '@/types/companiesType'
+import { DepartmentType, LanguageField } from '@/types/companiesType'
 import Image from 'next/image'
 import React from 'react'
 
-export default function Department({ department, locale }: { department: DepartmentType, locale: string }) {
+export default function Department({ department, locale }: { department: DepartmentType, locale: keyof LanguageField }) {
     return (
         <div className="flex overflow-hidden h-[160px] p-4 flex-col justify-end items-end gap-2 self-stretch rounded-[16px] bg-red-500 relative">
             <Image src={"/images/company.png"} alt='company' fill className='object-cover' />

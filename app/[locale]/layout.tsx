@@ -2,19 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import TranslationsProvider from "@/localization/TranslationsProvider";
 import initTranslations from "@/localization/i18n";
-import localFont from "next/font/local";
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
 
-const myFont = localFont({
-  src: [
-    {
-      path: "../../public/fonts/Expo Book SSi Book.ttf",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-myFont",
-});
+
 
 export const metadata: Metadata = {
   title: "Isnad",

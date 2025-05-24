@@ -1,4 +1,4 @@
-interface LanguageField {
+export interface LanguageField {
     en: string;
     ar: string;
 }
