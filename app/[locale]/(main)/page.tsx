@@ -1,12 +1,15 @@
 import { getCompanies } from "@/actions/componies";
 import WrapperQueryCompanies from "./_components/WrapperQueryCompanies";
 
-export default async function Home({ params }: { params: { locale: string } }) {
+export default async function Home({ params }: { params: any }) {
   const companies = await getCompanies();
-  if (params.locale !== 'en' && params.locale !== 'ar') {
-    throw new Error('Invalid locale');
+  if (params.locale !== "en" && params.locale !== "ar") {
+    throw new Error("Invalid locale");
   }
   return (
-    <WrapperQueryCompanies initialCompanies={companies} locale={params.locale} />
+    <WrapperQueryCompanies
+      initialCompanies={companies}
+      locale={params.locale}
+    />
   );
 }
