@@ -8,9 +8,9 @@ import { useTranslation } from 'react-i18next'
 
 export default function WrapperQueryCompanies({ initialCompanies, locale }: { initialCompanies: CompaniesResponse, locale: 'en' | 'ar' }) {
     const { t } = useTranslation('home_transtion');
-    const { data, isLoading } = useQuery<CompaniesResponse>({
+    const { data, isLoading, error } = useQuery<CompaniesResponse>({
         queryKey: ['companies', locale],
-        queryFn: () => getCompanies(),
+        queryFn: getCompanies,
         initialData: initialCompanies
     })
     console.log(data);
@@ -30,12 +30,12 @@ export default function WrapperQueryCompanies({ initialCompanies, locale }: { in
                 {t('companies')}
             </h1>
             <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 w-full max-w-[1400px]">
-                {isLoading ? <div>
+                {error ? null : isLoading ? <div>
                     <div className="w-full h-full flex justify-center items-center">
                         <div className="w-full h-[256px] bg-gray-800 border-t-transparent border-b-transparent border-r-transparent border-l-transparent border-white rounded-2xl animate-pulse"></div>
                     </div>
                 </div> :
-                    data?.items.map((company) => (
+                    data?.items?.map((company) => (
                         <Company key={company.id} company={company} locale={locale} />
                     ))}
             </div>

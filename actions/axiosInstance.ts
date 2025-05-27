@@ -8,7 +8,7 @@ import { cookies } from "next/headers";
 
 const axiosServer = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
-  timeout: 3000,
+  timeout: 10000,
 });
 
 export async function axiosRequest(config: any) {

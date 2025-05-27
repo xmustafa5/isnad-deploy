@@ -7,15 +7,10 @@ export async function getCompanies() {
     );
     return response.data;
   } catch (error) {
-    return {
-      success: false,
-      return: error,
-    };
+    console.log(error);
   }
 }
 export async function getCompanyDetails({ id }: { id: string }) {
-  console.log(id);
-
   try {
     const response = await axios.get(
       `https://app-web-api-test.isnad-iq.com/api/companies/${id}`
