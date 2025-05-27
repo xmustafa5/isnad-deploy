@@ -4,18 +4,19 @@ import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { IsnadSvg } from '@/public/svg/login';
 
 export default function Navbar() {
     const pathname = usePathname();
     return (
-        <div className='flex p-3 justify-between items-center'>
+        <div className='flex pt-4 pb-2 px-16 justify-between items-center'>
             <div className='account options flex items-center gap-6 self-stretch'>
                 <div className='flex items-center gap-2'>
                     <button className='flex py-3 px-6 justify-center items-center'>
                         <p className="text-[#B8C6E3] text-right  text-[14px] font-light leading-[140%]">تسجيل</p>
                     </button>
                     <button className='rounded-[32px] flex py-2.5 border border-stroke-border px-6 justify-center items-center'>
-                        <p className="text-[#B8C6E3] text-right  text-[14px] font-light leading-[140%]">تسجيل</p>
+                        <p className="text-[#B8C6E3] whitespace-nowrap text-right  text-[14px] font-light leading-[140%]">أنشاء حساب</p>
                     </button>
                 </div>
                 <LanguageSwitcher />
@@ -27,6 +28,7 @@ export default function Navbar() {
             </div>
             <div className='language and currency flex h-[60px] items-center gap-[56px]'>
                 <SelectCurrency />
+                {IsnadSvg}
             </div>
         </div>
     )
