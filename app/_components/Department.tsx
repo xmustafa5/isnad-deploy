@@ -4,9 +4,21 @@ import React from 'react'
 
 export default function Department({ department, locale }: { department: DepartmentType, locale: keyof LanguageField }) {
     return (
-        <div className="flex overflow-hidden h-[160px] p-4 flex-col justify-end items-end gap-2 self-stretch rounded-[16px] bg-red-500 relative">
-            <Image src={"/images/company.png"} alt='company' fill className='object-cover' />
+        <div className="flex overflow-hidden h-[160px] p-4 flex-col justify-end items-end gap-2 self-stretch rounded-[16px] bg-sred-500 relative">
+            {department?.img ?
+                <Image
+                    src={department?.img}
+                    alt='company'
+                    fill
+                    className='object-cover'
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                :
+                <Image src={"/images/company.png"} alt='company' fill className='object-cover' />
+            }
             <div className="absolute w-[341.184px] h-[243.939px] rtl:right-[-25.171px] ltr:left-[-25.171px] ltr:scale-x-[-1] bottom-[-31.184px]">
+
                 <Image src={"/images/blurcompany.png"} alt='company' fill className='object-cover' />
             </div>
             <div className="relative flex flex-col items-start gap-2 self-stretch">
