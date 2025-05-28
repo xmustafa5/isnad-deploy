@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@/app/_components/Button';
 import Input from '@/app/_components/Input';
 import Navbar from '@/app/_components/Navbar'
 import SelectOptionNumber from '@/app/_components/SelectOptionNumber';
@@ -41,7 +42,26 @@ export default function Page() {
                         </div>
                     </div>
                     <div className="flex w-full flex-col items-start gap-[24px]">
-                        <div className='top'></div>
+                        <div className="flex justify-between items-center self-stretch">
+
+                            <div className="flex w-[186px] items-center gap-[16px]">
+
+                                <Button variant='gray' className='w-fit p-[12px_24px]' ><svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                    <path d="M7.25 12H17.25M17.25 12L13.25 8M17.25 12L13.25 16" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></Button>
+                                <p className="text-text-gray1 text-[18px] font-normal leading-[24px]">
+                                    رجوع
+                                </p>
+                            </div> <Button variant="buttons" className='rounded-[16px]'>
+                                <p className='typography-body-14-medium text-text-gray2'>ترتيب:</p>
+                                <p className='typography-body-14-light text-bg-whaite'> السعر تنازلي</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M4 8.0461L7.96501 4.08203L11.9271 8.0461" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M16.4158 11.6992L12.832 15.2838M16.4158 11.6992L20.0002 15.2838M16.4158 11.6992L16.416 19.9186" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M7.96484 4.08203V19.9175" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </Button>
+                        </div>
                         <div className='flex flex-col w-full gap-4'>
                             <div className="flex justify-end flex-row-reverse items-center gap-2">
                                 <p className='text-text-gray1 w typography-subtitle-18-medium '>العقارات تتناسب مع الفلاتر المحددة.</p>
@@ -50,7 +70,13 @@ export default function Page() {
                                 <p className='text-text-gray2 typography-title-24-light'>4 </p>
                             </div>
                             <div className='flex flex-col gap-[24px]'>
-                                <div className='flex items-center content-center gap-[24px] self-stretch flex-wrap'>
+                                <div className='flex overflow-y-auto max-h-[calc(96.3vh-200px)] py-4 items-center content-center gap-[24px] self-stretch flex-wrap'>
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
                                     <CardProperty />
                                     <CardProperty />
                                     <CardProperty />
@@ -66,7 +92,7 @@ export default function Page() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 function CardProperty() {
