@@ -53,7 +53,7 @@ export default function Page() {
                                 <p className="text-text-gray1 text-[18px] font-normal leading-[24px]">
                                     رجوع
                                 </p>
-                            </div> <Button variant="buttons" className='rounded-[16px]'>
+                            </div> <Button variant="buttons" className='rounded-[16px] w-fit px-1 md:px-4'>
                                 <p className='typography-body-14-medium text-text-gray2'>ترتيب:</p>
                                 <p className='typography-body-14-light text-bg-whaite'> السعر تنازلي</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
