@@ -17,9 +17,9 @@ export default function Page() {
                 <Navbar />
             </div>
             <div className='px-[72px] pt-7'>
-                <div className='flex justify-between shrink-0'>
+                <div className='flex justify-between shrink-0 gap-6'>
                     <div className='filter relative flex w-[430px] pt-4 flex-col items-center shrink-0  rounded-t-[40px] rounded-b-0 border border-[rgba(255,255,255,0.10)] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]'>
-                        <div className='content filter overflow-x-hidden overflow-y-auto max-h-[calc(100vh-200px)] flex flex-col px-4 items-start gap-6 flex-shrink-0 self-stretch'>
+                        <div className='content filter overflow-x-hidden overflow-y-auto max-h-[calc(99.3vh-200px)] flex flex-col px-4 items-start gap-6 flex-shrink-0 self-stretch'>
                             <div className="flex w-[396px] p-1 items-center gap-4 rounded-[40px] border border-[#212F43] bg-[rgba(8,24,47,0)] backdrop-blur-[37px]">
                                 <button className="flex py-2 justify-center items-center gap-1 flex-[1_0_0] rounded-[48px] border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.10)] backdrop-blur-[32px] text-[#EEF5FF] text-right text-base font-medium leading-6">
                                     شقة
@@ -40,7 +40,64 @@ export default function Page() {
                             </button>
                         </div>
                     </div>
+                    <div className="flex w-full flex-col items-start gap-[24px]">
+                        <div className='top'></div>
+                        <div className='flex flex-col w-full gap-4'>
+                            <div className="flex justify-end flex-row-reverse items-center gap-2">
+                                <p className='text-text-gray1 w typography-subtitle-18-medium '>العقارات تتناسب مع الفلاتر المحددة.</p>
+                                <p className='text-text-gray2 typography-title-24-light'>201</p>
+                                <p className='text-text-gray1 typography-body-16-light'>من</p>
+                                <p className='text-text-gray2 typography-title-24-light'>4 </p>
+                            </div>
+                            <div className='flex flex-col gap-[24px]'>
+                                <div className='flex items-center content-center gap-[24px] self-stretch flex-wrap'>
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
                 </div>
+            </div>
+        </div>
+    )
+}
+function CardProperty() {
+    return (
+        <div
+            className="flex h-[347px] min-w-[320px] max-w-[536px] p-[16px] justify-end items-end gap-[8px] flex-1 rounded-[16px] border border-stroke-border bg-[linear-gradient(180deg,rgba(8,24,47,0)_0%,var(--opacity-secondary-90,rgba(8,24,47,0.81))_86.5%),url('/images/company.png')] bg-[lightgray] bg-cover bg-no-repeat bg-center">
+            <div className="flex flex-col items-end gap-[8px] flex-1" >
+                <div className="flex flex-col justify-center items-end gap-[8px] self-stretch">
+                    <p className='text-text-main w-full typography-body-16-medium'>شقة سكنية في المنصور</p>
+                    <div className="flex justify-end items-center gap-[8px] self-stretch">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.48926 8.39054C1.50367 4.14996 4.95302 0.723964 9.19361 0.738326C13.4342 0.752779 16.8602 4.20213 16.8458 8.44272V8.52968C16.7936 11.2862 15.2545 13.834 13.3675 15.8253C12.2884 16.946 11.0833 17.9381 9.77621 18.7818C9.42672 19.0842 8.90832 19.0842 8.55882 18.7818C6.61033 17.5136 4.90019 15.9124 3.50665 14.0514C2.26461 12.4286 1.55942 10.459 1.48926 8.41663V8.39054Z" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                            <path opacity="0.4" d="M9.16741 10.9999C10.5265 10.9999 11.6283 9.8981 11.6283 8.53899C11.6283 7.17989 10.5265 6.07812 9.16741 6.07812C7.80831 6.07812 6.70654 7.17989 6.70654 8.53899C6.70654 9.8981 7.80831 10.9999 9.16741 10.9999Z" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <p className='text-text-gray2 w-full  typography-body-14-light'>بغداد/اليرموك/شارع نادي الصيد</p>
+                    </div>
+                </div>
+                <div className="flex  items-center content-center gap-[8px] self-stretch flex-wrap">
+                    <div className="flex justify-center items-center gap-[4px] px-[16px] py-[6px] rounded-[10px] border border-[rgba(234,28,28,0.05)] bg-opacity-secondary-10 backdrop-blur-[65px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                            <path d="M7.48078 15.827L5.25344 15.8314C4.79185 15.8324 4.41745 15.4579 4.41846 14.9964L4.4233 12.7695" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M4.83154 15.416L7.75144 12.4961" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M4.42477 7.23225L4.41992 5.00507C4.41892 4.54342 4.79342 4.16892 5.25507 4.16992L7.48225 4.17477" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M16.076 12.7695L16.0809 14.9967C16.0819 15.4584 15.7074 15.8329 15.2457 15.8319L13.0186 15.827" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M13.0171 4.17447L15.2449 4.16992C15.7066 4.16898 16.081 4.54357 16.0799 5.00525L16.0746 7.23196" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M15.6666 4.58398L12.7466 7.50395" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <p className='text-text-main typography-body-14-light'>300م</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     )
