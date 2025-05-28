@@ -145,6 +145,12 @@ body {
   font-weight: 400;
   line-height: 110%; /* 17.6px */
 }
+@utility typography-body-16-medium {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 22.4px */
+}
 @utility typography-title-24-light {
   font-size: 24px;
   font-style: normal;
@@ -183,4 +189,11 @@ body {
   filter: blur(
     0px
   ); /* Usually not applied here unless you're blurring the component itself */
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
