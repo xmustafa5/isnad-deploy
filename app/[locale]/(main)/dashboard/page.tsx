@@ -1,4 +1,5 @@
 'use client';
+import Input from '@/app/_components/Input';
 import Navbar from '@/app/_components/Navbar'
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 export default function Page() {
@@ -40,6 +41,7 @@ function PropertyArea() {
     return (
         <ItemlayerSectionFilter>
             <p>المساحة</p>
+            <Input />
         </ItemlayerSectionFilter>
     )
 }

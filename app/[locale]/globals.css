@@ -114,7 +114,7 @@ body {
   --color-bg-bg-2: #0d1f39;
   --color-bg-black: var(--color-secondary-900);
   --color-opacity-white-5: rgba(255, 255, 255, 0.05);
-  --color-stroke-white-5: #ffffff;
+  --color-stroke-white-5: rgba(255, 255, 255, 0.05);
   --color-opacity-white-10: rgba(255, 255, 255, 0.1);
 }
 
