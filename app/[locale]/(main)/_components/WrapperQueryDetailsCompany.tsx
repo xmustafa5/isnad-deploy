@@ -8,41 +8,11 @@ import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
 import { useTranslation } from 'react-i18next';
-
-const getSocialIcon = (type: number) => {
-    switch (type) {
-        case 1: // Instagram
-            return (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#B8C6E3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M12 15.5C13.933 15.5 15.5 13.933 15.5 12C15.5 10.067 13.933 8.5 12 8.5C10.067 8.5 8.5 10.067 8.5 12C8.5 13.933 10.067 15.5 12 15.5Z" stroke="#B8C6E3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M17.6361 7H17.6477" stroke="#B8C6E3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-            );
-        case 2: // Facebook
-            return (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M14 9.3V12.2H16.6C16.8 12.2 16.9 12.4 16.9 12.6L16.5 14.5C16.5 14.6 16.3 14.7 16.2 14.7H14V22H11V14.8H9.3C9.1 14.8 9 14.7 9 14.5V12.6C9 12.4 9.1 12.3 9.3 12.3H11V9C11 7.3 12.3 6 14 6H16.7C16.9 6 17 6.1 17 6.3V8.7C17 8.9 16.9 9 16.7 9H14.3C14.1 9 14 9.1 14 9.3Z" stroke="#B8C6E3" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" />
-                    <path d="M15 22H9C4 22 2 20 2 15V9C2 4 4 2 9 2H15C20 2 22 4 22 9V15C22 20 20 22 15 22Z" stroke="#B8C6E3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-            );
-        default: // Default link icon
-            return (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M6.63475 11.4727L5.48775 12.6197C3.17075 14.9367 3.17075 18.7137 5.48775 21.0307C7.79675 23.3397 11.5817 23.3477 13.8987 21.0307L15.0457 19.8837" stroke="#B8C6E3" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M18.8652 16.0664L20.0123 14.9194C22.3292 12.6024 22.3292 8.82543 20.0123 6.50843C17.7033 4.19943 13.9183 4.19143 11.6013 6.50843L10.4543 7.65544" stroke="#B8C6E3" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M15.3867 11.2227L10.1543 16.455" stroke="#B8C6E3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-            );
-    }
-};
-
 export default function WrapperQueryDetailsCompany({ id, locale = "ar" }: { id: string, locale: "ar" | "en" }) {
     const { data, isLoading } = useQuery<companyTypeDetails>({
         queryKey: ['company-details', id],
         queryFn: () => getCompanyDetails({ id }),
     })
-    console.log(data, "department");
     const { t } = useTranslation('home_transtion');
     return (
         <div className="w-full flex flex-wrap flex-1 p-4 gap-4 bg-secondary-950 h-screen overflow-y-scroll  text-white low-y-auto">
@@ -110,9 +80,11 @@ export default function WrapperQueryDetailsCompany({ id, locale = "ar" }: { id: 
                                 </div>
                                 :
                                 data?.item?.links.map((link) => (
-                                    <Link key={link.id} href={`http://${link.url}`} className='px-[28px] py-[20px] border border-[rgba(238,238,238,0.06)]'>
-                                        {getSocialIcon(link.type.value)}
-                                    </Link>
+                                    <Link key={link.id} href={`http://${link.url}`} className='px-[28px] py-[20px] border border-[rgba(238,238,238,0.06)]'><svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26" fill="none">
+                                        <path d="M6.63475 11.4727L5.48775 12.6197C3.17075 14.9367 3.17075 18.7137 5.48775 21.0307C7.79675 23.3397 11.5817 23.3477 13.8987 21.0307L15.0457 19.8837" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M18.8652 16.0664L20.0123 14.9194C22.3292 12.6024 22.3292 8.82543 20.0123 6.50843C17.7033 4.19943 13.9183 4.19143 11.6013 6.50843L10.4543 7.65544" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M15.3867 11.2227L10.1543 16.455" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></Link>
                                 ))}
                         </div>
                     </div>
