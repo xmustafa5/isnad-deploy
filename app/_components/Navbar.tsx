@@ -10,7 +10,7 @@ export default function Navbar() {
     const pathname = usePathname();
     return (
         <div className='flex pt-4 pb-2 px-16 justify-between items-center'>
-            <div className='account options flex items-center gap-6 self-stretch'>
+            <div className='account xl:flex hidden items-center gap-6 self-stretch'>
                 <div className='flex items-center gap-2'>
                     <button className='flex py-3 px-6 justify-center items-center'>
                         <p className="text-[#B8C6E3] text-right  text-[14px] font-light leading-[140%]">تسجيل</p>
@@ -21,7 +21,7 @@ export default function Navbar() {
                 </div>
                 <LanguageSwitcher />
             </div>
-            <div className=" navbar  flex h-12 p-1 items-center gap-4 rounded-[40px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]">
+            <div className=" navbar  xl:flex hidden h-12 p-1 items-center gap-4 rounded-[40px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]">
                 <NavbarButton text="الرئيسية" pathname={pathname} path="/ar/dashboard" />
                 <NavbarButton text="المجمعات السكنية" pathname={pathname} path="/ar/dashboard/residential-complexes" />
                 <NavbarButton text="العقارات العامة" pathname={pathname} path="/ar/dashboard/public-properties" />
@@ -30,6 +30,7 @@ export default function Navbar() {
                 <SelectCurrency />
                 {IsnadSvg}
             </div>
+            <div ></div>
         </div>
     )
 }
@@ -37,7 +38,7 @@ function SelectCurrency() {
     const [isOpen, setIsOpen] = useState(false);
     const [currency, setCurrency] = useState("IQD");
     return (
-        <div className='relative select-none'>
+        <div className='relative xl:flex hidden select-none'>
             <div onClick={() => setIsOpen(!isOpen)} className="inline-flex cursor-pointer px-4 py-2 justify-center items-center gap-1 rounded-[24px] border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.05)] backdrop-blur-[12px]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M5.25 8.5L12.25 15.5" stroke="#B8C6E3" stroke-width="1.5" stroke-linecap="square" />

@@ -15,11 +15,12 @@ export default function Page() {
     return (
         <div className='bg-secondary-950 h-screen'>
             <div className="bg-[linear-gradient(180deg,rgba(8,24,47,0.4)_13.08%,rgba(25,76,149,0)_100%)]">
+
                 <Navbar />
             </div>
             <div className='px-[72px] pt-7'>
                 <div className='flex justify-between shrink-0 gap-6'>
-                    <div className='filter relative flex w-[430px] pt-4 flex-col items-center shrink-0  rounded-t-[40px] rounded-b-0 border border-[rgba(255,255,255,0.10)] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]'>
+                    <div className='filter hidden  relative xl:flex w-[430px] pt-4 flex-col items-center shrink-0  rounded-t-[40px] rounded-b-0 border border-[rgba(255,255,255,0.10)] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]'>
                         <div className='content filter overflow-x-hidden overflow-y-auto max-h-[calc(99.3vh-200px)] flex flex-col px-4 items-start gap-6 flex-shrink-0 self-stretch'>
                             <div className="flex w-[396px] p-1 items-center gap-4 rounded-[40px] border border-[#212F43] bg-[rgba(8,24,47,0)] backdrop-blur-[37px]">
                                 <button className="flex py-2 justify-center items-center gap-1 flex-[1_0_0] rounded-[48px] border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.10)] backdrop-blur-[32px] text-[#EEF5FF] text-right text-base font-medium leading-6">
@@ -70,7 +71,7 @@ export default function Page() {
                                 <p className='text-text-gray2 typography-title-24-light'>4 </p>
                             </div>
                             <div className='flex flex-col gap-[24px]'>
-                                <div className='flex overflow-y-auto max-h-[calc(96.3vh-200px)] py-4 items-center content-center gap-[24px] self-stretch flex-wrap'>
+                                <div className='flex overflow-y-auto max-h-[calc(96.3vh-200px)] py-4 items-center content-start gap-[24px] self-stretch justify-center xl:justify-start flex-wrap'>
                                     <CardProperty />
                                     <CardProperty />
                                     <CardProperty />
