@@ -3,7 +3,7 @@ import axios from "axios";
 export async function getCompanies() {
   try {
     const response = await axios.get(
-      "https://app-web-api-test.isnad-iq.com/api/companies"
+      "https://isnad-website.mem-iq.com/api/companies"
     );
     return response.data;
   } catch (error) {
@@ -13,7 +13,7 @@ export async function getCompanies() {
 export async function getCompanyDetails({ id }: { id: string }) {
   try {
     const response = await axios.get(
-      `https://app-web-api-test.isnad-iq.com/api/companies/${id}`
+      `https://isnad-website.mem-iq.com/api/companies/${id}`
     );
     return response.data;
   } catch (error) {

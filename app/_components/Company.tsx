@@ -5,6 +5,7 @@ import ImageShadow from './ImageShadow'
 import Link from 'next/link'
 
 export default function Company({ company, locale = "ar" }: { company: CompanyType, locale: "en" | "ar" }) {
+    console.log(company)
     return (
         <Link href={`/${locale}/${company.id}`} className="overflow-hidden flex relative max-w-full w-full h-[256px] p-4 flex-col justify-end items-end gap-2 flex-shrink-0 rounded-[16px]">
             {company?.background_img ? (
@@ -37,9 +38,9 @@ export default function Company({ company, locale = "ar" }: { company: CompanyTy
                     // background: 'linear-gradient(115deg, rgba(3, 24, 54, 0.82) 9.24%, #08182F 103.54%)',
                 }}
             ></div> */}
-            <div className="absolute ltr:left-4 rtl:right-4 top-4 flex justify-end items-center gap-1 px-3 py-2 rounded-[24px] bg-[rgba(84,50,29,0.32)] backdrop-blur-[2px]">
+            {/* <div className="absolute ltr:left-4 rtl:right-4 top-4 flex justify-end items-center gap-1 px-3 py-2 rounded-[24px] bg-[rgba(84,50,29,0.32)] backdrop-blur-[2px]">
                 <div className='flex items-center gap-1 text-white'>
-                    <p className='text-white typography-subtitle-18-medium'>{company?.departments[0]?.discount?.discount}</p>
+                     <p className='text-white typography-subtitle-18-medium'>{company?.departments}</p> 
                     <p className='text-[rgba(255,255,255,0.30)] typography-subtitle-18-medium'>%</p>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -48,7 +49,7 @@ export default function Company({ company, locale = "ar" }: { company: CompanyTy
                     <path d="M14.3827 14.8732V14.9213M14.5777 14.8835C14.5777 14.9918 14.4898 15.0796 14.3815 15.0796C14.2733 15.0796 14.1855 14.9918 14.1855 14.8835C14.1855 14.7753 14.2733 14.6875 14.3815 14.6875C14.4898 14.6875 14.5777 14.7753 14.5777 14.8835Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M9.61907 10.1076V10.1557M9.81398 10.1179C9.81398 10.2262 9.72615 10.314 9.61787 10.314C9.5096 10.314 9.42188 10.2262 9.42188 10.1179C9.42188 10.0096 9.5096 9.92188 9.61787 9.92188C9.72615 9.92188 9.81398 10.0096 9.81398 10.1179Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-            </div>
+            </div> */}
 
             <div className="relative flex flex-col items-start gap-2 self-stretch">
                 <div className="flex  items-center gap-4 self-stretch   ltr:flex-row-reverse rtl:flex-row-reverse">

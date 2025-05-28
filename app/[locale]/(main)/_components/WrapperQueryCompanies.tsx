@@ -17,7 +17,7 @@ export default function WrapperQueryCompanies({ initialCompanies, locale }: { in
 
     return (
         <div className="w-full flex flex-col p-4 gap-4 items-center bg-secondary-950 h-screen overflow-y-auto">
-            <div className="w-full max-w-[1400px] bg-secondary-900 rounded-xl p-6 mb-4">
+            <div className="w-full max-w-[1400px] rounded-xl p-6 mb-4">
                 <h2 className={`text-2xl font-bold mb-3 ${locale === 'ar' ? 'text-amber-500' : 'text-amber-500'}`}>
                     {t('collaborative_marketing')}
                 </h2>
