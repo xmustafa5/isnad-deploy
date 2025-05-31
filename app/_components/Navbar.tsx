@@ -1,15 +1,53 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { IsnadSvg } from '@/public/svg/login';
-
+import useElementTransition from '../hooks/useElementTransition';
 export default function Navbar() {
     const pathname = usePathname();
+    const [isOpen, setIsOpen] = useState(false);
+    // Close drawer when clicking outside or pressing ESC
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            const drawer = document.getElementById('mobile-drawer');
+            const hamburger = document.getElementById('hamburger-button');
+
+            if (isOpen && drawer && !drawer.contains(event.target as Node) &&
+                hamburger && !hamburger.contains(event.target as Node)) {
+                setIsOpen(false);
+            }
+        };
+
+        const handleEscapeKey = (event: KeyboardEvent) => {
+            if (event.key === 'Escape' && isOpen) {
+                setIsOpen(false);
+            }
+        };
+
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+            document.addEventListener('keydown', handleEscapeKey);
+            // Prevent body scroll when drawer is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('keydown', handleEscapeKey);
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen]);
+
+    // Close drawer when route changes
+    useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
+
     return (
-        <div className='flex pt-4 pb-2 px-4 md:px-16 justify-between items-center'>
+        <div className='flex pt-4 pb-2 px-4 md:px-16 justify-between items-center relative'>
             <div className='account xl:flex hidden items-center gap-6 self-stretch'>
                 <div className='flex items-center gap-2'>
                     <button className='flex py-3 px-6 justify-center items-center'>
@@ -26,7 +64,11 @@ export default function Navbar() {
                 <NavbarButton text="المجمعات السكنية" pathname={pathname} path="/ar/dashboard/residential-complexes" />
                 <NavbarButton text="العقارات العامة" pathname={pathname} path="/ar/dashboard/public-properties" />
             </div>
-            <div className="flex xl:hidden rounded-[4px] border border-white/10 bg-white/5 backdrop-blur-[8.5px] items-center gap-2 px-3 py-[11px]">
+            <div
+                id="hamburger-button"
+                className="flex xl:hidden rounded-[4px] border border-white/10 bg-white/5 backdrop-blur-[8.5px] items-center gap-2 px-3 py-[11px] cursor-pointer"
+                onClick={() => setIsOpen(!isOpen)}
+            >
                 <svg xmlns="http://www.w3.org/2000/svg" className='size-4 md:size-6' viewBox="0 0 24 25" fill="none">
                     <path d="M4.32007 19.4751H19.6801" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M4.32007 6.03516H19.6801" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
@@ -37,7 +79,53 @@ export default function Navbar() {
                 <SelectCurrency />
                 {IsnadSvg}
             </div>
+            {isOpen && (
+                <div
+                    className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 xl:hidden"
+                    onClick={() => setIsOpen(false)}
+                />
+            )}
+            <div
+                id="mobile-drawer"
+                className={`fixed top-0 pt-[56px] right-0 h-full w-80 max-w-[85vw] bg-slate-900/95 backdrop-blur-lg border-r border-white/10 z-50 xl:hidden transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+                    }`}
+            >
+                <div className="flex flex-col px-4 gap-[64px]">
+                    <div className=' flex justify-between items-center'>
+                        <div className='flex gap-2 items-center'>
 
+                            <button
+                                onClick={() => setIsOpen(false)}
+                                className=" rounded-[4px] border border-white/10 bg-white/5 backdrop-blur-[8.5px] items-center gap-2 px-3 py-[11px] cursor-pointer"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className='size-4 md:size-6' viewBox="0 0 24 24" fill="none">
+                                    <path d="M6.56912 6.54443L17.4303 17.4056" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6.56912 16.9658L17.4303 6.10466" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <p className="text-white text-center text-[14px] font-light leading-[140%]"
+                            >اغلاق</p>
+                        </div>
+                        {IsnadSvg}
+                    </div>
+                    <div className="space-y-2">
+                        <NavbarButtonMobile text="الرئيسية" pathname={pathname} path="/ar/dashboard" onClick={() => setIsOpen(false)} />
+                        <NavbarButtonMobile text="المجمعات السكنية" pathname={pathname} path="/ar/dashboard/residential-complexes" onClick={() => setIsOpen(false)} />
+                        <NavbarButtonMobile text="العقارات العامة" pathname={pathname} path="/ar/dashboard/public-properties" onClick={() => setIsOpen(false)} />
+                    </div>
+                    {/* <div className="border-t border-white/10 pt-4 space-y-2">
+                        <button className="w-full flex py-3 px-4 justify-center items-center rounded-lg hover:bg-white/5 transition-colors">
+                            <p className="text-[#B8C6E3] text-[14px] font-light">تسجيل</p>
+                        </button>
+                        <button className="w-full rounded-lg flex py-2.5 border border-stroke-border px-4 justify-center items-center hover:bg-white/5 transition-colors">
+                            <p className="text-[#B8C6E3] text-[14px] font-light">أنشاء حساب</p>
+                        </button>
+                    </div> */}
+                    <div className="border-t border-white/10 pt-4">
+                        <LanguageSwitcher />
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
@@ -81,6 +169,18 @@ function OpetionSelectCurrency({ isActive, children, props }: { isActive: boolea
         </div>
     )
 }
+const NavbarButtonMobile = ({ text, pathname, path }: { text: string, pathname: string, path: string }) => {
+    return (
+        <button className={cn('flex w-full cursor-pointer hover:bg-[rgba(255,255,255,0.05)] p-2  items-center justify-between typography-body-14-light text-text-gray2', {
+            'text-white border-stroke-border bg-[rgba(255,255,255,0.05)]': pathname === path,
+            'text-[#B8C6E3]': pathname !== path
+        })}>{text} {<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+            <path d="M15.5 5.75L8.5 12.75" stroke="#B8C6E3" stroke-width="1.5" stroke-linecap="square" />
+            <path opacity="0.4" d="M8.5 12.75L15.5 19.75" stroke="#B8C6E3" stroke-width="1.5" stroke-linecap="square" />
+        </svg>
+            }</button>
+    )
+}
 function NavbarButton({ text, pathname, path }: { text: string, pathname: string, path: string }) {
     return (
         <button className={cn('flex cursor-pointer py-[11px] border border-transparent px-4 items-center justify-center gap-1 rounded-[48px] text-[12px] text-[#B8C6E3] text-right font-[300] leading-[1.4]', {
@@ -114,5 +214,26 @@ function LanguageSwitcher() {
                 AR
             </button>
         </div>
+    )
+}
+function MobileNavButton({ text, pathname, path, onClick }: {
+    text: string,
+    pathname: string,
+    path: string,
+    onClick: () => void
+}) {
+    return (
+        <button
+            className={cn(
+                'w-full flex py-3 px-4 items-center justify-start gap-2 rounded-lg text-[14px] text-right font-light transition-colors',
+                {
+                    'text-white bg-white/10 border border-stroke-border': pathname === path,
+                    'text-[#B8C6E3] hover:bg-white/5': pathname !== path
+                }
+            )}
+            onClick={onClick}
+        >
+            {text}
+        </button>
     )
 }
