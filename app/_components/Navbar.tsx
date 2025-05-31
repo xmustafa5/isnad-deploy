@@ -9,7 +9,7 @@ import { IsnadSvg } from '@/public/svg/login';
 export default function Navbar() {
     const pathname = usePathname();
     return (
-        <div className='flex pt-4 pb-2 px-16 justify-between items-center'>
+        <div className='flex pt-4 pb-2 px-4 md:px-16 justify-between items-center'>
             <div className='account xl:flex hidden items-center gap-6 self-stretch'>
                 <div className='flex items-center gap-2'>
                     <button className='flex py-3 px-6 justify-center items-center'>
@@ -27,7 +27,7 @@ export default function Navbar() {
                 <NavbarButton text="العقارات العامة" pathname={pathname} path="/ar/dashboard/public-properties" />
             </div>
             <div className="flex xl:hidden rounded-[4px] border border-white/10 bg-white/5 backdrop-blur-[8.5px] items-center gap-2 px-3 py-[11px]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" className='size-4 md:size-6' viewBox="0 0 24 25" fill="none">
                     <path d="M4.32007 19.4751H19.6801" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M4.32007 6.03516H19.6801" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M4.32007 12.7549H19.6801" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />

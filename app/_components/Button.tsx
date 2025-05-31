@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 
 const buttonVariants = cva(
-    "flex w-[252px] justify-center items-center text-text-whaite gap-2 flex-shrink-0 rounded-md backdrop-blur-[1px] border typography-body-14-medium ",
+    "flex w-[252px] justify-center items-center text-text-whaite gap-2 flex-shrink-0 rounded-[16px] backdrop-blur-[1px] border typography-body-14-medium ",
     {
         variants: {
             variant: {
@@ -27,7 +27,7 @@ const buttonVariants = cva(
                     "bg-transparent border-transparent  ",
             },
             size: {
-                m: "h-[48px] py-3",
+                m: "h-[40px] md:h-[48px] py-3",
                 lg: "h-[56px] py-4",
                 s: "h-[40px] py-3",
             },

@@ -13,7 +13,6 @@ export default function WrapperQueryCompanies({ initialCompanies, locale }: { in
         queryFn: getCompanies,
         initialData: initialCompanies
     })
-    console.log(data, "سسسسسسسس");
 
     return (
         <div className="w-full flex flex-col p-4 gap-4 items-center bg-secondary-950 h-screen overflow-y-auto">

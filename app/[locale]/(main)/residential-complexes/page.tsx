@@ -3,6 +3,7 @@ import { Button } from '@/app/_components/Button';
 import Input from '@/app/_components/Input';
 import Navbar from '@/app/_components/Navbar'
 import SelectOptionNumber from '@/app/_components/SelectOptionNumber';
+import { cn } from '@/lib/utils';
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 export default function Page() {
     const [price, setPrice] = useState({
@@ -16,7 +17,7 @@ export default function Page() {
             <div className="bg-[linear-gradient(180deg,rgba(8,24,47,0.4)_13.08%,rgba(25,76,149,0)_100%)]">
                 <Navbar />
             </div>
-            <div className='px-[72px] pt-7'>
+            <div className='px-4 md:px-[72px] xl:pt-7'>
                 <div className='flex justify-between shrink-0 gap-6'>
                     <div className='filter hidden  relative xl:flex w-[430px] pt-4 flex-col items-center shrink-0  rounded-t-[40px] rounded-b-0 border border-[rgba(255,255,255,0.10)] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]'>
                         <div className='content filter overflow-x-hidden overflow-y-auto max-h-[calc(99.3vh-200px)] flex flex-col px-4 items-start gap-6 flex-shrink-0 self-stretch'>
@@ -42,18 +43,18 @@ export default function Page() {
                     </div>
                     <div className="flex w-full flex-col items-start gap-[24px]">
                         <div className="flex justify-between items-center self-stretch">
-
                             <div className="flex w-[186px] items-center gap-[16px]">
-
-                                <Button variant='gray' className='w-fit p-[12px_24px]' ><svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                                    <path d="M7.25 12H17.25M17.25 12L13.25 8M17.25 12L13.25 16" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg></Button>
-                                <p className="text-text-gray1 text-[18px] font-normal leading-[24px]">
+                                <Button variant='gray' className='w-fit p-[8px_8px] md:p-[12px_24px]' >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className='w-6 h-6 md:w-6 md:h-6' viewBox="0 0 25 24" fill="none">
+                                        <path d="M7.25 12H17.25M17.25 12L13.25 8M17.25 12L13.25 16" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></Button>
+                                <p className="text-text-gray1 text-[14px] md:text-[18px] font-normal leading-[24px]">
                                     رجوع
                                 </p>
-                            </div> <Button variant="buttons" className='rounded-[16px] w-fit px-1 md:px-4'>
-                                <p className='typography-body-14-medium text-text-gray2'>ترتيب:</p>
-                                <p className='typography-body-14-light text-bg-whaite'> السعر تنازلي</p>
+                            </div>
+                            <Button variant="buttons" className='rounded-[16px] w-fit px-1 md:px-4'>
+                                <p className='typography-body-12-light md:typography-body-14-medium text-text-gray2'>ترتيب:</p>
+                                <p className='typography-body-12-light md:typography-body-14-medium text-bg-whaite'> السعر تنازلي</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path d="M4 8.0461L7.96501 4.08203L11.9271 8.0461" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
                                     <path d="M16.4158 11.6992L12.832 15.2838M16.4158 11.6992L20.0002 15.2838M16.4158 11.6992L16.416 19.9186" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
@@ -61,27 +62,18 @@ export default function Page() {
                                 </svg>
                             </Button>
                         </div>
+
                         <div className='flex flex-col w-full gap-4'>
                             <div className="flex justify-end flex-row-reverse items-center gap-2">
-                                <p className='text-text-gray1 w typography-subtitle-18-medium '>العقارات تتناسب مع الفلاتر المحددة.</p>
-                                <p className='text-text-gray2 typography-title-24-light'>201</p>
-                                <p className='text-text-gray1 typography-body-16-light'>من</p>
-                                <p className='text-text-gray2 typography-title-24-light'>4 </p>
+                                <p className='text-text-gray1 typography-body-12-light  md:typography-subtitle-18-medium '>العقارات تتناسب مع الفلاتر المحددة.</p>
+                                <p className='text-text-gray2 typography-body-16-light md:typography-title-24-light'>201</p>
+                                <p className='text-text-gray1 typography-body-12-light md:typography-body-16-light'>من</p>
+                                <p className='text-text-gray2 typography-body-16-light md:typography-title-24-light'>4 </p>
                             </div>
                             <div className='flex flex-col gap-[24px]'>
-                                <div className='flex overflow-y-auto max-h-[calc(96.3vh-200px)] py-4 items-center content-start gap-[24px] self-stretch justify-center xl:justify-start flex-wrap'>
+                                <div className='flex overflow-y-auto max-h-[calc(95.3vh-200px)] py-4 items-center content-start gap-[24px] self-stretch justify-center xl:justify-start flex-wrap'>
                                     <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
+
                                 </div>
                             </div>
                         </div>
@@ -94,40 +86,73 @@ export default function Page() {
         </div >
     )
 }
+
+const ContainerSvg = () => {
+    return (
+        <svg
+            width="400"
+            height="187"
+            viewBox="0 0 400 187"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-auto"
+        >
+            <path
+                d="M400 55.2216V0.230469H351.175C367.444 18.5532 383.732 36.8989 400 55.2216Z"
+                fill="#C57340"
+                fillOpacity="0.03"
+            />
+            <path
+                d="M9.79004 55.2216V0.230469H-39.0345C-22.7665 18.5532 -6.47802 36.8989 9.79004 55.2216Z"
+                fill="#C57340"
+                fillOpacity="0.03"
+            />
+            <path
+                d="M302.351 55.2216H351.176V0.230469C334.908 18.5532 318.619 36.8989 302.351 55.2216Z"
+                fill="#C57340"
+                fillOpacity="0.03"
+            />
+            {/* Add more <path> or other SVG elements here if needed */}
+        </svg>
+    );
+};
+
+const RectangleComplex = () => {
+    return (
+        <div className='w-full h-full shrink-0'>
+
+            <div className=' shrink-0 flex'>
+                {Array.from({ length: 12 }).map((_, index) => (
+                    <>
+                        <div key={index} className={cn("relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center ", index % 2 !== 0 && "rotate-90")}>
+                            <div className={cn("absolute   h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} ></div>
+                        </div>
+
+                    </>
+                ))}
+            </div>
+            <div className='flex  shrink-0   h-full'>
+                {Array.from({ length: 12 }).map((_, index) => (
+                    <>
+                        <div key={index} className={cn("relative  shrink-0   h-[full] w-[50px] flex items-center overflow-hidden justify-center bg-bla ", index % 2 !== 0 && "scale-x-[-1] rotate-180")}>
+                            <div className={cn("absolute -top-5  h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px]  rotate-[160deg]", index % 2 !== 0 && "top-[37px]")} ></div>
+                        </div>
+
+                    </>
+                ))}
+            </div>
+        </div>
+    )
+}
 function CardProperty() {
     return (
-        <div className="flex flex-col justify-end items-end h-[296px] min-w-[320px] max-w-[600px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px] bg-[url('/images/company.png')] bg-[lightgray] bg-center bg-cover bg-no-repeat relative">
+        <div className="flex flex-col justify-end items-end h-[296px] min-w-[320px] overflow-hidden max-w-[600px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px] bg-[url('/images/company.png')] bg-[lightgray] bg-center bg-cover bg-no-repeat relative">
+            <div className="absolute right-[-45.31px] z-30 bottom-[-133.309px] w-[346.619px] h-[346.619px] rounded-full bg-[rgba(8,24,47,0.8)] blur-[54px]"></div>
 
-            <div className="absolute w-[346.619px] h-[346.619px] right-[-24px] bottom-[-168px] rounded-full opacity-90 z-[2] bg-[linear-gradient(52deg,rgba(8,24,47,0.7)_39.6%,rgba(8,24,47,0)_141.82%)] blur-[28px] ">
-
+            <div className="absolute w-full  h-[191.715px] right-0 bottom-[-5.239px]  z-20  ">
+                <RectangleComplex />
             </div>
-            <div className="absolute w-[536.683px] h-[191.715px] left-[-136.683px] bottom-[-5.239px]  bg-[url('/images/ContainerVictor.png')] z-10 bg-cover bg-no-repeat bg-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="537" height="192" viewBox="0 0 537 192" fill="none">
-                    <path d="M536.683 54.9912V0H487.859C504.127 18.3228 520.415 36.6684 536.683 54.9912Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M146.473 54.9912V0H97.6486C113.917 18.3228 130.205 36.6684 146.473 54.9912Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M439.034 54.9912H487.859V0C471.591 18.3228 455.303 36.6684 439.034 54.9912Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M439.217 54.9912V0H390.393C406.661 18.3228 422.949 36.6684 439.217 54.9912Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M341.568 54.9912H390.392V0C374.124 18.3228 357.836 36.6684 341.568 54.9912Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M341.568 54.9912V0H292.743C309.011 18.3228 325.3 36.6684 341.568 54.9912Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M243.919 54.9912H292.744V0C276.476 18.3228 260.187 36.6684 243.919 54.9912Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M244.122 54.9912V0H195.297C211.565 18.3228 227.854 36.6684 244.122 54.9912Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M146.474 54.9912H195.298V0C179.03 18.3228 162.742 36.6684 146.474 54.9912Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M48.8247 191.715V54.9688H0.000270656C16.2683 100.558 32.5566 146.125 48.8247 191.715Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M48.8245 191.715H97.6489V54.9688C81.3809 100.558 65.0925 146.125 48.8245 191.715Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M48.8247 54.9912V0H0.000270656C16.2683 18.3228 32.5566 36.6684 48.8247 54.9912Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M48.8235 54.9912H97.6479V0C81.3799 18.3228 65.0916 36.6684 48.8235 54.9912Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M536.683 191.715V54.9688H487.859C504.127 100.558 520.415 146.125 536.683 191.715Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M146.473 191.715V54.9688H97.6486C113.917 100.558 130.205 146.125 146.473 191.715Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M439.034 191.715H487.859V54.9688C471.591 100.558 455.303 146.125 439.034 191.715Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M439.217 191.715V54.9688H390.393C406.661 100.558 422.949 146.125 439.217 191.715Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M341.568 191.715H390.392V54.9688C374.124 100.558 357.836 146.125 341.568 191.715Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M341.568 191.715V54.9688H292.743C309.011 100.558 325.3 146.125 341.568 191.715Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M243.919 191.715H292.744V54.9688C276.476 100.558 260.187 146.125 243.919 191.715Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M244.123 191.715V54.9688H195.298C211.566 100.558 227.855 146.125 244.123 191.715Z" fill="#C57340" fill-opacity="0.03" />
-                    <path d="M146.473 191.715H195.297V54.9688C179.029 100.558 162.741 146.125 146.473 191.715Z" fill="#C57340" fill-opacity="0.03" />
-                </svg>
-            </div>
-            <div className="flex flex-col items-end gap-[8px] flex-1" >
+            <div className="absolute z-30 right-6 bottom-6 flex flex-col items-end gap-[8px] flex-1" >
                 <div className="flex flex-col justify-center items-end gap-[8px] self-stretch">
                     <p className='text-text-main w-full typography-body-16-medium'>شقة سكنية في المنصور</p>
                     <div className="flex justify-end items-center gap-[8px] self-stretch">
