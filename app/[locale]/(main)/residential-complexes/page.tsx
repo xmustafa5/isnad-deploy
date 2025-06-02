@@ -2,16 +2,16 @@
 import { Button } from '@/app/_components/Button';
 import Input from '@/app/_components/Input';
 import Navbar from '@/app/_components/Navbar'
-import SelectOptionNumber from '@/app/_components/SelectOptionNumber';
+// import SelectOptionNumber from '@/app/_components/SelectOptionNumber';
 import { cn } from '@/lib/utils';
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 export default function Page() {
-    const [price, setPrice] = useState({
-        min: 0,
-        max: 0
-    })
-    console.log(price)
-    const [number, setNumber] = useState(0)
+    // const [price, setPrice] = useState({
+    //     min: 0,
+    //     max: 0
+    // })
+    // console.log(price)
+    // const [number, setNumber] = useState(0)
     return (
         <div className='bg-secondary-950 h-screen'>
             <div className="bg-[linear-gradient(180deg,rgba(8,24,47,0.4)_13.08%,rgba(25,76,149,0)_100%)]">
@@ -87,35 +87,35 @@ export default function Page() {
     )
 }
 
-const ContainerSvg = () => {
-    return (
-        <svg
-            width="400"
-            height="187"
-            viewBox="0 0 400 187"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-auto"
-        >
-            <path
-                d="M400 55.2216V0.230469H351.175C367.444 18.5532 383.732 36.8989 400 55.2216Z"
-                fill="#C57340"
-                fillOpacity="0.03"
-            />
-            <path
-                d="M9.79004 55.2216V0.230469H-39.0345C-22.7665 18.5532 -6.47802 36.8989 9.79004 55.2216Z"
-                fill="#C57340"
-                fillOpacity="0.03"
-            />
-            <path
-                d="M302.351 55.2216H351.176V0.230469C334.908 18.5532 318.619 36.8989 302.351 55.2216Z"
-                fill="#C57340"
-                fillOpacity="0.03"
-            />
-            {/* Add more <path> or other SVG elements here if needed */}
-        </svg>
-    );
-};
+// const ContainerSvg = () => {
+//     return (
+//         <svg
+//             width="400"
+//             height="187"
+//             viewBox="0 0 400 187"
+//             fill="none"
+//             xmlns="http://www.w3.org/2000/svg"
+//             className="w-full h-auto"
+//         >
+//             <path
+//                 d="M400 55.2216V0.230469H351.175C367.444 18.5532 383.732 36.8989 400 55.2216Z"
+//                 fill="#C57340"
+//                 fillOpacity="0.03"
+//             />
+//             <path
+//                 d="M9.79004 55.2216V0.230469H-39.0345C-22.7665 18.5532 -6.47802 36.8989 9.79004 55.2216Z"
+//                 fill="#C57340"
+//                 fillOpacity="0.03"
+//             />
+//             <path
+//                 d="M302.351 55.2216H351.176V0.230469C334.908 18.5532 318.619 36.8989 302.351 55.2216Z"
+//                 fill="#C57340"
+//                 fillOpacity="0.03"
+//             />
+//             {/* Add more <path> or other SVG elements here if needed */}
+//         </svg>
+//     );
+// };
 
 const RectangleComplex = () => {
     return (
@@ -181,157 +181,157 @@ function CardProperty() {
         </div>
     )
 }
-function PropertyArea() {
-    return (
-        <ItemlayerSectionFilter>
-            <p className="text-text-gray1 w-full text-[16px] font-medium leading-[24px]">
-                مساحة العقار
-            </p>
-            <div className='flex gap-4 self-stretch'>
-                <Input type="number" label="الحد الأدنى" subLabel="متر" />
-                <Input type="number" label="الحد الأعلى" subLabel="متر" />
-            </div>
-        </ItemlayerSectionFilter>
-    )
-}
+// function PropertyArea() {
+//     return (
+//         <ItemlayerSectionFilter>
+//             <p className="text-text-gray1 w-full text-[16px] font-medium leading-[24px]">
+//                 مساحة العقار
+//             </p>
+//             <div className='flex gap-4 self-stretch'>
+//                 <Input type="number" label="الحد الأدنى" subLabel="متر" />
+//                 <Input type="number" label="الحد الأعلى" subLabel="متر" />
+//             </div>
+//         </ItemlayerSectionFilter>
+//     )
+// }
 
-function SelectPrice({ setPrice }: { setPrice: (price: { min: number, max: number }) => void }) {
-    const [localPrice, setLocalPrice] = useState({ min: 0, max: 0 });
-    const [sliderPositions, setSliderPositions] = useState({ min: 0, max: 100 });
-    const MAX_PRICE = 1000;
+// function SelectPrice({ setPrice }: { setPrice: (price: { min: number, max: number }) => void }) {
+//     const [localPrice, setLocalPrice] = useState({ min: 0, max: 0 });
+//     const [sliderPositions, setSliderPositions] = useState({ min: 0, max: 100 });
+//     const MAX_PRICE = 1000;
 
-    const handlePriceChange = (type: 'min' | 'max', value: string) => {
-        const numValue = parseInt(value) || 0;
-        const newPrice = { ...localPrice, [type]: numValue };
+//     const handlePriceChange = (type: 'min' | 'max', value: string) => {
+//         const numValue = parseInt(value) || 0;
+//         const newPrice = { ...localPrice, [type]: numValue };
 
-        // Update both price and slider positions
-        setLocalPrice(newPrice);
-        setSliderPositions({
-            min: (newPrice.min / MAX_PRICE) * 100,
-            max: (newPrice.max / MAX_PRICE) * 100
-        });
-        setPrice(newPrice);
-    };
+//         // Update both price and slider positions
+//         setLocalPrice(newPrice);
+//         setSliderPositions({
+//             min: (newPrice.min / MAX_PRICE) * 100,
+//             max: (newPrice.max / MAX_PRICE) * 100
+//         });
+//         setPrice(newPrice);
+//     };
 
-    const handleBarChange = (positions: { min: number, max: number }) => {
-        const newPrice = {
-            min: Math.round((positions.min / 100) * MAX_PRICE),
-            max: Math.round((positions.max / 100) * MAX_PRICE)
-        };
-        setLocalPrice(newPrice);
-        setSliderPositions(positions);
-        setPrice(newPrice);
-    };
+//     const handleBarChange = (positions: { min: number, max: number }) => {
+//         const newPrice = {
+//             min: Math.round((positions.min / 100) * MAX_PRICE),
+//             max: Math.round((positions.max / 100) * MAX_PRICE)
+//         };
+//         setLocalPrice(newPrice);
+//         setSliderPositions(positions);
+//         setPrice(newPrice);
+//     };
 
-    return (<ItemlayerSectionFilter>
-        <p className="text-text-gray1 w-full text-[16px] font-medium leading-[24px]">
-            حدد سعر العقار
-        </p>
-        <Bar
-            positions={sliderPositions}
-            onPositionChange={handleBarChange}
-        />
-        <p className="text-text-gray1 w-full text-[14px] font-light leading-[24px]">
-            افضل العقارات تجدها بين سعر 200-900$
-        </p>
-        <div className='flex gap-4 self-stretch'>
+//     return (<ItemlayerSectionFilter>
+//         <p className="text-text-gray1 w-full text-[16px] font-medium leading-[24px]">
+//             حدد سعر العقار
+//         </p>
+//         <Bar
+//             positions={sliderPositions}
+//             onPositionChange={handleBarChange}
+//         />
+//         <p className="text-text-gray1 w-full text-[14px] font-light leading-[24px]">
+//             افضل العقارات تجدها بين سعر 200-900$
+//         </p>
+//         <div className='flex gap-4 self-stretch'>
 
-            <Input
-                id='min'
-                value={localPrice.min}
-                type="number"
-                onChange={(e) => handlePriceChange('min', e.target.value)}
-            />
+//             <Input
+//                 id='min'
+//                 value={localPrice.min}
+//                 type="number"
+//                 onChange={(e) => handlePriceChange('min', e.target.value)}
+//             />
 
-            <Input
-                id='max'
-                value={localPrice.max}
-                type="number"
-                onChange={(e) => handlePriceChange('max', e.target.value)}
-            />
-        </div>
-    </ItemlayerSectionFilter>)
-}
-function ItemlayerSectionFilter({ children }: { children: React.ReactNode }) {
-    return (
-        <div className="flex flex-col items-end gap-[20px] p-4 self-stretch rounded-[24px] border border-stroke-border bg-bg-bg-2">
-            {children}
-        </div>
-    )
-}
-function Bar({
-    positions,
-    onPositionChange
-}: {
-    positions: { min: number, max: number },
-    onPositionChange: (positions: { min: number, max: number }) => void
-}) {
-    const [dragging, setDragging] = useState<'min' | 'max' | null>(null);
-    const barRef = useRef<HTMLDivElement>(null);
+//             <Input
+//                 id='max'
+//                 value={localPrice.max}
+//                 type="number"
+//                 onChange={(e) => handlePriceChange('max', e.target.value)}
+//             />
+//         </div>
+//     </ItemlayerSectionFilter>)
+// }
+// function ItemlayerSectionFilter({ children }: { children: React.ReactNode }) {
+//     return (
+//         <div className="flex flex-col items-end gap-[20px] p-4 self-stretch rounded-[24px] border border-stroke-border bg-bg-bg-2">
+//             {children}
+//         </div>
+//     )
+// }
+// function Bar({
+//     positions,
+//     onPositionChange
+// }: {
+//     positions: { min: number, max: number },
+//     onPositionChange: (positions: { min: number, max: number }) => void
+// }) {
+//     const [dragging, setDragging] = useState<'min' | 'max' | null>(null);
+//     const barRef = useRef<HTMLDivElement>(null);
 
-    const handleMouseDown = (type: 'min' | 'max') => (e: React.MouseEvent) => {
-        e.preventDefault();
-        setDragging(type);
-    };
+//     const handleMouseDown = (type: 'min' | 'max') => (e: React.MouseEvent) => {
+//         e.preventDefault();
+//         setDragging(type);
+//     };
 
-    const handleMouseMove = useCallback((e: MouseEvent) => {
-        if (!dragging || !barRef.current) return;
+//     const handleMouseMove = useCallback((e: MouseEvent) => {
+//         if (!dragging || !barRef.current) return;
 
-        const rect = barRef.current.getBoundingClientRect();
-        const width = rect.width;
-        const right = rect.right;
+//         const rect = barRef.current.getBoundingClientRect();
+//         const width = rect.width;
+//         const right = rect.right;
 
-        let newValue = ((right - e.clientX) / width) * 100;
-        newValue = Math.max(0, Math.min(100, newValue));
+//         let newValue = ((right - e.clientX) / width) * 100;
+//         newValue = Math.max(0, Math.min(100, newValue));
 
-        if (dragging === 'min') {
-            onPositionChange({
-                min: Math.min(newValue, positions.max),
-                max: positions.max
-            });
-        } else {
-            onPositionChange({
-                min: positions.min,
-                max: Math.max(newValue, positions.min)
-            });
-        }
-    }, [dragging, positions, onPositionChange]);
+//         if (dragging === 'min') {
+//             onPositionChange({
+//                 min: Math.min(newValue, positions.max),
+//                 max: positions.max
+//             });
+//         } else {
+//             onPositionChange({
+//                 min: positions.min,
+//                 max: Math.max(newValue, positions.min)
+//             });
+//         }
+//     }, [dragging, positions, onPositionChange]);
 
-    const handleMouseUp = useCallback(() => {
-        setDragging(null);
-    }, []);
+//     const handleMouseUp = useCallback(() => {
+//         setDragging(null);
+//     }, []);
 
-    useEffect(() => {
-        if (dragging) {
-            window.addEventListener('mousemove', handleMouseMove);
-            window.addEventListener('mouseup', handleMouseUp);
-        }
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-            window.removeEventListener('mouseup', handleMouseUp);
-        };
-    }, [dragging, handleMouseMove, handleMouseUp]);
+//     useEffect(() => {
+//         if (dragging) {
+//             window.addEventListener('mousemove', handleMouseMove);
+//             window.addEventListener('mouseup', handleMouseUp);
+//         }
+//         return () => {
+//             window.removeEventListener('mousemove', handleMouseMove);
+//             window.removeEventListener('mouseup', handleMouseUp);
+//         };
+//     }, [dragging, handleMouseMove, handleMouseUp]);
 
-    return (
-        <div ref={barRef} className="relative w-full h-[6px] direction-rtl">
-            <div className="absolute w-full h-full bg-[rgba(255,255,255,0.06)] rounded-[46px]" />
-            <div
-                className="absolute h-full bg-bg-primary rounded-[46px]"
-                style={{
-                    right: `${positions.min}%`,
-                    width: `${positions.max - positions.min}%`
-                }}
-            />
-            <div
-                className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-red-500 rounded-full cursor-pointer"
-                style={{ right: `calc(${positions.min}% - 8px)` }}
-                onMouseDown={handleMouseDown('min')}
-            />
-            <div
-                className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-red-500 rounded-full cursor-pointer"
-                style={{ right: `calc(${positions.max}% - 8px)` }}
-                onMouseDown={handleMouseDown('max')}
-            />
-        </div>
-    );
-}
+//     return (
+//         <div ref={barRef} className="relative w-full h-[6px] direction-rtl">
+//             <div className="absolute w-full h-full bg-[rgba(255,255,255,0.06)] rounded-[46px]" />
+//             <div
+//                 className="absolute h-full bg-bg-primary rounded-[46px]"
+//                 style={{
+//                     right: `${positions.min}%`,
+//                     width: `${positions.max - positions.min}%`
+//                 }}
+//             />
+//             <div
+//                 className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-red-500 rounded-full cursor-pointer"
+//                 style={{ right: `calc(${positions.min}% - 8px)` }}
+//                 onMouseDown={handleMouseDown('min')}
+//             />
+//             <div
+//                 className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-red-500 rounded-full cursor-pointer"
+//                 style={{ right: `calc(${positions.max}% - 8px)` }}
+//                 onMouseDown={handleMouseDown('max')}
+//             />
+//         </div>
+//     );
+// }
