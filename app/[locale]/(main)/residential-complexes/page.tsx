@@ -19,7 +19,7 @@ export default function Page() {
             </div>
             <div className='px-4 md:px-[72px] xl:pt-7'>
                 <div className='flex justify-between shrink-0 gap-6'>
-                    <div className='filter hidden  relative xl:flex w-[430px] pt-4 flex-col items-center shrink-0  rounded-t-[40px] rounded-b-0 border border-[rgba(255,255,255,0.10)] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]'>
+                    {/* <div className='filter hidden  relative xl:flex w-[430px] pt-4 flex-col items-center shrink-0  rounded-t-[40px] rounded-b-0 border border-[rgba(255,255,255,0.10)] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]'>
                         <div className='content filter overflow-x-hidden overflow-y-auto max-h-[calc(99.3vh-200px)] flex flex-col px-4 items-start gap-6 flex-shrink-0 self-stretch'>
                             <div className="flex w-[396px] p-1 items-center gap-4 rounded-[40px] border border-[#212F43] bg-[rgba(8,24,47,0)] backdrop-blur-[37px]">
                                 <button className="flex py-2 justify-center items-center gap-1 flex-[1_0_0] rounded-[48px] border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.10)] backdrop-blur-[32px] text-[#EEF5FF] text-right text-base font-medium leading-6">
@@ -40,7 +40,7 @@ export default function Page() {
                                 dd
                             </button>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="flex w-full flex-col items-start gap-[24px]">
                         <div className="flex justify-between items-center self-stretch">
                             <div className="flex w-[186px] items-center gap-[16px]">
