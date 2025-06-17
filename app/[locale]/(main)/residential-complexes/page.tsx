@@ -1,6 +1,5 @@
 'use client';
 import { Button } from '@/app/_components/Button';
-import Navbar from '@/app/_components/Navbar'
 // import SelectOptionNumber from '@/app/_components/SelectOptionNumber';
 import { cn } from '@/lib/utils';
 import React from 'react'
@@ -12,13 +11,8 @@ export default function Page() {
     // console.log(price)
     // const [number, setNumber] = useState(0)
     return (
-        <div className='bg-secondary-950 h-screen'>
-            <div className="bg-[linear-gradient(180deg,rgba(8,24,47,0.4)_13.08%,rgba(25,76,149,0)_100%)]">
-                <Navbar />
-            </div>
-            <div className='px-4 md:px-[72px] xl:pt-7'>
-                <div className='flex justify-between shrink-0 gap-6'>
-                    {/* <div className='filter hidden  relative xl:flex w-[430px] pt-4 flex-col items-center shrink-0  rounded-t-[40px] rounded-b-0 border border-[rgba(255,255,255,0.10)] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]'>
+        <div className='flex justify-between shrink-0 gap-6'>
+            {/* <div className='filter hidden  relative xl:flex w-[430px] pt-4 flex-col items-center shrink-0  rounded-t-[40px] rounded-b-0 border border-[rgba(255,255,255,0.10)] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]'>
                         <div className='content filter overflow-x-hidden overflow-y-auto max-h-[calc(99.3vh-200px)] flex flex-col px-4 items-start gap-6 flex-shrink-0 self-stretch'>
                             <div className="flex w-[396px] p-1 items-center gap-4 rounded-[40px] border border-[#212F43] bg-[rgba(8,24,47,0)] backdrop-blur-[37px]">
                                 <button className="flex py-2 justify-center items-center gap-1 flex-[1_0_0] rounded-[48px] border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.10)] backdrop-blur-[32px] text-[#EEF5FF] text-right text-base font-medium leading-6">
@@ -40,55 +34,53 @@ export default function Page() {
                             </button>
                         </div>
                     </div> */}
-                    <div className="flex w-full flex-col items-start gap-[24px]">
-                        <div className="flex justify-between items-center self-stretch">
-                            <div className="flex w-[186px] items-center gap-[16px]">
-                                <Button variant='gray' className='w-fit p-[8px_8px] md:p-[12px_24px]' >
-                                    <svg xmlns="http://www.w3.org/2000/svg" className='w-6 h-6 md:w-6 md:h-6' viewBox="0 0 25 24" fill="none">
-                                        <path d="M7.25 12H17.25M17.25 12L13.25 8M17.25 12L13.25 16" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg></Button>
-                                <p className="text-text-gray1 text-[14px] md:text-[18px] font-normal leading-[24px]">
-                                    رجوع
-                                </p>
-                            </div>
-                            <Button variant="buttons" className='rounded-[16px] w-fit px-1 md:px-4'>
-                                <p className='typography-body-12-light md:typography-body-14-medium text-text-gray2'>ترتيب:</p>
-                                <p className='typography-body-12-light md:typography-body-14-medium text-bg-whaite'> السعر تنازلي</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M4 8.0461L7.96501 4.08203L11.9271 8.0461" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M16.4158 11.6992L12.832 15.2838M16.4158 11.6992L20.0002 15.2838M16.4158 11.6992L16.416 19.9186" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M7.96484 4.08203V19.9175" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </Button>
+            <div className="flex w-full flex-col items-start gap-[24px]">
+                <div className="flex justify-between items-center self-stretch">
+                    <div className="flex w-[186px] items-center gap-[16px]">
+                        <Button variant='gray' className='w-fit p-[8px_8px] md:p-[12px_24px]' >
+                            <svg xmlns="http://www.w3.org/2000/svg" className='w-6 h-6 md:w-6 md:h-6' viewBox="0 0 25 24" fill="none">
+                                <path d="M7.25 12H17.25M17.25 12L13.25 8M17.25 12L13.25 16" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></Button>
+                        <p className="text-text-gray1 text-[14px] md:text-[18px] font-normal leading-[24px]">
+                            رجوع
+                        </p>
+                    </div>
+                    <Button variant="buttons" className='rounded-[16px] w-fit px-1 md:px-4'>
+                        <p className='typography-body-12-light md:typography-body-14-medium text-text-gray2'>ترتيب:</p>
+                        <p className='typography-body-12-light md:typography-body-14-medium text-bg-whaite'> السعر تنازلي</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 8.0461L7.96501 4.08203L11.9271 8.0461" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M16.4158 11.6992L12.832 15.2838M16.4158 11.6992L20.0002 15.2838M16.4158 11.6992L16.416 19.9186" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M7.96484 4.08203V19.9175" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </Button>
+                </div>
+
+                <div className='flex flex-col w-full gap-4'>
+                    <div className="flex justify-end flex-row-reverse items-center gap-2">
+                        <p className='text-text-gray1 typography-body-12-light  md:typography-subtitle-18-medium '>العقارات تتناسب مع الفلاتر المحددة.</p>
+                        <p className='text-text-gray2 typography-body-16-light md:typography-title-24-light'>201</p>
+                        <p className='text-text-gray1 typography-body-12-light md:typography-body-16-light'>من</p>
+                        <p className='text-text-gray2 typography-body-16-light md:typography-title-24-light'>4 </p>
+                    </div>
+                    <div className='flex flex-col gap-[24px]'>
+                        <div className='flex overflow-y-auto max-h-[calc(95.3vh-200px)] py-4 items-center content-start gap-[24px] self-stretch justify-center xl:justify-start flex-wrap'>
+                            <CardProperty />
+                            <CardProperty />
+                            <CardProperty />
+                            <CardProperty />
+                            <CardProperty />
+                            <CardProperty />
+                            <CardProperty />
+                            <CardProperty />
                         </div>
-
-                        <div className='flex flex-col w-full gap-4'>
-                            <div className="flex justify-end flex-row-reverse items-center gap-2">
-                                <p className='text-text-gray1 typography-body-12-light  md:typography-subtitle-18-medium '>العقارات تتناسب مع الفلاتر المحددة.</p>
-                                <p className='text-text-gray2 typography-body-16-light md:typography-title-24-light'>201</p>
-                                <p className='text-text-gray1 typography-body-12-light md:typography-body-16-light'>من</p>
-                                <p className='text-text-gray2 typography-body-16-light md:typography-title-24-light'>4 </p>
-                            </div>
-                            <div className='flex flex-col gap-[24px]'>
-                                <div className='flex overflow-y-auto max-h-[calc(95.3vh-200px)] py-4 items-center content-start gap-[24px] self-stretch justify-center xl:justify-start flex-wrap'>
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                    <CardProperty />
-                                </div>
-                            </div>
-                        </div>
-
-
-
                     </div>
                 </div>
+
+
+
             </div>
-        </div >
+        </div>
     )
 }
 

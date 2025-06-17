@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { IsnadSvg } from '@/public/svg/login';
-import useElementTransition from '../hooks/useElementTransition';
+import Link from 'next/link';
 export default function Navbar() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
@@ -60,9 +60,9 @@ export default function Navbar() {
                 <LanguageSwitcher />
             </div>
             <div className=" navbar  xl:flex hidden h-12 p-1 items-center gap-4 rounded-[40px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]">
-                <NavbarButton text="الرئيسية" pathname={pathname} path="/ar/dashboard" />
-                <NavbarButton text="المجمعات السكنية" pathname={pathname} path="/ar/dashboard/residential-complexes" />
-                <NavbarButton text="العقارات العامة" pathname={pathname} path="/ar/dashboard/public-properties" />
+                <NavbarButton text="الرئيسية" pathname={pathname} path="/ar" />
+                <NavbarButton text="المجمعات السكنية" pathname={pathname} path="/ar/residential-complexes" />
+                <NavbarButton text="العقارات العامة" pathname={pathname} path="/ar/public-properties" />
             </div>
             <div
                 id="hamburger-button"
@@ -109,9 +109,9 @@ export default function Navbar() {
                         {IsnadSvg}
                     </div>
                     <div className="space-y-2">
-                        <NavbarButtonMobile text="الرئيسية" pathname={pathname} path="/ar/dashboard" onClick={() => setIsOpen(false)} />
-                        <NavbarButtonMobile text="المجمعات السكنية" pathname={pathname} path="/ar/dashboard/residential-complexes" onClick={() => setIsOpen(false)} />
-                        <NavbarButtonMobile text="العقارات العامة" pathname={pathname} path="/ar/dashboard/public-properties" onClick={() => setIsOpen(false)} />
+                        <NavbarButtonMobile text="الرئيسية" pathname={pathname} path="/ar" />
+                        <NavbarButtonMobile text="المجمعات السكنية" pathname={pathname} path="/ar/residential-complexes" />
+                        <NavbarButtonMobile text="العقارات العامة" pathname={pathname} path="/ar/public-properties" />
                     </div>
                     {/* <div className="border-t border-white/10 pt-4 space-y-2">
                         <button className="w-full flex py-3 px-4 justify-center items-center rounded-lg hover:bg-white/5 transition-colors">
@@ -171,22 +171,22 @@ function OpetionSelectCurrency({ isActive, children, props }: { isActive: boolea
 }
 const NavbarButtonMobile = ({ text, pathname, path }: { text: string, pathname: string, path: string }) => {
     return (
-        <button className={cn('flex w-full cursor-pointer hover:bg-[rgba(255,255,255,0.05)] p-2  items-center justify-between typography-body-14-light text-text-gray2', {
+        <Link href={path || "/"} className={cn('flex w-full cursor-pointer hover:bg-[rgba(255,255,255,0.05)] p-2  items-center justify-between typography-body-14-light text-text-gray2', {
             'text-white border-stroke-border bg-[rgba(255,255,255,0.05)]': pathname === path,
             'text-[#B8C6E3]': pathname !== path
         })}>{text} {<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
             <path d="M15.5 5.75L8.5 12.75" stroke="#B8C6E3" stroke-width="1.5" stroke-linecap="square" />
             <path opacity="0.4" d="M8.5 12.75L15.5 19.75" stroke="#B8C6E3" stroke-width="1.5" stroke-linecap="square" />
         </svg>
-            }</button>
+            }</Link>
     )
 }
 function NavbarButton({ text, pathname, path }: { text: string, pathname: string, path: string }) {
     return (
-        <button className={cn('flex cursor-pointer py-[11px] border border-transparent px-4 items-center justify-center gap-1 rounded-[48px] text-[12px] text-[#B8C6E3] text-right font-[300] leading-[1.4]', {
+        <Link href={path || "/"} className={cn('flex cursor-pointer py-[11px] border border-transparent px-4 items-center justify-center gap-1 rounded-[48px] text-[12px] text-[#B8C6E3] text-right font-[300] leading-[1.4]', {
             'text-white border-stroke-border bg-[rgba(255,255,255,0.05)]': pathname === path,
             'text-[#B8C6E3]': pathname !== path
-        })}>{text}</button>
+        })}>{text}</Link>
     )
 }
 function LanguageSwitcher() {
@@ -216,24 +216,24 @@ function LanguageSwitcher() {
         </div>
     )
 }
-function MobileNavButton({ text, pathname, path, onClick }: {
-    text: string,
-    pathname: string,
-    path: string,
-    onClick: () => void
-}) {
-    return (
-        <button
-            className={cn(
-                'w-full flex py-3 px-4 items-center justify-start gap-2 rounded-lg text-[14px] text-right font-light transition-colors',
-                {
-                    'text-white bg-white/10 border border-stroke-border': pathname === path,
-                    'text-[#B8C6E3] hover:bg-white/5': pathname !== path
-                }
-            )}
-            onClick={onClick}
-        >
-            {text}
-        </button>
-    )
-}
+// function MobileNavButton({ text, pathname, path, onClick }: {
+//     text: string,
+//     pathname: string,
+//     path: string,
+//     onClick: () => void
+// }) {
+//     return (
+//         <button
+//             className={cn(
+//                 'w-full flex py-3 px-4 items-center justify-start gap-2 rounded-lg text-[14px] text-right font-light transition-colors',
+//                 {
+//                     'text-white bg-white/10 border border-stroke-border': pathname === path,
+//                     'text-[#B8C6E3] hover:bg-white/5': pathname !== path
+//                 }
+//             )}
+//             onClick={onClick}
+//         >
+//             {text}
+//         </button>
+//     )
+// }
