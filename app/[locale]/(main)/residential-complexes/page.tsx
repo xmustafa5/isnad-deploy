@@ -1,10 +1,9 @@
 'use client';
 import { Button } from '@/app/_components/Button';
-import Input from '@/app/_components/Input';
 import Navbar from '@/app/_components/Navbar'
 // import SelectOptionNumber from '@/app/_components/SelectOptionNumber';
 import { cn } from '@/lib/utils';
-import React, { useState, useRef, useEffect, useCallback } from 'react'
+import React from 'react'
 export default function Page() {
     // const [price, setPrice] = useState({
     //     min: 0,
@@ -73,7 +72,13 @@ export default function Page() {
                             <div className='flex flex-col gap-[24px]'>
                                 <div className='flex overflow-y-auto max-h-[calc(95.3vh-200px)] py-4 items-center content-start gap-[24px] self-stretch justify-center xl:justify-start flex-wrap'>
                                     <CardProperty />
-
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
+                                    <CardProperty />
                                 </div>
                             </div>
                         </div>
@@ -146,38 +151,38 @@ const RectangleComplex = () => {
 }
 function CardProperty() {
     return (
-        <div className="flex flex-col justify-end items-end h-[296px] min-w-[320px] overflow-hidden max-w-[600px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px] bg-[url('/images/company.png')] bg-[lightgray] bg-center bg-cover bg-no-repeat relative">
+        <div className="flex flex-col justify-end items-end h-[296px] min-w-[420px] overflow-hidden max-w-[600px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px] bg-[url('/images/company.png')] bg-[lightgray] bg-center bg-cover bg-no-repeat relative">
             <div className="absolute right-[-45.31px] z-30 bottom-[-133.309px] w-[346.619px] h-[346.619px] rounded-full bg-[rgba(8,24,47,0.8)] blur-[54px]"></div>
 
             <div className="absolute w-full  h-[191.715px] right-0 bottom-[-5.239px]  z-20  ">
                 <RectangleComplex />
             </div>
-            <div className="absolute z-30 right-6 bottom-6 flex flex-col items-end gap-[8px] flex-1" >
-                <div className="flex flex-col justify-center items-end gap-[8px] self-stretch">
-                    <p className='text-text-main w-full typography-body-16-medium'>شقة سكنية في المنصور</p>
-                    <div className="flex justify-end items-center gap-[8px] self-stretch">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.48926 8.39054C1.50367 4.14996 4.95302 0.723964 9.19361 0.738326C13.4342 0.752779 16.8602 4.20213 16.8458 8.44272V8.52968C16.7936 11.2862 15.2545 13.834 13.3675 15.8253C12.2884 16.946 11.0833 17.9381 9.77621 18.7818C9.42672 19.0842 8.90832 19.0842 8.55882 18.7818C6.61033 17.5136 4.90019 15.9124 3.50665 14.0514C2.26461 12.4286 1.55942 10.459 1.48926 8.41663V8.39054Z" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
-                            <path opacity="0.4" d="M9.16741 10.9999C10.5265 10.9999 11.6283 9.8981 11.6283 8.53899C11.6283 7.17989 10.5265 6.07812 9.16741 6.07812C7.80831 6.07812 6.70654 7.17989 6.70654 8.53899C6.70654 9.8981 7.80831 10.9999 9.16741 10.9999Z" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <p className='text-text-gray2 w-full  typography-body-14-light'>بغداد/اليرموك/شارع نادي الصيد</p>
+            <div className='info flex flex-col gap-2 z-30 w-full'>
+                <div className='flex gap-4 w-full'>
+                    <div className='size-[56px] rounded-full bg-bg-secondry'></div>
+                    <div className="flex flex-col gap-1">
+                        <p className='text-text-main typography-subtitle-18-Light'>المجمع الذهبي للأبراج.</p>
+                        <div className='flex gap-2'>
+                            <p className='text-text-gray1 text-[12px]'>عقار سكني </p>
+                            <p className='text-text-gray1 typography-body-14-light'>12.2K</p>
+                        </div>
                     </div>
                 </div>
-                <div className="flex  items-center content-center gap-[8px] self-stretch flex-wrap">
-                    <div className="flex justify-center items-center gap-[4px] px-[16px] py-[6px] rounded-[10px] border border-[rgba(234,28,28,0.05)] bg-opacity-secondary-10 backdrop-blur-[65px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                            <path d="M7.48078 15.827L5.25344 15.8314C4.79185 15.8324 4.41745 15.4579 4.41846 14.9964L4.4233 12.7695" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M4.83154 15.416L7.75144 12.4961" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M4.42477 7.23225L4.41992 5.00507C4.41892 4.54342 4.79342 4.16892 5.25507 4.16992L7.48225 4.17477" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M16.076 12.7695L16.0809 14.9967C16.0819 15.4584 15.7074 15.8329 15.2457 15.8319L13.0186 15.827" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M13.0171 4.17447L15.2449 4.16992C15.7066 4.16898 16.081 4.54357 16.0799 5.00525L16.0746 7.23196" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M15.6666 4.58398L12.7466 7.50395" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                <div className='border-t border-opacity-white-10 flex pt-3 gap-2 flex-col'>
+                    <p className='text-text-gray1 typography-body-14-medium'>من 200 مليون الى 300 مليون IQD</p>
+                    <div className="flex gap-2 items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.5 10.9878C14.5 9.60654 13.3808 8.4873 12.0005 8.4873C10.6192 8.4873 9.5 9.60654 9.5 10.9878C9.5 12.3681 10.6192 13.4873 12.0005 13.4873C13.3808 13.4873 14.5 12.3681 14.5 10.9878Z" stroke="#EEF5FF" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9995 21.4873C10.801 21.4873 4.5 16.3857 4.5 11.0506C4.5 6.87394 7.8571 3.4873 11.9995 3.4873C16.1419 3.4873 19.5 6.87394 19.5 11.0506C19.5 16.3857 13.198 21.4873 11.9995 21.4873Z" stroke="#EEF5FF" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <p className='text-text-main typography-body-14-light'>300م</p>
+                        <p className='text-text-gray1 typography-body-14-light flex items-center'>بغداد/اليرموك/شارع نادي الصيد</p>
                     </div>
                 </div>
-
             </div>
+            <div className="flex items-center justify-center gap-2 px-3 py-2 absolute left-4 top-4 rounded-[16px] border border-white/10 bg-[rgba(197,115,64,0.25)] backdrop-blur-[14px]">
+                <p className="text-[#EEF5FF] text-[14px] font-[400] leading-[140%] font-[Alilato]">
+                    مكتمل
+                </p></div>
         </div>
     )
 }
