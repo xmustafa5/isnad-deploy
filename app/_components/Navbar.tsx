@@ -142,7 +142,7 @@ function SelectCurrency() {
                 <p className='typography-body-14-medium text-white'>IQD</p>
             </div>
             {isOpen && (
-                <div className="flex flex-col w-[258px] px-4 py-2 items-end gap-2 absolute right-[-172px] mt-1 rounded-[16px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[65px]">
+                <div className="flex flex-col w-[258px] px-4 py-2 items-end gap-2 top-10 z-30 absolute right-[-172px] mt-1 rounded-[16px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[65px]">
                     <OpetionSelectCurrency isActive={currency === "IQD"} props={{ onClick: () => setCurrency("IQD") }}>
                         دولار امريكيUSD
                     </OpetionSelectCurrency>
