@@ -86,9 +86,25 @@ export default function Page() {
   )
 }
 function CardProperty() {
+  const [isFavorite, setIsFavorite] = useState(false)
   return (
     <div
-      className="flex h-[347px] min-w-[320px] max-w-[536px] p-[16px] justify-end items-end gap-[8px] flex-1 rounded-[16px] border border-stroke-border bg-[linear-gradient(180deg,rgba(8,24,47,0)_0%,var(--opacity-secondary-90,rgba(8,24,47,0.81))_86.5%),url('/images/company.png')] bg-[lightgray] bg-cover bg-no-repeat bg-center">
+      className="flex h-[347px] min-w-[320px] relative overflow-hidden max-w-[536px] p-[16px] justify-end items-end gap-[8px] flex-1 rounded-[16px] border border-stroke-border bg-[linear-gradient(180deg,rgba(8,24,47,0)_0%,var(--opacity-secondary-90,rgba(8,24,47,0.81))_86.5%),url('/images/company.png')] bg-[lightgray] bg-cover bg-no-repeat bg-center">
+      <div
+        className="flex items-center gap-1 px-3 z-40 py-2 absolute top-0 -right-0.5 rounded-bl-[24px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[65px]"
+      >
+        <p className="text-text-main typography-body-14-light">بالشهر</p>
+        <p className="text-text-main text-[18px] font-normal leading-[140%]">/</p>
+        <p className="text-text-main text-[18px] font-normal leading-[140%]">$2,000</p>
+
+      </div>
+      <div
+        onClick={() => setIsFavorite(!isFavorite)}
+        className="flex items-center gap-2 p-2 absolute left-4 top-4 rounded-[12px]"
+      ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M20.6449 11.915C21.6665 8.7294 20.4794 5.07389 17.1421 3.99873C16.2781 3.72338 15.3615 3.65915 14.4683 3.80996C13.5751 3.96175 12.7296 4.57863 12.0037 5.1235C11.2749 4.5835 10.4304 3.96953 9.53816 3.81872C8.64592 3.66693 7.73034 3.72921 6.86632 3.99873C3.52896 5.08362 2.33218 8.7294 3.35383 11.915C4.93007 16.9678 12.0037 20.2711 12.0037 20.2711C12.0037 20.2711 18.9713 17.0261 20.6449 11.915Z" fill={isFavorite ? "#F94566" : "none"} stroke="#FBF5EF" stroke-linecap="round" stroke-linejoin="round" />
+        </svg></div>
+
       <div className="flex flex-col items-end gap-[8px] flex-1" >
         <div className="flex flex-col justify-center items-end gap-[8px] self-stretch">
           <p className='text-text-main w-full typography-body-16-medium'>شقة سكنية في المنصور</p>
@@ -113,7 +129,6 @@ function CardProperty() {
             <p className='text-text-main typography-body-14-light'>300م</p>
           </div>
         </div>
-
       </div>
     </div>
   )
