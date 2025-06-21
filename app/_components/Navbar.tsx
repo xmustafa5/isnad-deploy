@@ -62,7 +62,7 @@ export default function Navbar() {
             <div className=" navbar  xl:flex hidden h-12 p-1 items-center gap-4 rounded-[40px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]">
                 <NavbarButton text="الرئيسية" pathname={pathname} path="/ar" />
                 <NavbarButton text="المجمعات السكنية" pathname={pathname} path="/ar/residential-complexes" />
-                <NavbarButton text="العقارات العامة" pathname={pathname} path="/ar/public-properties" />
+                <NavbarButton text="العقارات العامة" pathname={pathname} path="/ar/real-estate" />
             </div>
             <div
                 id="hamburger-button"

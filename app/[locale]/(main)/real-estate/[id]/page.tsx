@@ -142,7 +142,7 @@ export default function page({ params }: { params: { id: string } }) {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col overflow-y-auto max-h-[calc(99.3vh-110px)] items-start gap-8 flex-1">
+            <div className="flex flex-col overflow-y-auto max-h-[calc(99.3vh-110px)] items-start gap-[40px] flex-1">
                 <div className="flex flex-col items-start gap-4 self-stretch">
                     <div className="flex justify-between items-center self-stretch">
                         <div
@@ -167,47 +167,89 @@ export default function page({ params }: { params: { id: string } }) {
                         </div>
                     </div>
                     <div className="flex flex-col items-start gap-4 self-stretch">
-                        <div className="grid grid-cols-[578px_1fr] items-center gap-6 self-stretch">
-                            <div className="relative flex items-start gap-2  h-[445.6px] rounded-[16px]">
-                                <Image
-                                    src="/images/detailscomplex.jpg"
-                                    fill
-                                    alt="صورة تفصيلية للمجمع السكني"
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    priority={true}
-                                    placeholder="blur"
-                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                                    className="object-cover rounded-[32px]"
-                                />
+                        <div className='h-[504px] relative self-stretch'>
+                            <Image
+                                src="/images/detailscomplex.jpg"
+                                fill
+                                alt="صورة تفصيلية للمجمع السكني"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                priority={true}
+                                placeholder="blur"
+                                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                                className="object-cover rounded-[32px]"
+                            />
+                        </div>
+                        <div className="flex items-center gap-4 bg-w w-full ">
+                            <div className='flex item-center gap-[11px] h-full w-full '>
+                                <Button variant="gray" className='md:h-[56px] w-full p-4 flex-1'>
+                                    فيديو (4) <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                        <path d="M6.16991 5.81055H12.438C14.6285 5.81055 15.9927 7.35737 15.9927 9.54587V15.4517C15.9927 17.6402 14.6285 19.187 12.437 19.187H6.16991C3.97841 19.187 2.61621 17.6402 2.61621 15.4517V9.54587C2.61621 7.35737 3.9854 5.81055 6.16991 5.81055Z" stroke="white" stroke-width="0.923077" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M15.9863 10.6443L19.1308 8.07063C19.6398 7.65348 20.3913 7.72833 20.8084 8.23729C20.983 8.45084 21.0789 8.7183 21.0778 8.99373L21.0669 16.0103C21.0648 16.669 20.5309 17.2019 19.8723 17.1999C19.5979 17.1999 19.3314 17.1041 19.1189 16.9294L15.9863 14.3567" stroke="white" stroke-width="0.923077" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00781 12.5023C7.00781 13.7707 8.0357 14.7976 9.30314 14.7976C10.5714 14.7976 11.5994 13.7707 11.5994 12.5023C11.5994 11.2339 10.5714 10.207 9.30314 10.207C8.0357 10.207 7.00781 11.2339 7.00781 12.5023Z" stroke="white" stroke-width="0.923077" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </Button>
+                                <Button variant="gray" className='md:h-[56px]  w-full p-4 flex-1'>
+                                    (2) 3D <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                        <path d="M9.265 3.5H18.945C20.08 3.5 21 4.42 21 5.555V15.235C21 16.045 20.678 16.822 20.105 17.395L16.895 20.605C16.322 21.178 15.545 21.5 14.735 21.5H5.055C3.92 21.5 3 20.58 3 19.445V9.765C3 8.955 3.322 8.178 3.895 7.605L7.105 4.395C7.678 3.822 8.455 3.5 9.265 3.5Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M5.01766 19.1484L3.59766 20.8984" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M7.99805 5.68734V3.77734" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M8 8.0293V10.7373" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M8 13.5V15.5H10" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M8 15.5L6.73633 17.05" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M20.9882 15.498H18.4482M15.7869 15.5009H12.6289" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M15.7891 21.3159V9.58594C15.7891 9.32594 15.8891 9.07594 16.0591 8.87594L20.3791 4.08594" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M3.05859 9.1875H15.7886" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </Button>
+                                <Button variant="gray" className='md:h-[56px] w-full p-4 flex-1'>
+                                    خريطة (3) <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                        <path d="M3.36035 19.8142V4.45414C3.36035 3.92395 3.79016 3.49414 4.32035 3.49414H19.6804C20.2106 3.49414 20.6404 3.92395 20.6404 4.45414V19.8142C20.6404 20.3443 20.2106 20.7742 19.6804 20.7742H4.32035C3.79015 20.7742 3.36035 20.3443 3.36035 19.8142Z" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M14.8799 9.25391V20.774" stroke="white" stroke-width="0.96" stroke-linecap="round" />
+                                        <path d="M17.71 3.49414V9.25414" stroke="white" stroke-width="0.96" stroke-linecap="round" />
+                                        <path d="M12 3.49414V9.25414" stroke="white" stroke-width="0.96" stroke-linecap="round" />
+                                        <path d="M9.98926 15.0137V20.7737" stroke="white" stroke-width="0.96" stroke-linecap="round" />
+                                        <path d="M7.35742 9.25391V15.014" stroke="white" stroke-width="0.96" stroke-linecap="round" />
+                                        <path d="M14.8804 15.0137H3.36035" stroke="white" stroke-width="0.96" stroke-linecap="round" />
+                                        <path d="M20.5405 16.9336H14.8799" stroke="white" stroke-width="0.96" stroke-linecap="round" />
+                                        <path d="M20.6404 9.25391H3.36035" stroke="white" stroke-width="0.96" stroke-linecap="round" />
+                                    </svg>
+                                </Button>
                             </div>
-                            <div className='flex flex-col w-full  gap-4'>
-                                <div className='h-[218.8px]  relative rounded-2xl'>
-                                    <Image
-                                        src="/images/detailscomplex.jpg"
-                                        fill
-                                        alt="صورة تفصيلية للمجمع السكني"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        priority={true}
-                                        placeholder="blur"
-                                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                                        className="object-cover rounded-[32px]"
-                                    />
+                            <div className="flex items-center gap-2 w-full">
+                                <div
+                                    className="h-[56px] w-[80px] rounded-[16px] flex-1"
+                                    style={{
+                                        background: "url(/images/card.png) lightgray 50% / cover no-repeat",
+                                    }}
+                                >
+
                                 </div>
-                                <div className='h-[210.8px] w-full relative rounded-2xl'>
-                                    <Image
-                                        src="/images/detailscomplex.jpg"
-                                        fill
-                                        alt="صورة تفصيلية للمجمع السكني"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        priority={true}
-                                        placeholder="blur"
-                                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                                        className="object-cover rounded-[32px]"
-                                    />
+                                <div
+                                    className="h-[56px] w-[80px] rounded-[16px] flex-1"
+                                    style={{
+                                        background: "url(/images/card.png) lightgray 50% / cover no-repeat",
+                                    }}
+                                >
+
+                                </div>
+                                <div
+                                    className="h-[56px] w-[80px] rounded-[16px] flex-1"
+                                    style={{
+                                        background: "url(/images/card.png) lightgray 50% / cover no-repeat",
+                                    }}
+                                >
+
+                                </div>
+                                <div
+                                    className="h-[56px] w-[80px] rounded-[16px] flex-1 bg-[]"
+                                    style={{
+                                        background: "url(/images/card.png) lightgray 50% / cover no-repeat",
+                                    }}
+                                >
+
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div className="flex flex-col items-start gap-6 self-stretch">
@@ -229,7 +271,7 @@ export default function page({ params }: { params: { id: string } }) {
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M18.7905 5.45733C15.1821 1.84756 9.31885 1.84756 5.7105 5.45733C2.88461 8.28267 2.27077 12.4709 3.85683 15.8984C3.86215 15.9099 3.86719 15.9215 3.87192 15.9333C3.96409 16.1623 3.96202 16.4218 3.95787 16.5686C3.95266 16.7529 3.93228 16.9652 3.90711 17.1812C3.88332 17.3854 3.8531 17.6104 3.82239 17.8391L3.81601 17.8867C3.78274 18.1345 3.74887 18.3889 3.7193 18.6437C3.65934 19.1604 3.62169 19.643 3.63844 20.029C3.64679 20.2214 3.66782 20.3639 3.69467 20.4616C3.70372 20.4945 3.712 20.5172 3.71811 20.5318C3.73272 20.5379 3.75538 20.5462 3.7883 20.5552C3.88603 20.582 4.0286 20.603 4.22096 20.6114C4.60699 20.6281 5.08953 20.5904 5.60622 20.5305C5.86098 20.501 6.11537 20.4671 6.36318 20.4339L6.41041 20.4276C6.63919 20.3969 6.86428 20.3667 7.06855 20.3429C7.28453 20.3178 7.49684 20.2974 7.6811 20.2923C7.82788 20.2881 8.08736 20.2861 8.31629 20.3783C8.32798 20.383 8.33955 20.388 8.35099 20.3933C11.7792 21.9787 15.9657 21.3658 18.7905 18.5396C22.3993 14.9302 22.4065 9.07283 18.7905 5.45733ZM19.8512 4.39674C15.657 0.201042 8.84377 0.201088 4.64963 4.39687C1.38559 7.66041 0.664341 12.4848 2.45868 16.4479C2.45922 16.4654 2.45947 16.491 2.45847 16.5262C2.45517 16.6431 2.44103 16.803 2.41719 17.0076C2.39499 17.1982 2.36645 17.4107 2.33515 17.6438L2.32934 17.6871C2.29615 17.9344 2.2606 18.201 2.2293 18.4708C2.16753 19.0031 2.11769 19.5835 2.13985 20.094C2.15096 20.35 2.18098 20.6142 2.24831 20.8591C2.3141 21.0985 2.43049 21.3749 2.65284 21.5973C2.87525 21.8195 3.15194 21.936 3.3912 22.0017C3.63608 22.0689 3.90019 22.0989 4.15607 22.11C4.66653 22.1321 5.24673 22.0823 5.77898 22.0205C6.04868 21.9893 6.31531 21.9538 6.56254 21.9206L6.60546 21.9149C6.83865 21.8836 7.05125 21.8551 7.2419 21.8329C7.44654 21.8091 7.60636 21.795 7.72325 21.7917C7.75847 21.7907 7.78414 21.7909 7.80167 21.7915C11.7651 23.585 16.588 22.8649 19.8513 19.6001C24.045 15.4059 24.0539 8.5989 19.8512 4.39674Z" fill="white" />
                                 </svg>
                             </div>
-                            <p className=' overflow-hidden text-text-gray3 text-ellipsis typography-body-14-light h-fit self-stretch'>
+                            <p className=' overflow-hidden text-text-gray3 text-ellipsis typography-body-14-light h-[68px] self-stretch'>
                                 مجمع اليرموك هو مجمع سكني حديث مصمم بمعايير عالية ليوفر بيئة معيشية راقية وآمنة للسكان. يتميز بتصميم عصري يدمج بين المساحات الخضراء الواسعة والمرافق المتكاملة، مما يجعل الحياة اليومية أكثر راحة وسهولة.
                                 يوفر المجمع مجموعة متنوعة من الخدمات التي تشمل الأمان، الترفيه، التعليم، والتسوق، مما يجعله خيارًا مثاليًا للعائلات الباحثة عن حياة متكاملة داخل بيئة آمنة ومريحة.
                             </p>
@@ -239,8 +281,6 @@ export default function page({ params }: { params: { id: string } }) {
                         </div>
 
                     </div>
-
-
                     <div
                         className="flex flex-col justify-center items-end gap-4 self-stretch px-6 py-4 rounded-[16px] border"
                         style={{
@@ -290,7 +330,7 @@ export default function page({ params }: { params: { id: string } }) {
                     </div>
                     <div className="flex flex-col gap-4 self-stretch">
                         <p className='text-white typography-title-24-light'>
-                            المدن
+                            عقارات مشابهه
                         </p>
                         <div className="flex justify-end items-start content-start gap-6 self-stretch flex-wrap">
                             <CardProperty />
@@ -346,58 +386,50 @@ function ServiceItem({ text, svg }: { text: string, svg?: string }) {
     )
 }
 function CardProperty() {
+    const [isFavorite, setIsFavorite] = useState(false)
     return (
         <div
-            className="
-    flex  items-end gap-2 p-4
-    h-[178.853px] min-w-[232px] min-h-[149.259px]
-    flex-[1_0_0] aspect-[278/178.85]
-    rounded-[16px] border border-white/10
-     bg-center bg-cover bg-no-repeat
-    backdrop-blur-[8.5px] overflow-hidden relative
-  "
-        >
-            <div className='w-full absolute inset-0 bg-[linear-gradient(180deg,rgba(8,24,47,0)_0%,rgba(8,24,47,0.81)_86.5%)] z-10'></div>
-            <Image
-                src="/images/city.png"
-                fill
-                alt="صورة تفصيلية للمجمع السكني"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                priority={true}
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                className="object-cover "
-            />
-            <div className="flex flex-col z-20 gap-2 w-[203.5px]">
-                <div className="flex flex-col justify-center self-stretch">
-                    <p className='text-text-main typography-body-16-medium'>مدينة الزهراء </p>
-                </div>
-                <div className="flex  items-start gap-4">
-                    <div className="flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                            <path d="M12.4704 15.569C12.4647 16.5315 11.6807 17.3066 10.7182 17.301H4.64322C3.68154 17.3058 2.89744 16.5298 2.89258 15.5674V11.175C2.89664 10.797 3.07584 10.4427 3.37747 10.2149L6.6801 7.56418C7.2631 7.10361 8.08612 7.10361 8.66833 7.56418L11.9855 10.2125C12.2856 10.4403 12.4639 10.7938 12.4704 11.17V15.569Z" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M7.67969 14.1465V17.1037" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M15.0294 17.2122H16.1111C17.0946 17.2122 17.8917 16.4151 17.8917 15.4315V4.90174C17.8917 3.91816 17.0946 3.12109 16.1111 3.12109H11.7584C10.7805 3.12109 9.98828 3.9133 9.98828 4.89119V5.62339" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M15.1973 13.7598V13.7681" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M15.1973 10.2486V10.2402" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M12.6484 6.7207V6.72904" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M15.1973 6.7207V6.72904" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <p className='text-text-main typography-body-12-light'>30 عقار</p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                            <path d="M13.0422 17.7109V12.8728V7.71604C15.726 7.34145 17.6298 6.41389 17.6298 5.30795C17.6298 4.21174 15.726 3.26877 13.0422 2.89418C12.2347 2.77824 11.3396 2.71094 10.4168 2.71094C9.49333 2.71094 8.599 2.77824 7.79066 2.89418C5.10689 3.26877 3.20312 4.21174 3.20312 5.30795C3.20312 6.41389 5.10689 7.34145 7.79066 7.71604V12.8728V17.7109" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M7.79004 12.8738C8.5976 12.7587 9.49276 12.6914 10.4163 12.6914C11.3389 12.6914 12.2333 12.7587 13.0416 12.8738" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M13.042 17.7115C15.7257 17.3361 17.6295 16.3939 17.6295 15.288V5.30859" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M3.20312 5.30859V15.288C3.20312 16.3939 5.10771 17.3361 7.79066 17.7115" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg><p className='text-text-main typography-body-12-light'>5 سامبل</p>
-                    </div>
-                </div>
+            className="flex h-[347px] min-w-[320px] relative overflow-hidden max-w-[536px] p-[16px] justify-end items-end gap-[8px] flex-1 rounded-[16px] border border-stroke-border bg-[linear-gradient(180deg,rgba(8,24,47,0)_0%,var(--opacity-secondary-90,rgba(8,24,47,0.81))_86.5%),url('/images/company.png')] bg-[lightgray] bg-cover bg-no-repeat bg-center">
+            <div
+                className="flex items-center gap-1 px-3 z-40 py-2 absolute top-0 -right-0.5 rounded-bl-[24px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[65px]"
+            >
+                <p className="text-text-main typography-body-14-light">بالشهر</p>
+                <p className="text-text-main text-[18px] font-normal leading-[140%]">/</p>
+                <p className="text-text-main text-[18px] font-normal leading-[140%]">$2,000</p>
 
             </div>
+            <div
+                onClick={() => setIsFavorite(!isFavorite)}
+                className="flex items-center gap-2 p-2 absolute left-4 top-4 rounded-[12px]"
+            ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.6449 11.915C21.6665 8.7294 20.4794 5.07389 17.1421 3.99873C16.2781 3.72338 15.3615 3.65915 14.4683 3.80996C13.5751 3.96175 12.7296 4.57863 12.0037 5.1235C11.2749 4.5835 10.4304 3.96953 9.53816 3.81872C8.64592 3.66693 7.73034 3.72921 6.86632 3.99873C3.52896 5.08362 2.33218 8.7294 3.35383 11.915C4.93007 16.9678 12.0037 20.2711 12.0037 20.2711C12.0037 20.2711 18.9713 17.0261 20.6449 11.915Z" fill={isFavorite ? "#F94566" : "none"} stroke="#FBF5EF" stroke-linecap="round" stroke-linejoin="round" />
+                </svg></div>
 
-
-        </div >
+            <div className="flex flex-col items-end gap-[8px] flex-1" >
+                <div className="flex flex-col justify-center items-end gap-[8px] self-stretch">
+                    <p className='text-text-main w-full typography-body-16-medium'>شقة سكنية في المنصور</p>
+                    <div className="flex justify-end items-center gap-[8px] self-stretch">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.48926 8.39054C1.50367 4.14996 4.95302 0.723964 9.19361 0.738326C13.4342 0.752779 16.8602 4.20213 16.8458 8.44272V8.52968C16.7936 11.2862 15.2545 13.834 13.3675 15.8253C12.2884 16.946 11.0833 17.9381 9.77621 18.7818C9.42672 19.0842 8.90832 19.0842 8.55882 18.7818C6.61033 17.5136 4.90019 15.9124 3.50665 14.0514C2.26461 12.4286 1.55942 10.459 1.48926 8.41663V8.39054Z" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                            <path opacity="0.4" d="M9.16741 10.9999C10.5265 10.9999 11.6283 9.8981 11.6283 8.53899C11.6283 7.17989 10.5265 6.07812 9.16741 6.07812C7.80831 6.07812 6.70654 7.17989 6.70654 8.53899C6.70654 9.8981 7.80831 10.9999 9.16741 10.9999Z" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <p className='text-text-gray2 w-full  typography-body-14-light'>بغداد/اليرموك/شارع نادي الصيد</p>
+                    </div>
+                </div>
+                <div className="flex  items-center content-center gap-[8px] self-stretch flex-wrap">
+                    <div className="flex justify-center items-center gap-[4px] px-[16px] py-[6px] rounded-[10px] border border-[rgba(234,28,28,0.05)] bg-opacity-secondary-10 backdrop-blur-[65px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                            <path d="M7.48078 15.827L5.25344 15.8314C4.79185 15.8324 4.41745 15.4579 4.41846 14.9964L4.4233 12.7695" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M4.83154 15.416L7.75144 12.4961" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M4.42477 7.23225L4.41992 5.00507C4.41892 4.54342 4.79342 4.16892 5.25507 4.16992L7.48225 4.17477" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M16.076 12.7695L16.0809 14.9967C16.0819 15.4584 15.7074 15.8329 15.2457 15.8319L13.0186 15.827" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M13.0171 4.17447L15.2449 4.16992C15.7066 4.16898 16.081 4.54357 16.0799 5.00525L16.0746 7.23196" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M15.6666 4.58398L12.7466 7.50395" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <p className='text-text-main typography-body-14-light'>300م</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
