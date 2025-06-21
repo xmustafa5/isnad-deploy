@@ -3,7 +3,7 @@ import { Button } from '@/app/_components/Button'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
-export default function page({ params }: { params: { id: string } }) {
+export default function page({   }: { params: { id: string } }) {
     return (
         <div className='flex gap-8'>
             <div
