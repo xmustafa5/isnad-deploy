@@ -1,5 +1,6 @@
 'use client';
 import { Button } from '@/app/_components/Button';
+import { cn } from '@/lib/utils';
 // import SelectOptionNumber from '@/app/_components/SelectOptionNumber';
 // import { cn } from '@/lib/utils';
 import React, { memo } from 'react'
@@ -53,243 +54,243 @@ export default function Page() {
 }
 
 
-// const RectangleComplex = memo(function RectangleComplex() {
-//     return (
-//         <div className='w-full h-full shrink-0'>
-//             <div className='shrink-0 flex'>
-//                 <div
-//                     className={cn(
-//                         "relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
-//                     )}
-//                 >
-//                     <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative rotate-90 shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
-//                     )}
-//                 >
-//                     <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
-//                     )}
-//                 >
-//                     <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative rotate-90 shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
-//                     )}
-//                 >
-//                     <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
-//                     )}
-//                 >
-//                     <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative rotate-90 shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
-//                     )}
-//                 >
-//                     <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
-//                     )}
-//                 >
-//                     <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative rotate-90 shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
-//                     )}
-//                 >
-//                     <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
-//                     )}
-//                 >
-//                     <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative rotate-90 shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
-//                     )}
-//                 >
-//                     <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
-//                     )}
-//                 >
-//                     <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative rotate-90 shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
-//                     )}
-//                 >
-//                     <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
-//                 </div>
-//             </div>
-//             <div className='flex shrink-0 h-full'>
-//                 {/* {items.map((_, index) => (
-//                     <div
-//                         key={`rect-bottom-${index}`}
-//                         className={cn(
-//                             "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla",
-//                             index % 2 !== 0 && "scale-x-[-1] rotate-180"
-//                         )}
-//                     >
-//                         <div
-//                             className={cn(
-//                                 "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]",
-//                                 index % 2 !== 0 && "top-[37px]"
-//                             )}
-//                         />
-//                     </div>
-//                 ))} */}
-//                 <div
-//                     className={cn(
-//                         "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
-//                         // index % 2 !== 0 && "scale-x-[-1] rotate-180"
-//                     )}
-//                 >
-//                     <div
-//                         className={cn(
-//                             "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
-//                             // index % 2 !== 0 && "top-[37px]"
-//                         )}
-//                     />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
-//                         , "scale-x-[-1] rotate-180"
-//                     )}
-//                 >
-//                     <div
-//                         className={cn(
-//                             "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
-//                             , "top-[37px]"
-//                         )}
-//                     />
-//                 </div> <div
-//                     className={cn(
-//                         "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
-//                         // index % 2 !== 0 && "scale-x-[-1] rotate-180"
-//                     )}
-//                 >
-//                     <div
-//                         className={cn(
-//                             "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
-//                             // index % 2 !== 0 && "top-[37px]"
-//                         )}
-//                     />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
-//                         , "scale-x-[-1] rotate-180"
-//                     )}
-//                 >
-//                     <div
-//                         className={cn(
-//                             "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
-//                             , "top-[37px]"
-//                         )}
-//                     />
-//                 </div> <div
-//                     className={cn(
-//                         "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
-//                         // index % 2 !== 0 && "scale-x-[-1] rotate-180"
-//                     )}
-//                 >
-//                     <div
-//                         className={cn(
-//                             "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
-//                             // index % 2 !== 0 && "top-[37px]"
-//                         )}
-//                     />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
-//                         , "scale-x-[-1] rotate-180"
-//                     )}
-//                 >
-//                     <div
-//                         className={cn(
-//                             "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
-//                             , "top-[37px]"
-//                         )}
-//                     />
-//                 </div> <div
-//                     className={cn(
-//                         "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
-//                         // index % 2 !== 0 && "scale-x-[-1] rotate-180"
-//                     )}
-//                 >
-//                     <div
-//                         className={cn(
-//                             "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
-//                             // index % 2 !== 0 && "top-[37px]"
-//                         )}
-//                     />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
-//                         , "scale-x-[-1] rotate-180"
-//                     )}
-//                 >
-//                     <div
-//                         className={cn(
-//                             "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
-//                             , "top-[37px]"
-//                         )}
-//                     />
-//                 </div> <div
-//                     className={cn(
-//                         "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
-//                         // index % 2 !== 0 && "scale-x-[-1] rotate-180"
-//                     )}
-//                 >
-//                     <div
-//                         className={cn(
-//                             "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
-//                             // index % 2 !== 0 && "top-[37px]"
-//                         )}
-//                     />
-//                 </div>
-//                 <div
-//                     className={cn(
-//                         "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
-//                         , "scale-x-[-1] rotate-180"
-//                     )}
-//                 >
-//                     <div
-//                         className={cn(
-//                             "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
-//                             , "top-[37px]"
-//                         )}
-//                     />
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// });
-const RectangleComplexSvg = () => {
+const RectangleComplex = memo(function RectangleComplex() {
+    return (
+        <div className='w-full h-full shrink-0'>
+            <div className='shrink-0 flex'>
+                <div
+                    className={cn(
+                        "relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
+                    )}
+                >
+                    <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
+                </div>
+                <div
+                    className={cn(
+                        "relative rotate-90 shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
+                    )}
+                >
+                    <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
+                </div>
+                <div
+                    className={cn(
+                        "relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
+                    )}
+                >
+                    <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
+                </div>
+                <div
+                    className={cn(
+                        "relative rotate-90 shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
+                    )}
+                >
+                    <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
+                </div>
+                <div
+                    className={cn(
+                        "relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
+                    )}
+                >
+                    <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
+                </div>
+                <div
+                    className={cn(
+                        "relative rotate-90 shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
+                    )}
+                >
+                    <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
+                </div>
+                <div
+                    className={cn(
+                        "relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
+                    )}
+                >
+                    <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
+                </div>
+                <div
+                    className={cn(
+                        "relative rotate-90 shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
+                    )}
+                >
+                    <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
+                </div>
+                <div
+                    className={cn(
+                        "relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
+                    )}
+                >
+                    <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
+                </div>
+                <div
+                    className={cn(
+                        "relative rotate-90 shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
+                    )}
+                >
+                    <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
+                </div>
+                <div
+                    className={cn(
+                        "relative shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
+                    )}
+                >
+                    <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
+                </div>
+                <div
+                    className={cn(
+                        "relative rotate-90 shrink-0 h-[50px] w-[50px] flex items-center overflow-hidden justify-center "
+                    )}
+                >
+                    <div className={cn("absolute h-[160px] w-[50px] bg-white/10 backdrop-blur-sm left-9 rotate-[135deg]")} />
+                </div>
+            </div>
+            <div className='flex shrink-0 h-full'>
+                {/* {items.map((_, index) => (
+                    <div
+                        key={`rect-bottom-${index}`}
+                        className={cn(
+                            "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla",
+                            index % 2 !== 0 && "scale-x-[-1] rotate-180"
+                        )}
+                    >
+                        <div
+                            className={cn(
+                                "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]",
+                                index % 2 !== 0 && "top-[37px]"
+                            )}
+                        />
+                    </div>
+                ))} */}
+                <div
+                    className={cn(
+                        "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
+                        // index % 2 !== 0 && "scale-x-[-1] rotate-180"
+                    )}
+                >
+                    <div
+                        className={cn(
+                            "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
+                            // index % 2 !== 0 && "top-[37px]"
+                        )}
+                    />
+                </div>
+                <div
+                    className={cn(
+                        "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
+                        , "scale-x-[-1] rotate-180"
+                    )}
+                >
+                    <div
+                        className={cn(
+                            "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
+                            , "top-[37px]"
+                        )}
+                    />
+                </div> <div
+                    className={cn(
+                        "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
+                        // index % 2 !== 0 && "scale-x-[-1] rotate-180"
+                    )}
+                >
+                    <div
+                        className={cn(
+                            "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
+                            // index % 2 !== 0 && "top-[37px]"
+                        )}
+                    />
+                </div>
+                <div
+                    className={cn(
+                        "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
+                        , "scale-x-[-1] rotate-180"
+                    )}
+                >
+                    <div
+                        className={cn(
+                            "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
+                            , "top-[37px]"
+                        )}
+                    />
+                </div> <div
+                    className={cn(
+                        "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
+                        // index % 2 !== 0 && "scale-x-[-1] rotate-180"
+                    )}
+                >
+                    <div
+                        className={cn(
+                            "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
+                            // index % 2 !== 0 && "top-[37px]"
+                        )}
+                    />
+                </div>
+                <div
+                    className={cn(
+                        "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
+                        , "scale-x-[-1] rotate-180"
+                    )}
+                >
+                    <div
+                        className={cn(
+                            "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
+                            , "top-[37px]"
+                        )}
+                    />
+                </div> <div
+                    className={cn(
+                        "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
+                        // index % 2 !== 0 && "scale-x-[-1] rotate-180"
+                    )}
+                >
+                    <div
+                        className={cn(
+                            "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
+                            // index % 2 !== 0 && "top-[37px]"
+                        )}
+                    />
+                </div>
+                <div
+                    className={cn(
+                        "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
+                        , "scale-x-[-1] rotate-180"
+                    )}
+                >
+                    <div
+                        className={cn(
+                            "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
+                            , "top-[37px]"
+                        )}
+                    />
+                </div> <div
+                    className={cn(
+                        "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
+                        // index % 2 !== 0 && "scale-x-[-1] rotate-180"
+                    )}
+                >
+                    <div
+                        className={cn(
+                            "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
+                            // index % 2 !== 0 && "top-[37px]"
+                        )}
+                    />
+                </div>
+                <div
+                    className={cn(
+                        "relative shrink-0 h-full w-[50px] flex items-center overflow-hidden justify-center bg-bla"
+                        , "scale-x-[-1] rotate-180"
+                    )}
+                >
+                    <div
+                        className={cn(
+                            "absolute -top-5 h-[190px] w-[80px] bg-white/10 backdrop-blur-sm left-[30px] rotate-[160deg]"
+                            , "top-[37px]"
+                        )}
+                    />
+                </div>
+            </div>
+        </div>
+    );
+});
+function RectangleComplexSvg() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="537" height="192" viewBox="0 0 537 192" fill="none">
             <path d="M536.683 54.9912V0H487.859C504.127 18.3228 520.415 36.6684 536.683 54.9912Z" fill="#2e2e4cba" fill-opacity="0.3" />
@@ -319,7 +320,7 @@ const RectangleComplexSvg = () => {
 }
 const CardProperty = memo(function CardProperty() {
     return (
-        <div className="flex flex-col justify-end items-end h-[296px] min-w-[420px] overflow-hidden max-w-[540px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px] bg-[url('/images/company.png')] bg-[lightgray] bg-center bg-cover bg-no-repeat relative">
+        <div className="flex flex-col justify-end items-end h-[296px] min-w-[330px] overflow-hidden max-w-[540px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px] bg-[url('/images/card.png')] bg-[lightgray] bg-center bg-cover bg-no-repeat relative">
             <div className="absolute right-[-45.31px] z-30 bottom-[-133.309px] w-[346.619px] h-[346.619px] rounded-full bg-[rgba(8,24,47,0.8)] blur-[54px]"></div>
             <div className="absolute w-full h-[191.715px] right-0 bottom-[-5.239px] z-20">
                 <RectangleComplexSvg />
