@@ -1,6 +1,7 @@
 'use client';
 import { Button } from '@/app/_components/Button';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 // import SelectOptionNumber from '@/app/_components/SelectOptionNumber';
 // import { cn } from '@/lib/utils';
 import React, { memo } from 'react'
@@ -44,7 +45,7 @@ export default function Page() {
                             ))}
                         </div>
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
     )
@@ -317,7 +318,7 @@ function RectangleComplexSvg() {
 }
 const CardProperty = memo(function CardProperty() {
     return (
-        <div className="flex flex-col justify-end items-end h-[296px] min-w-[330px] overflow-hidden max-w-[540px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px] bg-[url('/images/card.png')] bg-[lightgray] bg-center bg-cover bg-no-repeat relative">
+        <Link href={`/residential-complexes/2`} className="flex flex-col justify-end items-end h-[296px] min-w-[330px] overflow-hidden max-w-[540px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px] bg-[url('/images/card.png')] bg-[lightgray] bg-center bg-cover bg-no-repeat relative">
             <div className="absolute right-[-45.31px] z-30 bottom-[-133.309px] w-[346.619px] h-[346.619px] rounded-full bg-[rgba(8,24,47,0.8)] blur-[54px]"></div>
             <div className="absolute w-full h-[191.715px] right-0 bottom-[-5.239px] z-20">
                 <RectangleComplexSvg />
@@ -349,7 +350,7 @@ const CardProperty = memo(function CardProperty() {
                     مكتمل
                 </p>
             </div>
-        </div>
+        </Link>
     );
 });
 

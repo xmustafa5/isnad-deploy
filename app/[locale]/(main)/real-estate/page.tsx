@@ -2,6 +2,7 @@
 import { Button } from '@/app/_components/Button';
 import Input from '@/app/_components/Input';
 import SelectOptionNumber from '@/app/_components/SelectOptionNumber';
+import Link from 'next/link';
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 export default function Page() {
     const [price, setPrice] = useState({
@@ -88,7 +89,8 @@ export default function Page() {
 function CardProperty() {
     const [isFavorite, setIsFavorite] = useState(false)
     return (
-        <div
+        <Link
+            href={`/real-estate/1`}
             className="flex h-[347px] min-w-[320px] relative overflow-hidden max-w-[536px] p-[16px] justify-end items-end gap-[8px] flex-1 rounded-[16px] border border-stroke-border bg-[linear-gradient(180deg,rgba(8,24,47,0)_0%,var(--opacity-secondary-90,rgba(8,24,47,0.81))_86.5%),url('/images/company.png')] bg-[lightgray] bg-cover bg-no-repeat bg-center">
             <div
                 className="flex items-center gap-1 px-3 z-40 py-2 absolute top-0 -right-0.5 rounded-bl-[24px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[65px]"
@@ -130,7 +132,7 @@ function CardProperty() {
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 function PropertyArea() {
