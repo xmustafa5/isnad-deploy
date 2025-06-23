@@ -2,6 +2,7 @@
 import { AspectRatio } from '@/app/_components/aspect-ratio';
 import { Button } from '@/app/_components/Button'
 import Image from 'next/image'
+import Link from 'next/link';
 import React, { useState } from 'react'
 
 export default function page({ params }: { params: { id: string } }) {
@@ -146,7 +147,8 @@ export default function page({ params }: { params: { id: string } }) {
             <div className="flex flex-col xl:overflow-y-auto  max-h-[calc(99.3vh-110px)] items-start gap-8 flex-1">
                 <div className="flex flex-col items-start gap-4 self-stretch">
                     <div className="flex justify-between items-center self-stretch">
-                        <div
+                        <Link
+                            href={`/residential-complexes`}
                             className="flex items-center gap-2 w-[48px] p-3 rounded-[16px] border border-white/15 bg-black/20 backdrop-blur"
                             style={{ backdropFilter: "blur(65px)" }}
                         >
@@ -154,7 +156,7 @@ export default function page({ params }: { params: { id: string } }) {
                                 <path d="M14.0459 5.57422L20.4992 11.9998L14.0459 18.4265" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                 <path opacity="0.4" d="M20.5 12H4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                        </div>
+                        </Link>
                         <div className='flex gap-2 items-center'>
                             <Button variant="gray" className='w-fit p-4'>مشاركة <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3806 3C19.8722 3 21.0806 4.20842 21.0806 5.69997C21.0806 7.19152 19.8722 8.39994 18.3806 8.39994C16.8891 8.39994 15.6807 7.19152 15.6807 5.69997C15.6807 4.20842 16.8891 3 18.3806 3Z" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
