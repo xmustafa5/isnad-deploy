@@ -83,7 +83,7 @@ export default function page({ params }: { params: { id: string } }) {
                         <div className="flex flex-col justify-center items-end gap-2 pb-3 self-stretch border-b border-white/10">
                             <div className="time flex items-center gap-2 self-stretch">
                                 <div
-                                    className="flex  items-center gap-2 flex-1"
+                                    className="flex items-center gap-2 flex-1"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <path d="M4.48779 9.66406H20.5293" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
@@ -167,8 +167,8 @@ export default function page({ params }: { params: { id: string } }) {
                         </div>
                     </div>
                     <div className="flex flex-col items-start gap-4 self-stretch">
-                        <div className="grid grid-cols-[578px_1fr] items-center gap-6 self-stretch">
-                            <div className="relative flex items-start gap-2  h-[445.6px] rounded-[16px]">
+                        <div className="flex items-center gap-2 md:gap-4 self-stretch">
+                            <div className="relative w-[400px] h-[400px] rounded-md overflow-hidden flex-shrink-0">
                                 <Image
                                     src="/images/detailscomplex.jpg"
                                     fill
@@ -177,11 +177,11 @@ export default function page({ params }: { params: { id: string } }) {
                                     priority={true}
                                     placeholder="blur"
                                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                                    className="object-cover rounded-[32px]"
+                                    className="object-cover"
                                 />
                             </div>
-                            <div className='flex flex-col w-full  gap-4'>
-                                <div className='h-[218.8px]  relative rounded-2xl'>
+                            <div className='flex flex-col gap-2 flex-shrink-0'>
+                                <div className='relative w-[200px] h-[200px] rounded-md overflow-hidden'>
                                     <Image
                                         src="/images/detailscomplex.jpg"
                                         fill
@@ -190,10 +190,10 @@ export default function page({ params }: { params: { id: string } }) {
                                         priority={true}
                                         placeholder="blur"
                                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                                        className="object-cover rounded-[32px]"
+                                        className="object-cover"
                                     />
                                 </div>
-                                <div className='h-[210.8px] w-full relative rounded-2xl'>
+                                <div className='relative w-[200px] h-[200px] rounded-md overflow-hidden'>
                                     <Image
                                         src="/images/detailscomplex.jpg"
                                         fill
@@ -202,12 +202,11 @@ export default function page({ params }: { params: { id: string } }) {
                                         priority={true}
                                         placeholder="blur"
                                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                                        className="object-cover rounded-[32px]"
+                                        className="object-cover"
                                     />
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div className="flex flex-col items-start gap-6 self-stretch">
