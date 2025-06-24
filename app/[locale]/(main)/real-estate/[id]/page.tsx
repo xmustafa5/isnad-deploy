@@ -217,7 +217,7 @@ export default function page({ params }: { params: { id: string } }) {
                                     </svg>
                                 </Button>
                             </div>
-                            <div className="flex items-center gap-2 w-full">
+                            <div className="flex items-center gap-2">
                                 <div
                                     className="h-[56px] w-[80px] rounded-[16px] flex-1"
                                     style={{
@@ -334,7 +334,7 @@ export default function page({ params }: { params: { id: string } }) {
                         <p className='text-white typography-title-24-light'>
                             عقارات مشابهه
                         </p>
-                        <div className="flex justify-end items-start content-start gap-6 self-stretch flex-wrap">
+                        <div className="flex items-start content-start gap-6 self-stretch flex-wrap">
                             <CardProperty />
                             <CardProperty />
                         </div>

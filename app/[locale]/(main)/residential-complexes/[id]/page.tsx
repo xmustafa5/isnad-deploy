@@ -8,142 +8,7 @@ import React, { useState } from 'react'
 export default function page({ params }: { params: { id: string } }) {
     return (
         <div className='flex gap-8 xl:flex-row flex-col '>
-            <div
-                className="rounded-[16px] h-fit bg-cover bg-no-repeat bg-center pt-[152px]"
-                style={{
-                    backgroundImage: `
-      linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.26) 30.77%,
-        rgba(5, 15, 30, 0.90) 58.5%,
-        #08182F 100%
-      ),
-      url('/images/card.png')
-    `,
-                    backgroundColor: 'lightgray',
-                }}
-            >
-                <div className="flex flex-col items-center gap-6 px-6 pb-4 self-stretch">
-                    <div className='flex flex-col items-start gap-4 self-stretch'>
-                        <div className="flex flex-col items-center gap-2 self-stretch">
-                            <div className="flex justify-center items-end gap-[25px] self-stretch">
-                                <div className="flex flex-col justify-center items-center w-[122px] h-[42px]">
-                                    <div className="flex items-center gap-1">
-                                        <p className="text-[#D3D9E1] text-right text-[19px] font-bold leading-[140%]">
-                                            10+
-                                        </p>
 
-                                    </div>
-                                    <p className="text-[#AAB7CB] text-right text-[12px] font-normal leading-[120%]">
-                                        اكثر من 10 ابراج سكنية
-                                    </p>
-
-                                </div>
-                                <div className="flex justify-center items-center w-[80px] h-[80px] px-[12.444px] py-[26.667px] rounded-[145.455px] border-[3.333px] border-[rgba(255,255,255,0.09)]" style={{ backgroundColor: "var(--bg-secondry, #08182F)" }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="28" viewBox="0 0 56 28" fill="none">
-                                        <g clip-path="url(#clip0_3149_48707)">
-                                            <path d="M3.911 17.5996H0.444336V27.1552H3.86656V17.5996H3.911Z" fill="#C57340" />
-                                            <path d="M49.3773 17.5996H44.0884V27.1552H49.2439C53.9995 27.1552 55.555 24.7996 55.555 21.9996C55.555 19.1996 53.8217 17.5996 49.3328 17.5996H49.3773ZM52.1773 22.0441C52.1773 24.2218 51.155 26.3107 48.8884 26.3107H47.5106V18.3552H48.8884C51.2439 18.3552 52.1328 20.0885 52.1773 21.9552V22.0441Z" fill="#C57340" />
-                                            <path d="M16.4889 24.3095C16.3111 27.3762 11.2 27.5095 9.15559 26.8428C7.4667 26.3095 6.40003 25.5095 6.40003 25.5095L7.02225 24.5317C7.02225 24.5317 7.8667 25.3317 9.02225 25.5984C11.2445 26.2206 12.9778 25.6428 13.0667 24.6206C13.0667 23.0651 5.8667 22.7984 5.8667 19.6873C5.8667 16.5762 8.53337 16.6206 12.8445 17.4206C14.4889 17.7317 15.9111 18.3984 15.9111 18.3984C15.7778 18.7095 15.5111 19.1095 15.5111 19.1984C15.5111 19.1984 14.6223 18.754 12.9778 18.3984C11.6 18.0873 9.37781 18.354 9.37781 19.4651C9.33337 21.3317 16.5778 21.1095 16.5778 24.2651L16.4889 24.3095Z" fill="#C57340" />
-                                            <path d="M42.6222 27.1552H39.3333C37.8666 24.3107 36.5777 21.5107 35.1111 18.6663C34.4444 20.2218 33.7333 21.8218 33.0666 23.4218C32.5333 24.6663 32 25.9107 31.5111 27.1552H30.1333C31.6444 23.9552 33.0666 20.8441 34.6222 17.5996H38.0444C39.5555 20.7107 41.0666 23.9996 42.6222 27.1552Z" fill="#C57340" />
-                                            <path d="M27.4665 17.5991H28.6665V27.1547H25.1998C23.2887 24.1325 22.1332 22.5769 19.4221 18.8436C19.4665 20.2214 19.511 21.5991 19.5554 22.9769C19.5998 24.3547 19.6443 25.7325 19.6887 27.1102H18.6221V17.5547H21.911C22.9332 18.9325 23.911 20.3102 24.9332 21.7325C25.911 23.1102 26.8443 24.4436 27.7776 25.7769C27.7332 24.3991 27.6887 23.0214 27.5998 21.6436C27.5554 20.2658 27.511 18.888 27.4665 17.5547V17.5991Z" fill="#C57340" />
-                                            <path d="M55.3775 13.0216C54.4441 13.5993 53.733 13.1993 53.733 13.1993C53.9108 12.6216 54.2219 12.5327 54.7997 12.8882L54.8886 12.7993V12.4882C54.2219 12.1771 53.5553 12.3104 53.2441 13.466C53.2441 13.466 53.4219 13.866 53.9997 13.7771L53.333 14.0438L53.2441 14.4438L55.2886 13.6438L55.4664 13.1549L55.3775 13.066V13.0216Z" fill="#FBF5EF" />
-                                            <path d="M17.2441 0.933594L9.99963 3.02248L9.51074 3.64471L17.3774 1.51137L17.5552 1.33359L17.2441 0.933594Z" fill="#FBF5EF" />
-                                            <path d="M35.6443 1.73242C35.0665 1.73242 34.5332 2.3102 34.5332 2.97687C34.5332 3.64353 35.0665 4.08798 35.6443 4.08798C36.2221 4.08798 36.7554 3.55464 36.7554 2.97687C36.7554 2.39909 36.2221 1.73242 35.6443 1.73242ZM36.1776 3.24353C35.9999 3.42131 35.7776 3.42131 35.6443 3.42131C35.511 3.42131 35.2888 3.42131 35.1554 3.24353C34.9776 3.06576 34.9776 2.84353 34.9776 2.79909C34.9776 2.48798 35.2443 2.13242 35.6443 2.13242C36.0443 2.13242 36.2665 2.53242 36.311 2.79909C36.311 2.79909 36.311 3.06576 36.1776 3.24353Z" fill="#FBF5EF" />
-                                            <path d="M54.9333 0.978101H54.7556C54.7556 0.933656 54 1.86699 54 1.86699V11.6892L54.6667 11.467C54.7111 11.2892 54.8889 10.667 54.9778 10.1781C55.1111 9.51143 55.1111 6.71143 54.9778 0.978101H54.9333Z" fill="#FBF5EF" />
-                                            <path d="M13.5553 5.6878C13.3331 5.86558 13.1109 6.04336 12.8886 6.26558C12.6664 6.4878 12.4442 6.71003 12.2664 6.93225C12.0886 6.75447 11.9109 6.53225 11.6886 6.31003C11.4664 6.0878 11.2442 5.86558 11.022 5.6878C11.2442 5.51003 11.4664 5.33225 11.6886 5.11003C11.9109 4.8878 12.1331 4.66558 12.2664 4.44336C12.4442 4.66558 12.622 4.8878 12.8886 5.11003C13.1109 5.33225 13.3331 5.55447 13.5553 5.6878Z" fill="#FBF5EF" />
-                                            <path d="M52.533 11.7771C52.3996 12.266 51.8663 13.3771 50.5774 13.3771C49.1996 13.3326 48.5774 12.3549 48.4885 10.7993H48.4441C48.3997 11.7326 46.6219 13.466 43.3774 13.466C40.133 13.466 39.6441 12.1771 39.6441 10.4882H39.5108C37.8663 13.6882 32.3108 13.5104 22.8885 13.466H22.6663C18.9774 13.466 15.8219 13.5993 15.1997 10.4882H15.0663C14.4885 12.666 13.1108 13.466 10.7552 13.466C7.91076 13.4215 7.42188 10.8438 7.42188 9.73264V1.77708L8.17743 0.84375L8.35521 1.02153V7.77708C8.35521 7.77708 8.22188 10.5326 10.7108 10.5326C13.1997 10.5326 13.8219 10.5326 14.7997 9.24375C14.8441 9.11042 14.3997 7.82153 14.3997 7.6882H15.5997C16.1774 10.1771 16.3552 10.5326 21.5997 10.5326C25.6441 10.5326 37.733 10.7549 39.5108 8.8882C39.733 8.39931 39.9996 7.6882 39.9996 7.6882H40.6663C40.6663 9.42153 42.2219 10.5326 43.9552 10.5326C45.6885 10.5326 47.6885 10.3993 48.2663 9.42153L48.0441 7.99931L48.8885 7.33264L49.0219 9.24375C49.0663 10.4882 50.9774 10.8438 51.8219 9.91042C51.7774 8.66597 50.8885 7.33264 50.8885 7.33264L51.7774 5.91042H52.0885C53.0219 8.22153 52.8885 10.3549 52.6219 11.7771H52.5774H52.533Z" fill="#FBF5EF" />
-                                            <path d="M4.39998 4.93312C5.33331 6.04423 6.75553 7.95534 6.31109 12.7109C6.17775 13.0665 4.53331 13.4664 3.0222 13.4664C-0.533356 13.4664 0.6222 9.11089 0.6222 9.11089H0.933311C0.933311 11.0665 4.44442 10.5331 5.28887 9.82201C4.93331 8.22201 3.33331 7.19978 3.33331 7.19978L4.13331 5.06645L4.44442 4.88867L4.39998 4.93312Z" fill="#FBF5EF" />
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_3149_48707">
-                                                <rect width="55.1111" height="26.6667" fill="white" transform="translate(0.444336 0.666016)" />
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </div>
-                                <div className="flex flex-col justify-center items-center w-[122px]">
-                                    <div className="flex items-center gap-1">
-                                        <p className="text-[#D3D9E1] text-right text-[20px] font-medium leading-[140%]">
-                                            K
-                                        </p>
-                                        <p className="text-[#D3D9E1] text-right text-[19px] font-bold leading-[140%]">
-                                            12.2
-                                        </p>
-                                    </div>
-                                    <p className="text-[#AAB7CB] text-center text-[12px] font-normal leading-[120%]">
-                                        عقار سكني
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex flex-col items-center gap-1 self-stretch">
-                                <p className="text-text-main text-[20px] font-normal leading-[140%]">
-                                    المجمع الذهبي للأبراج.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col justify-center items-end gap-2 pb-3 self-stretch border-b border-white/10">
-                            <div className="time flex items-center gap-2 self-stretch">
-                                <div
-                                    className="flex items-center gap-2 flex-1"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M4.48779 9.66406H20.5293" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.1426 3V5.96174" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M8.87207 3V5.96174" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.3184 4.42188H8.69804C6.05446 4.42188 4.4043 5.89399 4.4043 8.59984V16.7456C4.4043 19.4943 6.05446 21.0004 8.69804 21.0004H16.3106C18.962 21.0004 20.6044 19.5205 20.6044 16.8137V8.59984C20.6121 5.89399 18.9698 4.42188 16.3184 4.42188Z" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M8.49414 13.3711H8.50414" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M8.49414 16.8477H8.50414" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M12.5137 13.3711H12.5237" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M12.5137 16.8477H12.5237" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.5234 13.3711H16.5334" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.5234 16.8477H16.5334" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                    <p className="text-text-main text-right text-[14px] font-light leading-[140%]">
-                                        الأحد  -  الخميس
-                                    </p>
-                                </div> <div className="flex  items-center gap-2 flex-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M21.25 12C21.25 17.109 17.109 21.25 12 21.25C6.891 21.25 2.75 17.109 2.75 12C2.75 6.891 6.891 2.75 12 2.75C17.109 2.75 21.25 6.891 21.25 12Z" stroke="white" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M15.4316 14.9417L11.6616 12.6927V7.8457" stroke="white" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                    <p className="text-text-main text-right text-[14px] font-light leading-[140%]">8:00 ص  - 6:00 م</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2 self-stretch">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.5 10.5005C14.5 9.11924 13.3808 8 12.0005 8C10.6192 8 9.5 9.11924 9.5 10.5005C9.5 11.8808 10.6192 13 12.0005 13C13.3808 13 14.5 11.8808 14.5 10.5005Z" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9995 21C10.801 21 4.5 15.8984 4.5 10.5633C4.5 6.38664 7.8571 3 11.9995 3C16.1419 3 19.5 6.38664 19.5 10.5633C19.5 15.8984 13.198 21 11.9995 21Z" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <p className="text-text-main text-right text-[14px] font-light leading-[140%]">
-                                    بغداد/اليرموك/شارع نادي الصيد
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex items-start gap-4 self-stretch">
-                        <div className="flex h-10 px-6 py-[11px] justify-center items-center gap-2 flex-[1_0_0] rounded-[16px] bg-opacity-whaite">
-                            <p className='text-[#08182F] text-[14px] font-medium leading-[126%]'>الغاء المتابعة</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M19 7.1875L9.375 16.8125L5 12.4375" stroke="#08182F" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div className="flex h-10 px-8 py-[11px] justify-center items-center gap-2 rounded-[16px] border border-[rgba(255,255,255,0.11)]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M14.353 2.5C18.054 2.911 20.978 5.831 21.393 9.532" stroke="#FBF5EF" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M14.353 6.04297C16.124 6.38697 17.508 7.77197 17.853 9.54297" stroke="#FBF5EF" stroke-linecap="round" stroke-linejoin="round" />
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0315 12.4724C15.0205 16.4604 15.9254 11.8467 18.4653 14.3848C20.9138 16.8328 22.3222 17.3232 19.2188 20.4247C18.8302 20.737 16.3613 24.4943 7.68447 15.8197C-0.993406 7.144 2.76157 4.67244 3.07394 4.28395C6.18377 1.17385 6.66682 2.58938 9.11539 5.03733C11.6541 7.5765 7.04253 8.48441 11.0315 12.4724Z" stroke="#FBF5EF" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div className="flex h-10 px-8 py-[11px] justify-center items-center gap-2 rounded-[16px] border border-[rgba(255,255,255,0.11)]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M7.94939 20.0368C7.73048 19.9268 7.49016 19.8889 7.25179 19.9453C6.44132 20.136 5.13368 20.462 4.18213 20.7013C3.64117 20.8375 3.14886 20.3559 3.27437 19.813C3.5108 18.7875 3.83868 17.3612 3.99435 16.648C4.043 16.4262 4.01284 16.1975 3.91652 15.9922C3.34637 14.7712 3 13.4198 3 12.0002C3 6.48846 8.02139 2.09267 13.7151 3.16097C17.2926 3.8323 20.1677 6.70834 20.839 10.2849C21.9073 15.9786 17.5115 21 11.9998 21C10.59 21 9.18115 20.6595 7.94939 20.0368Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M8.60085 8.46082C7.2144 9.85408 8.26518 12.0675 10.1138 13.9161C11.9624 15.7648 14.1408 16.7805 15.5341 15.3941L15.6625 15.2656C16.221 14.7081 16.1393 13.7809 15.4923 13.3295C15.2831 13.1845 15.0642 13.0308 14.8316 12.8683C14.3286 12.5151 13.6407 12.5696 13.2058 13.0025L12.9704 13.2361C11.9575 12.6328 11.4438 12.0529 10.7598 11.0255L10.9933 10.7901C11.4253 10.3542 11.4798 9.6663 11.1276 9.16329C10.9641 8.93075 10.8114 8.71184 10.6655 8.50266C10.215 7.85565 9.28775 7.77489 8.72928 8.33239L8.60085 8.46082Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div className="flex flex-col xl:overflow-y-auto  max-h-[calc(99.3vh-110px)] items-start gap-8 flex-1">
                 <div className="flex flex-col items-start gap-4 self-stretch">
                     <div className="flex justify-between items-center self-stretch">
@@ -304,7 +169,7 @@ export default function page({ params }: { params: { id: string } }) {
                         <p className='text-white typography-title-24-light'>
                             المدن
                         </p>
-                        <div className="flex justify-end items-start content-start gap-6 self-stretch flex-wrap">
+                        <div className="flex items-start content-start gap-6 self-stretch flex-wrap">
                             <CardProperty />
                             <CardProperty />
                         </div>

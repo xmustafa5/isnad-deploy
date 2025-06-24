@@ -47,7 +47,7 @@ export default function Navbar() {
     }, [pathname]);
 
     return (
-        <div className='flex pt-4 pb-2 px-4 md:px-16 justify-between items-center relative'>
+        <div className='flex pt-4 pb-2 px-4 md:px-16 justify-between items-center relative '>
             <div className='account xl:flex hidden items-center gap-6 self-stretch'>
                 <div className='flex items-center gap-2'>
                     <button className='flex py-3 px-6 justify-center items-center'>

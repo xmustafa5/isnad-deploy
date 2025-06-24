@@ -39,7 +39,7 @@ export default function Page() {
                         <p className='text-text-gray2 typography-body-16-light md:typography-title-24-light'>4 </p>
                     </div>
                     <div className='flex flex-col gap-[24px]'>
-                        <div className='flex overflow-y-auto max-h-[calc(95.3vh-200px)] py-4 items-center content-start gap-[24px] self-stretch justify-center xl:justify-start flex-wrap'>
+                        <div className='flex overflow-y-auto max-h-[calc(95.3vh-100px)] py-4 items-center content-start gap-[24px] self-stretch justify-center xl:justify-start flex-wrap'>
                             {properties.map((_, idx) => (
                                 <CardProperty key={idx} />
                             ))}
