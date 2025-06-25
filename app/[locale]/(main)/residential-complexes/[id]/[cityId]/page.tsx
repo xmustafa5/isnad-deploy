@@ -3,7 +3,7 @@ import { AspectRatio } from '@/app/_components/aspect-ratio'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
-function page({ params }: { params: { id: string, cityId: string } }) {
+function page() {
     return (
         <div className='flex gap-[32px]'>
             <div
@@ -156,7 +156,8 @@ function page({ params }: { params: { id: string, cityId: string } }) {
                             <div className='flex flex-col gap-2'>
                                 <div className='flex flex-col justify-center gap-1'>
                                     <p className='text-text-main text-[28px]'>مدينة الزهراء </p>
-                                </div> <div className="flex flex-col z-20 gap-2 w-[203.5px]">
+                                </div>
+                                <div className="flex flex-col z-20 gap-2 w-[203.5px]">
                                     <div className="flex flex-col justify-center self-stretch">
                                         <p className='text-text-main typography-body-16-medium'>مدينة الزهراء </p>
                                     </div>

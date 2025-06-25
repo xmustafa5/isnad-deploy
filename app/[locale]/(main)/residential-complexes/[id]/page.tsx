@@ -3,9 +3,9 @@ import { AspectRatio } from '@/app/_components/aspect-ratio';
 import { Button } from '@/app/_components/Button'
 import Image from 'next/image'
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React from 'react'
 
-export default function page({ params }: { params: { id: string } }) {
+export default function page() {
     return (
         <div className='flex gap-8 xl:flex-row flex-col '>
 
@@ -224,7 +224,7 @@ function ServiceItem({ text, svg }: { text: string, svg?: string }) {
 }
 function CardProperty() {
     return (
-        <div
+        <Link href={`/residential-complexes/3/3}`}
             className="
     flex  items-end gap-2 p-4
     h-[178.853px] min-w-[232px] min-h-[149.259px]
@@ -275,6 +275,6 @@ function CardProperty() {
             </div>
 
 
-        </div >
+        </Link>
     )
 }
