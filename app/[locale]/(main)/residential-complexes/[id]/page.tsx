@@ -30,7 +30,7 @@ export default function page() {
                                 <path d="M9.91111 13.3581L16.0583 16.9406M16.0486 7.05859L9.91016 10.6401" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
                             </svg></Button>
                             <Button variant="gray" className='w-fit p-4'>حفظ <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.6449 11.915C21.6665 8.7294 20.4794 5.07389 17.1421 3.99873C16.2781 3.72338 15.3615 3.65915 14.4683 3.80996C13.5751 3.96175 12.7296 4.57863 12.0037 5.1235C11.2749 4.5835 10.4304 3.96953 9.53816 3.81872C8.64592 3.66693 7.73034 3.72921 6.86632 3.99873C3.52896 5.08362 2.33218 8.7294 3.35383 11.915C4.93007 16.9678 12.0037 20.2711 12.0037 20.2711C12.0037 20.2711 18.9713 17.0261 20.6449 11.915Z" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.6449 11.915C21.6665 8.7294 20.4794 5.07389 17.1421 3.99873C16.2781 3.72338 15.3615 3.65915 14.4683 3.80996C13.5751 3.96175 12.7296 4.57863 12.0037 5.1235C11.2749 4.5835 10.4304 3.96953 9.53816 3.81872C8.64592 3.66693 7.73034 3.72921 6.86632 3.99873C3.52896 5.08362 2.33218 8.7294 3.35383 11.915C4.93007 16.9678 12.0037 20.2711 12.0037 20.2711C12.0037 20.2711 18.9713 17.0261 20.6449 11.915ZM19.8512 4.39674C15.657 0.201042 8.84377 0.201088 4.64963 4.39687C1.38559 7.66041 0.664341 12.4848 2.45868 16.4479C2.45922 16.4654 2.45947 16.491 2.45847 16.5262C2.45517 16.6431 2.44103 16.803 2.41719 17.0076C2.39499 17.1982 2.36645 17.4107 2.33515 17.6438L2.32934 17.6871C2.29615 17.9344 2.2606 18.201 2.2293 18.4708C2.16753 19.0031 2.11769 19.5835 2.13985 20.094C2.15096 20.35 2.18098 20.6142 2.24831 20.8591C2.3141 21.0985 2.43049 21.3749 2.65284 21.5973C2.87525 21.8195 3.15194 21.936 3.3912 22.0017C3.63608 22.0689 3.90019 22.0989 4.15607 22.11C4.66653 22.1321 5.24673 22.0823 5.77898 22.0205C6.04868 21.9893 6.31531 21.9538 6.56254 21.9206L6.60546 21.9149C6.83865 21.8836 7.05125 21.8551 7.2419 21.8329C7.44654 21.8091 7.60636 21.795 7.72325 21.7917C7.75847 21.7907 7.78414 21.7909 7.80167 21.7915C11.7651 23.585 16.588 22.8649 19.8513 19.6001C24.045 15.4059 24.0539 8.5989 19.8512 4.39674Z" fill="white" />
                             </svg></Button>
                         </div>
                     </div>
@@ -39,7 +39,6 @@ export default function page() {
                             <AspectRatio ratio={20 / 9} >
                                 <div className='flex gap-2 w-full h-full '>
                                     <div className='relative w-[160%] h-full'>
-
                                         <Image
                                             src="/images/company.png"
                                             fill
@@ -52,38 +51,33 @@ export default function page() {
                                         />
                                     </div>
                                     <div className='flex flex-col gap-2 w-full h-full'>
-
                                         <div className='relative w-full h-full'>
                                             <Image
                                                 src="/images/card.png"
                                                 fill
                                                 alt="صورة تفصيلية للمجمع السكني"
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                                priority={true}
+                                                loading="lazy"
                                                 placeholder="blur"
                                                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                                                 className="object-cover"
                                             />
-
                                         </div>
                                         <div className='relative w-full h-full'>
-
                                             <Image
                                                 src="/images/card.png"
                                                 fill
                                                 alt="صورة تفصيلية للمجمع السكني"
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                                priority={true}
+                                                loading="lazy"
                                                 placeholder="blur"
                                                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                                                 className="object-cover"
                                             />
                                         </div>
                                     </div>
-
                                 </div>
                             </AspectRatio>
-
                         </div>
                     </div>
                 </div>
@@ -114,10 +108,7 @@ export default function page() {
                                 قراءة المزيد
                             </Button>
                         </div>
-
                     </div>
-
-
                     <div
                         className="flex flex-col justify-center items-end gap-4 self-stretch px-6 py-4 rounded-[16px] border"
                         style={{
@@ -137,7 +128,6 @@ export default function page() {
                                         <ServiceItem text="مركز صحي" />
                                         <ServiceItem text="قاعة مناسبات" />
                                     </div>
-
                                 </div>
                                 <div className="flex w-full flex-col justify-center  self-stretch">
                                     <HeaderItem title="️المرافق والخدمات العامة" />
@@ -147,7 +137,6 @@ export default function page() {
                                         <ServiceItem text="مركز صحي" />
                                         <ServiceItem text="قاعة مناسبات" />
                                     </div>
-
                                 </div>
                                 <div className="flex w-full flex-col justify-center  self-stretch">
                                     <HeaderItem title="️المرافق والخدمات العامة" />
@@ -157,7 +146,6 @@ export default function page() {
                                         <ServiceItem text="مركز صحي" />
                                         <ServiceItem text="قاعة مناسبات" />
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -219,7 +207,6 @@ function ServiceItem({ text, svg }: { text: string, svg?: string }) {
             </svg>}
             <p className='text-text-gray2 typography-body-14-light'>{text}</p>
         </div>
-
     )
 }
 function CardProperty() {
@@ -240,10 +227,10 @@ function CardProperty() {
                 fill
                 alt="صورة تفصيلية للمجمع السكني"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                priority={true}
+                loading="lazy"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                className="object-cover "
+                className="object-cover"
             />
             <div className="flex flex-col z-20 gap-2 w-[203.5px]">
                 <div className="flex flex-col justify-center self-stretch">
@@ -271,10 +258,7 @@ function CardProperty() {
                         </svg><p className='text-text-main typography-body-12-light'>5 سامبل</p>
                     </div>
                 </div>
-
             </div>
-
-
         </Link>
     )
 }
