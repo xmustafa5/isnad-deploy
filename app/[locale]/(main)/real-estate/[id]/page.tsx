@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import React, { useState } from 'react'
 
-export default function page({ params }: { params: { id: string } }) {
+export default function page() {
     return (
         <div className='flex gap-8'>
             <div
