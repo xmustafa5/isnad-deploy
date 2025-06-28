@@ -204,3 +204,19 @@ body {
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
+.scroll-white::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(44, 44, 44, 0.3);
+}
+
+.scroll-white::-webkit-scrollbar-thumb {
+  background-color: #f34e3f;
+  border-radius: 4px;
+  border: none;
+}
+
+.scroll-white::-webkit-scrollbar-thumb:hover {
+  background-color: #e55143;
+}

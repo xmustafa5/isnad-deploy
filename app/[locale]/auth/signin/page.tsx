@@ -94,7 +94,7 @@ function InputPhoneNumber() {
     <div className="flex min-w-[398px] flex-col gap-[-1]">
       <div className="flex relative items-center justify-end gap-2 px-5 py-2 rounded-t-lg bg-white w-fit">
         {iraqflaq}
-        <p className="text-right text-[14px] font-medium leading-[140%] text-[#08182F] font-[Alilato]">
+        <p className="text-right text-[14px] font-medium leading-[140%] text-[#08182F]">
           IRAQ
         </p>
         {/* {svgArrow("up")} */}
@@ -115,13 +115,13 @@ function InputPhoneNumber() {
       <div className="relative flex items-center gap-[18px] px-2 py-3 self-stretch rounded-br-[19px] rounded-bl-[19px] rounded-tr-[19px] border border-white/25 ">
         <div className="absolute inset-0 pointer-events-none backdrop-blur-[65px] rounded-br-[19px] rounded-bl-[19px] rounded-tr-[19px] z-[1]"></div>
         <div className="flex items-center justify-center gap-2 relative z-10 px-4 py-2 border-r border-[rgba(233,235,240,0.06)]">
-          <p className="text-right text-[18px] font-medium leading-[140%] text-white relative z-10 font-[Alilato]">
+          <p className="text-right text-[18px] font-medium leading-[140%] text-white relative z-10">
             +964
           </p>
         </div>
         <input
           type="text"
-          className=" relative z-10 text-[#fff] focus:outline-none font-[Alilato] text-[20px] not-italic font-semibold leading-[140%] placeholder:text-[#AEBACD]"
+          className=" relative z-10 text-[#fff] focus:outline-none text-[20px] not-italic font-semibold leading-[140%] placeholder:text-[#AEBACD]"
           placeholder="Enter your phone number"
         />
       </div>

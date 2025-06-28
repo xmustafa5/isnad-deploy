@@ -345,8 +345,8 @@ const CardProperty = memo(function CardProperty() {
                     </div>
                 </div>
             </div>
-            <div className="flex items-center justify-center gap-2 px-3 py-2 absolute left-4 top-4 rounded-[16px] border border-white/10 bg-[rgba(197,115,64,0.25)] backdrop-blur-[14px]">
-                <p className="text-[#EEF5FF] text-[14px] font-[400] leading-[140%] font-[Alilato]">
+            <div className="flex items-center justify-center gap-2 w-[68px] h-[36px] px-3 py-2 absolute left-4 top-4 rounded-[16px] border border-white/10 bg-[rgba(197,115,64,0.25)] backdrop-blur-[14px]">
+                <p className="text-[#EEF5FF] text-[14px] font-[400] leading-[140%]">
                     مكتمل
                 </p>
             </div>

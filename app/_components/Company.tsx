@@ -55,7 +55,7 @@ export default function Company({ company, locale = "ar" }: { company: CompanyTy
                 <div className="flex  items-center gap-4 self-stretch   ltr:flex-row-reverse rtl:flex-row-reverse">
                     <div className="flex flex-col justify-center ltr:items-start rtl:items-start gap-1 flex-1">
                         <p className='text-[#FBF5EF] typography-subtitle-18-Light '>{company?.name?.[locale]}</p>
-                        <p className="text-[#AAB7CB] text-center font-[Alilato] text-[12px] font-normal leading-[120%]">
+                        <p className="text-[#AAB7CB] text-center text-[12px] font-normal leading-[120%]">
                             {company?.type}</p>
                     </div>
                     <div className='w-[48px] h-[48px] rounded-full bg-white'></div>

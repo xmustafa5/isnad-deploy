@@ -41,7 +41,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = "ar" }: { id: 
                                 {isLoading ?
                                     <div className='w-20 h-[12px] bg-secondary-800 animate-pulse rounded-md'></div>
                                     :
-                                    <p className="text-[#AAB7CB] text-center font-[Alilato] text-[12px] font-normal leading-[120%]">
+                                    <p className="text-[#AAB7CB] text-center text-[12px] font-normal leading-[120%]">
                                         {data?.item?.type}</p>
                                 }
                             </div>
