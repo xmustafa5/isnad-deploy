@@ -1,11 +1,10 @@
 'use client';
-import { AspectRatio } from '@/app/_components/aspect-ratio'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
 function page() {
     return (
-        <div className='flex gap-[32px]'>
+        <div className='flex gap-8 xl:flex-row flex-col '>
             <div
                 className="rounded-[16px] h-fit bg-cover bg-no-repeat bg-center pt-[152px]"
                 style={{
@@ -142,9 +141,9 @@ function page() {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-col w-full gap-[32px] overflow-y-auto max-h-[calc(99.3vh-110px)] pb-4'>
+            <div className="flex flex-col xl:overflow-y-auto  max-h-[calc(99.3vh-110px)] items-start sm:gap-8 gap-10 flex-1 pb-4">
 
-                <AspectRatio ratio={22 / 9} >
+                <div className='w-full h-full relative' >
                     <div className='flex flex-col justify-between p-[24px] h-full  relative z-30'>
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(0,0,0,0)_44%,_rgba(5,15,30,0.64)_58.5%,_#08182F_100%)]">
                         </div>
@@ -188,7 +187,6 @@ function page() {
                             </div>
                         </div>
                     </div>
-
                     <Image
                         src="/images/company.png"
                         fill
@@ -200,7 +198,7 @@ function page() {
                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                         className="object-cover object-center bg-center rounded-2xl"
                     />
-                </AspectRatio>
+                </div>
                 <div className="flex flex-col gap-4 self-stretch">
                     <p className='text-white typography-title-24-light'>
                         عقارات مشابهه
