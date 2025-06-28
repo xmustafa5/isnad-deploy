@@ -6,78 +6,209 @@ import React, { useState } from 'react'
 
 export default function page() {
   return (
-    <div className=' w-full h-full pt-[121px]'>
-      <div className='w-full h-fit pb-7 justify-center items-center flex  bg-red-500 '>
-
-        <div className="flex w-[320px] flex-col justify-center gap-4 relative ms-[480px]">
-          <div className="flex items-center gap-[52px] self-stretch">
-            <PresentationNumber number="230+" title="عقارات مميزة متاحة الآن للتأجير أو الشراء" />
-            <PresentationNumber number="230+" title="عقارات مميزة متاحة الآن للتأجير أو الشراء" />
-          </div>
-          <div className="flex flex-col items-start gap-6 self-stretch relative top-[20px]">
-            <div className="flex items-center gap-3.5 self-stretch ">
-              <p className="text-white absolute right-[0px] text-[14px] font-light leading-[1.2] whitespace-nowrap">
-                انضم الئ عقارات اسناد
-              </p>
-              <div className="flex items-center absolute left-[0px]">
-                <ImageCarve image="/images/card.png" zIndex={0} position="left-[0px]" />
-                <ImageCarve image="/images/city.png" zIndex={4} position="left-[30px]" />
-                <ImageCarve image="/images/details.png" zIndex={6} position="left-[60px]" />
-                <ImageCarve image="/images/details.png" zIndex={10} position="left-[90px]" />
+    <div className=' w-full h-full pt-[121px] flex flex-col xl:flex-row '>
+      <div
+        className="bg-cover bg-no-repeat bg-center pointer-events-none h-full w-full absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, rgba(0, 0, 0, 0.37) 0%, rgba(0, 0, 0, 0.39) 78.5%), url('/images/home.jpg')",
+          backgroundColor: "lightgray",
+        }}
+      ></div>
+      <div className='w-full xl:w-1/2 h-full flex flex-col '>
+        <div className='h-0 shrink-0 w-full xl:h-1/2 '></div>
+        <div className='flex items-center shrink-0 flex-1  pb-4 relative z-10 flex-col xl:flex-row w-full h-full '>
+          <div className="flex flex-col justify-center   shrink-0   h-full w-full">
+            <div className="flex flex-col justify-center gap-6 self-stretch h-full w-full">
+              <div className="text-white xl:text-[56px] text-[32px] font-normal leading-normal">
+                <p className='xl:max-w-[569px] max-w-full'>
+                  البحــــــث عن عقـــــارك المثالي لم يكن أسهل
+                </p>
+                <p>
+                  <span className='font-bold'>من ألان</span> !
+                </p>
               </div>
-
+              <p className='text-white text-[16px] font-light w-[300px] sm:w-[412px] '>اكتشف عقارات فاخرة تجمع بين التصميم الأنيق، الموقع المثالي، والمرافق المتكاملة لتناسب أسلوب حياتك</p>
+              <div className='flex gap-4 pt-6 sm:flex-row flex-col items-center xl:items-start'>
+                <Button>
+                  ابدء البحث الان
+                </Button>
+                <Button mode="default" variant="gray">
+                  تواصل معنا
+                </Button>
+              </div>
             </div>
-            <Button mode="default" variant="gray" className='w-full top-2 relative'>
-              سجل مجمعك
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                <path d="M16 16.8047L8 8.80469M8 8.80469V14.8047M8 8.80469H14" stroke="#FBF5EF" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </Button>
           </div>
+
         </div>
       </div>
-      <div className='flex items-center gap-[40px] px-[64px]'>
-        <div className="flex w-[605px] flex-col justify-center gap-[48px] shrink-0">
-          <div className="flex flex-col justify-center gap-6 self-stretch">
-            <div className="text-white text-[56px] font-normal leading-normal">
-              <p>
-                البحــــــث عن عقـــــارك المثالي لم يكن أسهل
-              </p>
-              <p>
-                <span className='font-bold'>من ألان</span> !
-              </p>
+
+      <div className=' h-fit pb-7 justify-center items-center flex flex-col relative z-10 w-full xl:w-1/2'>
+        <div className='flex w-full h-1/2 flex-col justify-center relative'>
+
+          <div className="flex w-[320px] h-1/2 flex-col justify-center gap-4 relative xl:m-0 mt-6">
+            <div className="flex items-center gap-[52px] self-stretch">
+              <PresentationNumber number="230+" title="عقارات مميزة متاحة الآن للتأجير أو الشراء" />
+              <PresentationNumber number="230+" title="عقارات مميزة متاحة الآن للتأجير أو الشراء" />
             </div>
-            <p className='text-white text-[16px] font-light w-[412px]'>اكتشف عقارات فاخرة تجمع بين التصميم الأنيق، الموقع المثالي، والمرافق المتكاملة لتناسب أسلوب حياتك</p>
-            <div className='flex gap-4'>
-              <Button>
-                ابدء البحث الان
-              </Button>
-              <Button mode="default" variant="gray">
-                تواصل معنا
+            <div className="flex flex-col items-start gap-6 self-stretch relative top-[20px]">
+              <div className="flex items-center gap-3.5 self-stretch ">
+                <p className="text-white absolute right-[0px] text-[14px] font-light leading-[1.2] whitespace-nowrap">
+                  انضم الئ عقارات اسناد
+                </p>
+                <div className="flex items-center absolute left-[0px]">
+                  <ImageCarve image="/images/card.png" zIndex={0} position="left-[0px]" />
+                  <ImageCarve image="/images/city.png" zIndex={4} position="left-[30px]" />
+                  <ImageCarve image="/images/details.png" zIndex={6} position="left-[60px]" />
+                  <ImageCarve image="/images/details.png" zIndex={10} position="left-[90px]" />
+                </div>
+
+              </div>
+              <Button mode="default" variant="gray" className='w-full top-2 relative'>
+                سجل مجمعك
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                  <path d="M16 16.8047L8 8.80469M8 8.80469V14.8047M8 8.80469H14" stroke="#FBF5EF" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
               </Button>
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="flex flex-col gap-4 self-stretch pt-12">
+
+        <div className="flex items-center gap-4 mt-24 w-full">
+          <div className="flex flex-col gap-4 self-stretch w-full">
             <p className='text-white typography-title-24-light'>
               عقارات مشابهه
             </p>
-            <div className="flex scroll-white items-start content-start gap-6 self-stretch overflow-x-auto w-[800px] snap-x snap-mandatory">
-              <CardProperty />
-              <CardProperty />
-              <CardProperty />
-              <CardProperty />
-              <CardProperty />
-              <CardProperty />
-              <CardProperty />
-              <CardProperty />
-              <CardProperty />
-              <CardProperty />
+            <div className="flex scroll-white pb-4 items-start content-start gap-6 self-stretch overflow-x-auto w-full snap-x snap-mandatory">
+              <div className="flex p-1 flex-col justify-center items-end">
+                <div className="w-[298px] h-[296px] relative rounded-[20px] border-[2px] border-[#DE7432]">
+                  <div className="flex items-center gap-[10px] px-4 py-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className='absolute right-[1px]' width="164" height="100" viewBox="0 0 164 100" fill="none">
+                      <g filter="url(#filter0_f_3516_5332)">
+                        <rect x="81.7207" y="36" width="45.7206" height="27.7573" fill="#FA9529" fill-opacity="0.25" />
+                      </g>
+                      <g filter="url(#filter1_f_3516_5332)">
+                        <rect x="36" y="36" width="68.6558" height="27.7573" fill="#EF4F3A" fill-opacity="0.55" />
+                      </g>
+                      <defs>
+                        <filter id="filter0_f_3516_5332" x="45.7207" y="0" width="117.721" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
+                        </filter>
+                        <filter id="filter1_f_3516_5332" x="0" y="0" width="140.656" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
+                        </filter>
+                      </defs>
+                    </svg>
+                    <p className='text-white text-[12px] font-normal leading-[140%]'>عقار مميز</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M18.804 7.74781C17.428 12.2729 23.476 16.7768 15.354 21C16.6476 17.4377 15.354 16.1723 14.4024 15.0788C14.266 16.3066 13.1708 17.864 12.6403 17.9777C13.2655 15.4483 11.3329 13.5062 10.5656 13.6293C10.9066 15.8462 8.09285 18.063 10.0824 21C2.53378 18.916 4.30435 11.9607 6.12326 8.86589C5.98684 11.1396 7.37285 12.9756 8.09285 13.4872C7.7518 7.98494 12.1855 9.02514 10.7842 3C15.377 4.65978 15.4922 9.09592 15.1018 10.9622C15.7109 8.80224 17.8677 7.87608 18.804 7.74781Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <CardProperty />
+                </div>
+              </div>
+              <div className="flex p-1 flex-col justify-center items-end">
+                <div className="w-[298px] h-[296px] relative rounded-[20px] border-[2px] border-[#DE7432]">
+                  <div className="flex items-center gap-[10px] px-4 py-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className='absolute right-[1px]' width="164" height="100" viewBox="0 0 164 100" fill="none">
+                      <g filter="url(#filter0_f_3516_5332)">
+                        <rect x="81.7207" y="36" width="45.7206" height="27.7573" fill="#FA9529" fill-opacity="0.25" />
+                      </g>
+                      <g filter="url(#filter1_f_3516_5332)">
+                        <rect x="36" y="36" width="68.6558" height="27.7573" fill="#EF4F3A" fill-opacity="0.55" />
+                      </g>
+                      <defs>
+                        <filter id="filter0_f_3516_5332" x="45.7207" y="0" width="117.721" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
+                        </filter>
+                        <filter id="filter1_f_3516_5332" x="0" y="0" width="140.656" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
+                        </filter>
+                      </defs>
+                    </svg>
+                    <p className='text-white text-[12px] font-normal leading-[140%]'>عقار مميز</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M18.804 7.74781C17.428 12.2729 23.476 16.7768 15.354 21C16.6476 17.4377 15.354 16.1723 14.4024 15.0788C14.266 16.3066 13.1708 17.864 12.6403 17.9777C13.2655 15.4483 11.3329 13.5062 10.5656 13.6293C10.9066 15.8462 8.09285 18.063 10.0824 21C2.53378 18.916 4.30435 11.9607 6.12326 8.86589C5.98684 11.1396 7.37285 12.9756 8.09285 13.4872C7.7518 7.98494 12.1855 9.02514 10.7842 3C15.377 4.65978 15.4922 9.09592 15.1018 10.9622C15.7109 8.80224 17.8677 7.87608 18.804 7.74781Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <CardProperty />
+                </div>
+              </div>
+              <div className="flex p-1 flex-col justify-center items-end">
+                <div className="w-[298px] h-[296px] relative rounded-[20px] border-[2px] border-[#DE7432]">
+                  <div className="flex items-center gap-[10px] px-4 py-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className='absolute right-[1px]' width="164" height="100" viewBox="0 0 164 100" fill="none">
+                      <g filter="url(#filter0_f_3516_5332)">
+                        <rect x="81.7207" y="36" width="45.7206" height="27.7573" fill="#FA9529" fill-opacity="0.25" />
+                      </g>
+                      <g filter="url(#filter1_f_3516_5332)">
+                        <rect x="36" y="36" width="68.6558" height="27.7573" fill="#EF4F3A" fill-opacity="0.55" />
+                      </g>
+                      <defs>
+                        <filter id="filter0_f_3516_5332" x="45.7207" y="0" width="117.721" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
+                        </filter>
+                        <filter id="filter1_f_3516_5332" x="0" y="0" width="140.656" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
+                        </filter>
+                      </defs>
+                    </svg>
+                    <p className='text-white text-[12px] font-normal leading-[140%]'>عقار مميز</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M18.804 7.74781C17.428 12.2729 23.476 16.7768 15.354 21C16.6476 17.4377 15.354 16.1723 14.4024 15.0788C14.266 16.3066 13.1708 17.864 12.6403 17.9777C13.2655 15.4483 11.3329 13.5062 10.5656 13.6293C10.9066 15.8462 8.09285 18.063 10.0824 21C2.53378 18.916 4.30435 11.9607 6.12326 8.86589C5.98684 11.1396 7.37285 12.9756 8.09285 13.4872C7.7518 7.98494 12.1855 9.02514 10.7842 3C15.377 4.65978 15.4922 9.09592 15.1018 10.9622C15.7109 8.80224 17.8677 7.87608 18.804 7.74781Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <CardProperty />
+                </div>
+              </div>
+              <div className="flex p-1 flex-col justify-center items-end">
+                <div className="w-[298px] h-[296px] relative rounded-[20px] border-[2px] border-[#DE7432]">
+                  <div className="flex items-center gap-[10px] px-4 py-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className='absolute right-[1px]' width="164" height="100" viewBox="0 0 164 100" fill="none">
+                      <g filter="url(#filter0_f_3516_5332)">
+                        <rect x="81.7207" y="36" width="45.7206" height="27.7573" fill="#FA9529" fill-opacity="0.25" />
+                      </g>
+                      <g filter="url(#filter1_f_3516_5332)">
+                        <rect x="36" y="36" width="68.6558" height="27.7573" fill="#EF4F3A" fill-opacity="0.55" />
+                      </g>
+                      <defs>
+                        <filter id="filter0_f_3516_5332" x="45.7207" y="0" width="117.721" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
+                        </filter>
+                        <filter id="filter1_f_3516_5332" x="0" y="0" width="140.656" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
+                        </filter>
+                      </defs>
+                    </svg>
+                    <p className='text-white text-[12px] font-normal leading-[140%]'>عقار مميز</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M18.804 7.74781C17.428 12.2729 23.476 16.7768 15.354 21C16.6476 17.4377 15.354 16.1723 14.4024 15.0788C14.266 16.3066 13.1708 17.864 12.6403 17.9777C13.2655 15.4483 11.3329 13.5062 10.5656 13.6293C10.9066 15.8462 8.09285 18.063 10.0824 21C2.53378 18.916 4.30435 11.9607 6.12326 8.86589C5.98684 11.1396 7.37285 12.9756 8.09285 13.4872C7.7518 7.98494 12.1855 9.02514 10.7842 3C15.377 4.65978 15.4922 9.09592 15.1018 10.9622C15.7109 8.80224 17.8677 7.87608 18.804 7.74781Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <CardProperty />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   )
 }
@@ -107,7 +238,7 @@ function CardProperty() {
   const [isFavorite, setIsFavorite] = useState(false)
   return (
     <div
-      className="flex h-[347px] min-w-[320px] relative overflow-hidden max-w-[536px] p-[16px] justify-end items-end gap-[8px] flex-1 rounded-[16px] border border-stroke-border bg-[linear-gradient(180deg,rgba(8,24,47,0)_0%,var(--opacity-secondary-90,rgba(8,24,47,0.81))_86.5%),url('/images/company.png')] bg-[lightgray] bg-cover bg-no-repeat bg-center snap-center">
+      className="flex h-[253px] min-w-full relative overflow-hidden max-w-[536px] p-[16px] justify-end items-end gap-[8px] flex-1 rounded-[18px] border border-stroke-border bg-[linear-gradient(180deg,rgba(8,24,47,0)_0%,var(--opacity-secondary-90,rgba(8,24,47,0.81))_86.5%),url('/images/company.png')] bg-[lightgray] bg-cover bg-no-repeat bg-center snap-center">
       <div
         className="flex items-center gap-1 px-3 z-40 py-2 absolute top-0 -right-0.5 rounded-bl-[24px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[65px]"
       >

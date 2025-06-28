@@ -47,8 +47,8 @@ export default function Navbar() {
     }, [pathname]);
 
     return (
-        <div className='flex pt-4 pb-2 px-4 md:px-16 justify-between items-center relative '>
-            <div className='account xl:flex hidden items-center gap-6 self-stretch'>
+        <div className='flex pt-4 pb-2 px-4 md:px-16 justify-between items-center  '>
+            <div className='relative z-10 xl:flex hidden items-center gap-6 self-stretch'>
                 <div className='flex items-center gap-2'>
                     <button className='flex py-3 px-6 justify-center items-center'>
                         <p className="text-[#B8C6E3] text-right  text-[14px] font-light leading-[140%]">تسجيل</p>
@@ -59,14 +59,14 @@ export default function Navbar() {
                 </div>
                 <LanguageSwitcher />
             </div>
-            <div className=" navbar  xl:flex hidden h-12 p-1 items-center gap-4 rounded-[40px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]">
+            <div className=" relative z-10  xl:flex hidden h-12 p-1 items-center gap-4 rounded-[40px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]">
                 <NavbarButton text="الرئيسية" pathname={pathname} path="/ar" />
                 <NavbarButton text="المجمعات السكنية" pathname={pathname} path="/ar/residential-complexes" />
                 <NavbarButton text="العقارات العامة" pathname={pathname} path="/ar/real-estate" />
             </div>
             <div
                 id="hamburger-button"
-                className="flex xl:hidden rounded-[4px] border border-white/10 bg-white/5 backdrop-blur-[8.5px] items-center gap-2 px-3 py-[11px] cursor-pointer"
+                className="flex xl:hidden relative z-30 rounded-[4px] border border-white/10 bg-white/5 backdrop-blur-[8.5px] items-center gap-2 px-3 py-[11px] cursor-pointer"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" className='size-4 md:size-6' viewBox="0 0 24 25" fill="none">
@@ -75,22 +75,22 @@ export default function Navbar() {
                     <path d="M4.32007 12.7549H19.6801" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </div>
-            <div className='language and currency flex h-[60px] items-center gap-[56px]'>
+            <div className='relative z-10 and currency flex h-[60px] items-center gap-[56px]'>
                 <SelectCurrency />
                 {IsnadSvg}
             </div>
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 xl:hidden"
+                    className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm xl:hidden"
                     onClick={() => setIsOpen(false)}
                 />
             )}
             <div
                 id="mobile-drawer"
-                className={`fixed top-0 pt-[56px] right-0 h-full w-80 max-w-[85vw] bg-slate-900/95 backdrop-blur-lg border-r border-white/10 z-50 xl:hidden transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+                className={`fixed z-[110] top-0 pt-[56px] right-0 h-full w-80 max-w-[85vw] bg-slate-900/95 backdrop-blur-lg border-r border-white/10 xl:hidden transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
                     }`}
             >
-                <div className="flex flex-col px-4 gap-[64px]">
+                <div className="flex flex-col px-4 gap-[64px] z-[110] relative">
                     <div className=' flex justify-between items-center'>
                         <div className='flex gap-2 items-center'>
 
