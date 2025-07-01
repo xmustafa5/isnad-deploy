@@ -32,7 +32,6 @@ axiosInstance.interceptors.response.use(
           `${process.env.NEXT_PUBLIC_API_URL}/users/refresh-token`,
           { refresh_token: refreshToken }
         );
-        console.log(response, "response token");
 
         if (response.status === 200) {
           // Update cookies with new tokens
@@ -45,7 +44,6 @@ axiosInstance.interceptors.response.use(
           return axios(originalRequest);
         }
       } catch (refreshError) {
-        console.log(refreshError, "refhhhhhreshError");
         // If refresh token fails, clear both tokens
         cookieStore.delete("token");
         cookieStore.delete("refresh_token");
