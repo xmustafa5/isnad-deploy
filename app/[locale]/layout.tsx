@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import TranslationsProvider from "@/localization/TranslationsProvider";
 import initTranslations from "@/localization/i18n";
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
 
@@ -40,13 +39,7 @@ export default async function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <TranslationsProvider
-          namespaces={i18bNamespaces}
-          locale={locale}
-          resources={resources}
-        >
-          <ReactQueryProvider>{children}</ReactQueryProvider>
-        </TranslationsProvider>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>
   );
