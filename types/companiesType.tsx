@@ -26,6 +26,7 @@ interface Link {
   id: string;
   title: LanguageField;
   url: string;
+  icon: string
 }
 
 export interface CompanyType {
@@ -42,6 +43,7 @@ export interface CompanyType {
   departments: DepartmentType[];
   governorate: Governorate;
   links: Link[];
+  geoid: string;
 }
 
 export interface CompaniesResponse {

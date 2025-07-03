@@ -7,7 +7,7 @@ import Link from 'next/link'
 export default function Company({ company, locale = "ar" }: { company: CompanyType, locale: "en" | "ar" }) {
     console.log(company)
     return (
-        <Link href={`/${locale}/${company.id}`} className="overflow-hidden flex relative max-w-full w-full h-[256px] p-4 flex-col justify-end items-end gap-2 flex-shrink-0 rounded-[16px]">
+        <Link href={`/${locale}/companies/${company.geoid}`} className="overflow-hidden flex relative max-w-full w-full h-[256px] p-4 flex-col justify-end items-end gap-2 flex-shrink-0 rounded-[16px]">
             {company?.background_img ? (
                 <Image
                     src={company.background_img}

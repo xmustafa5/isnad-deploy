@@ -63,6 +63,8 @@ export default function Navbar() {
                 <NavbarButton text="الرئيسية" pathname={pathname} path="/ar" />
                 <NavbarButton text="المجمعات السكنية" pathname={pathname} path="/ar/residential-complexes" />
                 <NavbarButton text="العقارات العامة" pathname={pathname} path="/ar/real-estate" />
+                <NavbarButton text="الشركات" pathname={pathname} path="/ar/companies" />
+
             </div>
             <div
                 id="hamburger-button"
@@ -112,6 +114,7 @@ export default function Navbar() {
                         <NavbarButtonMobile text="الرئيسية" pathname={pathname} path="/ar" />
                         <NavbarButtonMobile text="المجمعات السكنية" pathname={pathname} path="/ar/residential-complexes" />
                         <NavbarButtonMobile text="العقارات العامة" pathname={pathname} path="/ar/public-properties" />
+                        <NavbarButtonMobile text="الشركات" pathname={pathname} path="/ar/companies" />
                     </div>
                     {/* <div className="border-t border-white/10 pt-4 space-y-2">
                         <button className="w-full flex py-3 px-4 justify-center items-center rounded-lg hover:bg-white/5 transition-colors">
