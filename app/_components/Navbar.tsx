@@ -113,7 +113,7 @@ export default function Navbar() {
                     <div className="space-y-2">
                         <NavbarButtonMobile text="الرئيسية" pathname={pathname} path="/ar" />
                         <NavbarButtonMobile text="المجمعات السكنية" pathname={pathname} path="/ar/residential-complexes" />
-                        <NavbarButtonMobile text="العقارات العامة" pathname={pathname} path="/ar/public-properties" />
+                        <NavbarButtonMobile text="العقارات العامة" pathname={pathname} path="/ar/real-estate" />
                         <NavbarButtonMobile text="الشركات" pathname={pathname} path="/ar/companies" />
                     </div>
                     {/* <div className="border-t border-white/10 pt-4 space-y-2">
