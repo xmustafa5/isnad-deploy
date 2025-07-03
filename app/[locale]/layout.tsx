@@ -23,6 +23,7 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
   const { resources } = await initTranslations(locale, i18bNamespaces);
+  console.log(resources);
 
   return (
     <html
