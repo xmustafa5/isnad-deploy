@@ -15,12 +15,12 @@ export default function WrapperRealEstate({ initialData }: { initialData: RealEs
     console.log(price)
     const [number, setNumber] = useState(0)
     console.log(number)
-    const { data: data } = useQuery({
+    const { data } = useQuery({
         queryKey: ['real-estates'],
         queryFn: () => getRealEstates(),
         initialData: initialData
     })
-    console.log(data, "data")
+    console.log(initialData, "datad")
     return (
 
         <div className='flex justify-between shrink-0 gap-6'>
