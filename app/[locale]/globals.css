@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "./fonts.css";
 .background-login {
-  background-image: url("/images/background-login1.png");
+  background-image: url("/images/background-login2.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
