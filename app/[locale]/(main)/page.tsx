@@ -15,11 +15,11 @@ export default function page() {
           backgroundColor: "lightgray",
         }}
       ></div>
-      <div className='w-full xl:w-1/2 h-full flex flex-col '>
-        <div className='h-0 shrink-0 w-full xl:h-1/2 '></div>
-        <div className='flex items-center shrink-0 flex-1  pb-4 relative z-10 flex-col xl:flex-row w-full h-full '>
+      <div className='w-full xl:w-1/2 xl:h-full flex flex-col '>
+        {/* <div className='h-0 shrink-0 w-full xl:h-1/2 '></div> */}
+        <div className='flex items-center   pb-4 relative z-10 flex-col xl:flex-row w-full xl:pt-[260px]  '>
           <div className="flex flex-col justify-center   shrink-0   h-full w-full">
-            <div className="flex flex-col justify-center gap-6 self-stretch h-full w-full">
+            <div className="flex flex-col justify-center gap-6  h-full w-full">
               <div className="text-white xl:text-[56px] text-[32px] font-normal leading-normal">
                 <p className='xl:max-w-[569px] max-w-full'>
                   البحــــــث عن عقـــــارك المثالي لم يكن أسهل
