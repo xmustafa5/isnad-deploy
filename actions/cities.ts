@@ -7,7 +7,8 @@ export async function getCities(
   page: number = 1,
   perPage: number = 10,
   isVisible?: number,
-  governorateId?: string
+  governorateId?: string,
+  developerId?: string
 ): Promise<CitiesResponse> {
   try {
     const response = await axios.get(`${API_BASE_URL}/cities`, {
@@ -16,6 +17,7 @@ export async function getCities(
         per_page: perPage,
         is_visible: isVisible,
         governorate_id: governorateId,
+        developer_id: developerId,
       },
     });
     return response.data;
@@ -34,4 +36,3 @@ export async function getCityById(id: string): Promise<{ item: CityItem }> {
     throw error;
   }
 }
-

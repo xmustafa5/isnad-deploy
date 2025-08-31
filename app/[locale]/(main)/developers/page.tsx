@@ -54,9 +54,7 @@ const DevelopersPage = () => {
                     ))}
                 </div>
             </div>
-            {selectedCity && (
-                <CityDetails city={selectedCity} onClose={handleCloseCity} />
-            )}
+          
         </div>
     );
 };

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export interface Developer {
@@ -16,7 +17,8 @@ interface DeveloperCardProps {
 
 const DeveloperCard: React.FC<any> = ({ developer, onCityClick }) => {
     return (
-        <div
+        <Link
+            href={`/developers/${developer.id}`}
             className="developer-card stroke-bg-bg-2 border border-b-bg-black"
             style={{
                 borderRadius: 16,
@@ -76,7 +78,7 @@ const DeveloperCard: React.FC<any> = ({ developer, onCityClick }) => {
                     </ul>
                 </div>
             )}
-        </div>
+        </Link>
     );
 };
 
