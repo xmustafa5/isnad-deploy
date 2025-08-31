@@ -7,7 +7,7 @@ import React from 'react'
 import { useComplexById } from '@/hooks/useComplexById';
 import { useParams } from 'next/navigation';
 
-export default function page() {
+export default function Page() {
     const params = useParams();
     const complexId = params.id as string;
 
@@ -375,58 +375,5 @@ function ServiceItem({ text, svg }: { text: string, svg?: string }) {
             </svg>}
             <p className='text-text-gray2 typography-body-14-light'>{text}</p>
         </div>
-    )
-}
-function CardProperty() {
-    return (
-        <Link href={`/residential-complexes/3/3}`}
-            className="
-    flex  items-end gap-2 p-4
-    h-[178.853px] min-w-[232px] min-h-[149.259px]
-    flex-[1_0_0] aspect-[278/178.85]
-    rounded-[16px] border border-white/10
-     bg-center bg-cover bg-no-repeat
-    backdrop-blur-[8.5px] overflow-hidden relative
-  "
-        >
-            <div className='w-full absolute inset-0 bg-[linear-gradient(180deg,rgba(8,24,47,0)_0%,rgba(8,24,47,0.81)_86.5%)] z-10'></div>
-            <Image
-                src="/images/city.png"
-                fill
-                alt="صورة تفصيلية للمجمع السكني"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                className="object-cover"
-            />
-            <div className="flex flex-col z-20 gap-2 w-[203.5px]">
-                <div className="flex flex-col justify-center self-stretch">
-                    <p className='text-text-main typography-body-16-medium'>مدينة الزهراء </p>
-                </div>
-                <div className="flex  items-start gap-4">
-                    <div className="flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                            <path d="M12.4704 15.569C12.4647 16.5315 11.6807 17.3066 10.7182 17.301H4.64322C3.68154 17.3058 2.89744 16.5298 2.89258 15.5674V11.175C2.89664 10.797 3.07584 10.4427 3.37747 10.2149L6.6801 7.56418C7.2631 7.10361 8.08612 7.10361 8.66833 7.56418L11.9855 10.2125C12.2856 10.4403 12.4639 10.7938 12.4704 11.17V15.569Z" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M7.67969 14.1465V17.1037" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M15.0294 17.2122H16.1111C17.0946 17.2122 17.8917 16.4151 17.8917 15.4315V4.90174C17.8917 3.91816 17.0946 3.12109 16.1111 3.12109H11.7584C10.7805 3.12109 9.98828 3.9133 9.98828 4.89119V5.62339" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M15.1973 13.7598V13.7681" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M15.1973 10.2486V10.2402" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M12.6484 6.7207V6.72904" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M15.1973 6.7207V6.72904" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <p className='text-text-main typography-body-12-light'>30 عقار</p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                            <path d="M13.0422 17.7109V12.8728V7.71604C15.726 7.34145 17.6298 6.41389 17.6298 5.30795C17.6298 4.21174 15.726 3.26877 13.0422 2.89418C12.2347 2.77824 11.3396 2.71094 10.4168 2.71094C9.49333 2.71094 8.599 2.77824 7.79066 2.89418C5.10689 3.26877 3.20312 4.21174 3.20312 5.30795C3.20312 6.41389 5.10689 7.34145 7.79066 7.71604V12.8728V17.7109" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M7.79004 12.8738C8.5976 12.7587 9.49276 12.6914 10.4163 12.6914C11.3389 12.6914 12.2333 12.7587 13.0416 12.8738" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M13.042 17.7115C15.7257 17.3361 17.6295 16.3939 17.6295 15.288V5.30859" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M3.20312 5.30859V15.288C3.20312 16.3939 5.10771 17.3361 7.79066 17.7115" stroke="white" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg><p className='text-text-main typography-body-12-light'>5 سامبل</p>
-                    </div>
-                </div>
-            </div>
-        </Link>
     )
 }

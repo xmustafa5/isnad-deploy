@@ -77,7 +77,7 @@ export default function CitiesPage() {
     )
 }
 
-function CardCity({ city }: { city: CityItem }) {
+function CardCity({ city }: { city: any }) {
     return (
         <Link href={`/cities/${city.id}`}
             className="

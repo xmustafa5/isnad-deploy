@@ -29,7 +29,7 @@ export default function CityDetailPage() {
         );
     }
 
-    const city = cityData.item;
+    const city: any = cityData.item;
 
     return (
         <div className='flex gap-8 xl:flex-row flex-col '>
@@ -124,7 +124,7 @@ export default function CityDetailPage() {
                     <div className="flex flex-col items-start gap-4 self-stretch">
                         <h2 className='text-white typography-title-24-bold'>المميزات</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                            {city.advantages.map((advantage) => (
+                            {city.advantages.map((advantage: any) => (
                                 <div key={advantage.id} className="flex items-center gap-3 p-4 rounded-[12px] border border-white/10 bg-white/5">
                                     <div className="w-4 h-4 bg-primary rounded-full"></div>
                                     <p className="text-text-main text-[14px] font-normal leading-[140%]">
@@ -140,7 +140,7 @@ export default function CityDetailPage() {
                     <div className="flex flex-col items-start gap-4 self-stretch">
                         <h2 className='text-white typography-title-24-bold'>معلومات الاتصال</h2>
                         <div className="flex flex-col gap-4 w-full">
-                            {city.phones.map((phone) => (
+                            {city.phones.map((phone: any) => (
                                 <div key={phone.id} className="flex items-center justify-between p-4 rounded-[12px] border border-white/10 bg-white/5">
                                     <div className="flex items-center gap-3">
                                         <div className="w-4 h-4 bg-primary rounded-full"></div>
