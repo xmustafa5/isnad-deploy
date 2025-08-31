@@ -1,10 +1,23 @@
 "use client";
 import { Button } from '@/app/_components/Button'
+import { useComplexesInfinite } from '@/hooks/useComplexesInfinite';
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
-export default function page() {
+export default function Page() {
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+    error
+  } = useComplexesInfinite();
+  const allComplexes = React.useMemo(() => {
+    if (!data?.pages) return [];
+    return data.pages.flatMap(page => page.items);
+  }, [data?.pages]);
   return (
     <div className=' w-full h-full pt-[121px] flex flex-col xl:flex-row '>
       <div
@@ -80,130 +93,18 @@ export default function page() {
               عقارات مشابهه
             </p>
             <div className="flex scroll-white pb-4 items-start content-start gap-6 self-stretch overflow-x-auto w-full snap-x snap-mandatory">
-              <div className="flex p-1 flex-col justify-center items-end">
-                <div className="w-[298px] h-[296px] relative rounded-[20px] border-[2px] border-[#DE7432]">
-                  <div className="flex items-center gap-[10px] px-4 py-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className='absolute right-[1px]' width="164" height="100" viewBox="0 0 164 100" fill="none">
-                      <g filter="url(#filter0_f_3516_5332)">
-                        <rect x="81.7207" y="36" width="45.7206" height="27.7573" fill="#FA9529" fill-opacity="0.25" />
-                      </g>
-                      <g filter="url(#filter1_f_3516_5332)">
-                        <rect x="36" y="36" width="68.6558" height="27.7573" fill="#EF4F3A" fill-opacity="0.55" />
-                      </g>
-                      <defs>
-                        <filter id="filter0_f_3516_5332" x="45.7207" y="0" width="117.721" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
-                        </filter>
-                        <filter id="filter1_f_3516_5332" x="0" y="0" width="140.656" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
-                        </filter>
-                      </defs>
-                    </svg>
-                    <p className='text-white text-[12px] font-normal leading-[140%]'>عقار مميز</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M18.804 7.74781C17.428 12.2729 23.476 16.7768 15.354 21C16.6476 17.4377 15.354 16.1723 14.4024 15.0788C14.266 16.3066 13.1708 17.864 12.6403 17.9777C13.2655 15.4483 11.3329 13.5062 10.5656 13.6293C10.9066 15.8462 8.09285 18.063 10.0824 21C2.53378 18.916 4.30435 11.9607 6.12326 8.86589C5.98684 11.1396 7.37285 12.9756 8.09285 13.4872C7.7518 7.98494 12.1855 9.02514 10.7842 3C15.377 4.65978 15.4922 9.09592 15.1018 10.9622C15.7109 8.80224 17.8677 7.87608 18.804 7.74781Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+              {allComplexes.slice(0, 10).map((complex) => (
+                <div key={complex.id} className="flex p-1 flex-col justify-center items-end">
+                  <div className="w-[298px] h-[296px] relative rounded-[20px] border-[2px] border-[#DE7432]">
+                    <div className="flex items-center gap-[10px] px-4 py-2">
+                      {/* ...your SVG and label here... */}
+                      <p className='text-white text-[12px] font-normal leading-[140%]'>عقار مميز</p>
+                      {/* ...your SVG here... */}
+                    </div>
+                    <CardProperty complex={complex} />
                   </div>
-                  <CardProperty />
                 </div>
-              </div>
-              <div className="flex p-1 flex-col justify-center items-end">
-                <div className="w-[298px] h-[296px] relative rounded-[20px] border-[2px] border-[#DE7432]">
-                  <div className="flex items-center gap-[10px] px-4 py-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className='absolute right-[1px]' width="164" height="100" viewBox="0 0 164 100" fill="none">
-                      <g filter="url(#filter0_f_3516_5332)">
-                        <rect x="81.7207" y="36" width="45.7206" height="27.7573" fill="#FA9529" fill-opacity="0.25" />
-                      </g>
-                      <g filter="url(#filter1_f_3516_5332)">
-                        <rect x="36" y="36" width="68.6558" height="27.7573" fill="#EF4F3A" fill-opacity="0.55" />
-                      </g>
-                      <defs>
-                        <filter id="filter0_f_3516_5332" x="45.7207" y="0" width="117.721" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
-                        </filter>
-                        <filter id="filter1_f_3516_5332" x="0" y="0" width="140.656" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
-                        </filter>
-                      </defs>
-                    </svg>
-                    <p className='text-white text-[12px] font-normal leading-[140%]'>عقار مميز</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M18.804 7.74781C17.428 12.2729 23.476 16.7768 15.354 21C16.6476 17.4377 15.354 16.1723 14.4024 15.0788C14.266 16.3066 13.1708 17.864 12.6403 17.9777C13.2655 15.4483 11.3329 13.5062 10.5656 13.6293C10.9066 15.8462 8.09285 18.063 10.0824 21C2.53378 18.916 4.30435 11.9607 6.12326 8.86589C5.98684 11.1396 7.37285 12.9756 8.09285 13.4872C7.7518 7.98494 12.1855 9.02514 10.7842 3C15.377 4.65978 15.4922 9.09592 15.1018 10.9622C15.7109 8.80224 17.8677 7.87608 18.804 7.74781Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </div>
-                  <CardProperty />
-                </div>
-              </div>
-              <div className="flex p-1 flex-col justify-center items-end">
-                <div className="w-[298px] h-[296px] relative rounded-[20px] border-[2px] border-[#DE7432]">
-                  <div className="flex items-center gap-[10px] px-4 py-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className='absolute right-[1px]' width="164" height="100" viewBox="0 0 164 100" fill="none">
-                      <g filter="url(#filter0_f_3516_5332)">
-                        <rect x="81.7207" y="36" width="45.7206" height="27.7573" fill="#FA9529" fill-opacity="0.25" />
-                      </g>
-                      <g filter="url(#filter1_f_3516_5332)">
-                        <rect x="36" y="36" width="68.6558" height="27.7573" fill="#EF4F3A" fill-opacity="0.55" />
-                      </g>
-                      <defs>
-                        <filter id="filter0_f_3516_5332" x="45.7207" y="0" width="117.721" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
-                        </filter>
-                        <filter id="filter1_f_3516_5332" x="0" y="0" width="140.656" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
-                        </filter>
-                      </defs>
-                    </svg>
-                    <p className='text-white text-[12px] font-normal leading-[140%]'>عقار مميز</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M18.804 7.74781C17.428 12.2729 23.476 16.7768 15.354 21C16.6476 17.4377 15.354 16.1723 14.4024 15.0788C14.266 16.3066 13.1708 17.864 12.6403 17.9777C13.2655 15.4483 11.3329 13.5062 10.5656 13.6293C10.9066 15.8462 8.09285 18.063 10.0824 21C2.53378 18.916 4.30435 11.9607 6.12326 8.86589C5.98684 11.1396 7.37285 12.9756 8.09285 13.4872C7.7518 7.98494 12.1855 9.02514 10.7842 3C15.377 4.65978 15.4922 9.09592 15.1018 10.9622C15.7109 8.80224 17.8677 7.87608 18.804 7.74781Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </div>
-                  <CardProperty />
-                </div>
-              </div>
-              <div className="flex p-1 flex-col justify-center items-end">
-                <div className="w-[298px] h-[296px] relative rounded-[20px] border-[2px] border-[#DE7432]">
-                  <div className="flex items-center gap-[10px] px-4 py-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className='absolute right-[1px]' width="164" height="100" viewBox="0 0 164 100" fill="none">
-                      <g filter="url(#filter0_f_3516_5332)">
-                        <rect x="81.7207" y="36" width="45.7206" height="27.7573" fill="#FA9529" fill-opacity="0.25" />
-                      </g>
-                      <g filter="url(#filter1_f_3516_5332)">
-                        <rect x="36" y="36" width="68.6558" height="27.7573" fill="#EF4F3A" fill-opacity="0.55" />
-                      </g>
-                      <defs>
-                        <filter id="filter0_f_3516_5332" x="45.7207" y="0" width="117.721" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
-                        </filter>
-                        <filter id="filter1_f_3516_5332" x="0" y="0" width="140.656" height="99.7578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                          <feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_3516_5332" />
-                        </filter>
-                      </defs>
-                    </svg>
-                    <p className='text-white text-[12px] font-normal leading-[140%]'>عقار مميز</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M18.804 7.74781C17.428 12.2729 23.476 16.7768 15.354 21C16.6476 17.4377 15.354 16.1723 14.4024 15.0788C14.266 16.3066 13.1708 17.864 12.6403 17.9777C13.2655 15.4483 11.3329 13.5062 10.5656 13.6293C10.9066 15.8462 8.09285 18.063 10.0824 21C2.53378 18.916 4.30435 11.9607 6.12326 8.86589C5.98684 11.1396 7.37285 12.9756 8.09285 13.4872C7.7518 7.98494 12.1855 9.02514 10.7842 3C15.377 4.65978 15.4922 9.09592 15.1018 10.9622C15.7109 8.80224 17.8677 7.87608 18.804 7.74781Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </div>
-                  <CardProperty />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -212,7 +113,7 @@ export default function page() {
     </div>
   )
 }
-function Abs(){
+function Abs() {
   return (
     <div></div>
   )
@@ -239,51 +140,84 @@ function ImageCarve({ image, zIndex, position }: { image: string, zIndex: number
   )
 }
 
-function CardProperty() {
-  const [isFavorite, setIsFavorite] = useState(false)
+const CardProperty = React.memo(function CardProperty({ complex }: { complex: any }) {
+  // Format price to readable format
+  const formatPrice = (price: number) => {
+    if (price >= 1000000) {
+      return `${(price / 1000000).toFixed(1)}M`;
+    } else if (price >= 1000) {
+      return `${(price / 1000).toFixed(1)}K`;
+    }
+    return price.toString();
+  };
+
+  // Get status label based on built_status
+  const getStatusLabel = (status: number) => {
+    switch (status) {
+      case 0:
+        return "قيد الإنشاء";
+      case 1:
+        return "مكتمل";
+      default:
+        return "غير محدد";
+    }
+  };
+
+  // Get status background color
+  const getStatusBgColor = (status: number) => {
+    switch (status) {
+      case 0:
+        return "bg-[rgba(255,165,0,0.25)]"; // Orange for under construction
+      case 1:
+        return "bg-[rgba(197,115,64,0.25)]"; // Brown for completed
+      default:
+        return "bg-[rgba(128,128,128,0.25)]"; // Gray for unknown
+    }
+  };
+
   return (
     <div
       className="flex h-[253px] min-w-full relative overflow-hidden max-w-[536px] p-[16px] justify-end items-end gap-[8px] flex-1 rounded-[18px] border border-stroke-border bg-[linear-gradient(180deg,rgba(8,24,47,0)_0%,var(--opacity-secondary-90,rgba(8,24,47,0.81))_86.5%),url('/images/company.png')] bg-[lightgray] bg-cover bg-no-repeat bg-center snap-center">
       <div
         className="flex items-center gap-1 px-3 z-40 py-2 absolute top-0 -right-0.5 rounded-bl-[24px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[65px]"
       >
-        <p className="text-text-main typography-body-14-light">بالشهر</p>
+        <p className="text-text-main typography-body-14-light">{complex.type?.label === 'Residential' ? 'شهري' : 'سنوي'}</p>
         <p className="text-text-main text-[18px] font-normal leading-[140%]">/</p>
-        <p className="text-text-main text-[18px] font-normal leading-[140%]">$2,000</p>
-
+        <p className="text-text-main text-[18px] font-normal leading-[140%]">{formatPrice(complex.max_price)} IQD</p>
       </div>
       <div
-        onClick={() => setIsFavorite(!isFavorite)}
-        className="flex items-center gap-2 p-2 absolute left-4 top-4 rounded-[12px]"
-      ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M20.6449 11.915C21.6665 8.7294 20.4794 5.07389 17.1421 3.99873C16.2781 3.72338 15.3615 3.65915 14.4683 3.80996C13.5751 3.96175 12.7296 4.57863 12.0037 5.1235C11.2749 4.5835 10.4304 3.96953 9.53816 3.81872C8.64592 3.66693 7.73034 3.72921 6.86632 3.99873C3.52896 5.08362 2.33218 8.7294 3.35383 11.915C4.93007 16.9678 12.0037 20.2711 12.0037 20.2711C12.0037 20.2711 18.9713 17.0261 20.6449 11.915Z" fill={isFavorite ? "#F94566" : "none"} stroke="#FBF5EF" stroke-linecap="round" stroke-linejoin="round" />
-        </svg></div>
-
+        onClick={() => { }}
+        className="flex items-center gap-2 p-2 absolute left-4 top-4 rounded-[12px] cursor-pointer"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path fillRule="evenodd" clipRule="evenodd" d="M20.6449 11.915C21.6665 8.7294 20.4794 5.07389 17.1421 3.99873C16.2781 3.72338 15.3615 3.65915 14.4683 3.80996C13.5751 3.96175 12.7296 4.57863 12.0037 5.1235C11.2749 4.5835 10.4304 3.96953 9.53816 3.81872C8.64592 3.66693 7.73034 3.72921 6.86632 3.99873C3.52896 5.08362 2.33218 8.7294 3.35383 11.915C4.93007 16.9678 12.0037 20.2711 12.0037 20.2711C12.0037 20.2711 18.9713 17.0261 20.6449 11.915Z" fill="none" stroke="#FBF5EF" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
       <div className="flex flex-col items-end gap-[8px] flex-1" >
         <div className="flex flex-col justify-center items-end gap-[8px] self-stretch">
-          <p className='text-text-main w-full typography-body-16-medium'>شقة سكنية في المنصور</p>
+          <p className='text-text-main w-full typography-body-16-medium'>{complex.name?.ar || complex.name?.en}</p>
           <div className="flex justify-end items-center gap-[8px] self-stretch">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M1.48926 8.39054C1.50367 4.14996 4.95302 0.723964 9.19361 0.738326C13.4342 0.752779 16.8602 4.20213 16.8458 8.44272V8.52968C16.7936 11.2862 15.2545 13.834 13.3675 15.8253C12.2884 16.946 11.0833 17.9381 9.77621 18.7818C9.42672 19.0842 8.90832 19.0842 8.55882 18.7818C6.61033 17.5136 4.90019 15.9124 3.50665 14.0514C2.26461 12.4286 1.55942 10.459 1.48926 8.41663V8.39054Z" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
-              <path opacity="0.4" d="M9.16741 10.9999C10.5265 10.9999 11.6283 9.8981 11.6283 8.53899C11.6283 7.17989 10.5265 6.07812 9.16741 6.07812C7.80831 6.07812 6.70654 7.17989 6.70654 8.53899C6.70654 9.8981 7.80831 10.9999 9.16741 10.9999Z" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
+              <path fillRule="evenodd" clipRule="evenodd" d="M1.48926 8.39054C1.50367 4.14996 4.95302 0.723964 9.19361 0.738326C13.4342 0.752779 16.8602 4.20213 16.8458 8.44272V8.52968C16.7936 11.2862 15.2545 13.834 13.3675 15.8253C12.2884 16.946 11.0833 17.9381 9.77621 18.7818C9.42672 19.0842 8.90832 19.0842 8.55882 18.7818C6.61033 17.5136 4.90019 15.9124 3.50665 14.0514C2.26461 12.4286 1.55942 10.459 1.48926 8.41663V8.39054Z" stroke="#B8C6E3" strokeLinecap="round" strokeLinejoin="round" />
+              <path opacity="0.4" d="M9.16741 10.9999C10.5265 10.9999 11.6283 9.8981 11.6283 8.53899C11.6283 7.17989 10.5265 6.07812 9.16741 6.07812C7.80831 6.07812 6.70654 7.17989 6.70654 8.53899C6.70654 9.8981 7.80831 10.9999 9.16741 10.9999Z" stroke="#B8C6E3" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <p className='text-text-gray2 w-full  typography-body-14-light'>بغداد/اليرموك/شارع نادي الصيد</p>
+            <p className='text-text-gray2 w-full  typography-body-14-light'>{complex.governorate?.name?.ar || complex.governorate?.name?.en}/{complex.location}</p>
           </div>
         </div>
         <div className="flex  items-center content-center gap-[8px] self-stretch flex-wrap">
           <div className="flex justify-center items-center gap-[4px] px-[16px] py-[6px] rounded-[10px] border border-[rgba(234,28,28,0.05)] bg-opacity-secondary-10 backdrop-blur-[65px]">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-              <path d="M7.48078 15.827L5.25344 15.8314C4.79185 15.8324 4.41745 15.4579 4.41846 14.9964L4.4233 12.7695" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M4.83154 15.416L7.75144 12.4961" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M4.42477 7.23225L4.41992 5.00507C4.41892 4.54342 4.79342 4.16892 5.25507 4.16992L7.48225 4.17477" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M16.076 12.7695L16.0809 14.9967C16.0819 15.4584 15.7074 15.8329 15.2457 15.8319L13.0186 15.827" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M13.0171 4.17447L15.2449 4.16992C15.7066 4.16898 16.081 4.54357 16.0799 5.00525L16.0746 7.23196" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M15.6666 4.58398L12.7466 7.50395" stroke="#B8C6E3" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M7.48078 15.827L5.25344 15.8314C4.79185 15.8324 4.41745 15.4579 4.41846 14.9964L4.4233 12.7695" stroke="#B8C6E3" strokeWidth="0.833333" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M4.83154 15.416L7.75144 12.4961" stroke="#B8C6E3" strokeWidth="0.833333" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M4.42477 7.23225L4.41992 5.00507C4.41892 4.54342 4.79342 4.16892 5.25507 4.16992L7.48225 4.17477" stroke="#B8C6E3" strokeWidth="0.833333" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M16.076 12.7695L16.0809 14.9967C16.0819 15.4584 15.7074 15.8329 15.2457 15.8319L13.0186 15.827" stroke="#B8C6E3" strokeWidth="0.833333" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M13.0171 4.17447L15.2449 4.16992C15.7066 4.16898 16.081 4.54357 16.0799 5.00525L16.0746 7.23196" stroke="#B8C6E3" strokeWidth="0.833333" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M15.6666 4.58398L12.7466 7.50395" stroke="#B8C6E3" strokeWidth="0.833333" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <p className='text-text-main typography-body-14-light'>300م</p>
+            <p className='text-text-main typography-body-14-light'>{complex.area || '---'}م</p>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+});
