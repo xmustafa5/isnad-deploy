@@ -4,8 +4,33 @@ import { Button } from '@/app/_components/Button'
 import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
+import { useComplexById } from '@/hooks/useComplexById';
+import { useParams } from 'next/navigation';
 
 export default function page() {
+    const params = useParams();
+    const complexId = params.id as string;
+
+    const { data: complexData, isLoading, error } = useComplexById(complexId);
+
+    if (isLoading) {
+        return (
+            <div className='flex justify-center items-center h-96'>
+                <div className="text-text-gray1">جاري التحميل...</div>
+            </div>
+        );
+    }
+
+    if (error || !complexData?.item) {
+        return (
+            <div className='flex justify-center items-center h-96'>
+                <div className="text-red-500">حدث خطأ في تحميل البيانات</div>
+            </div>
+        );
+    }
+
+    const complex = complexData.item;
+
     return (
         <div className='flex gap-8 xl:flex-row flex-col '>
             <div
@@ -18,7 +43,7 @@ export default function page() {
         rgba(5, 15, 30, 0.90) 58.5%,
         #08182F 100%
       ),
-      url('/images/card.png')
+      url(${complex.background_img})
     `,
                     backgroundColor: 'lightgray',
                 }}
@@ -30,12 +55,12 @@ export default function page() {
                                 <div className="flex flex-col justify-center items-center w-[122px] h-[42px]">
                                     <div className="flex items-center gap-1">
                                         <p className="text-[#D3D9E1] text-right text-[19px] font-bold leading-[140%]">
-                                            10+
+                                            {complex.total_units}+
                                         </p>
 
                                     </div>
                                     <p className="text-[#AAB7CB] text-right text-[12px] font-normal leading-[120%]">
-                                        اكثر من 10 ابراج سكنية
+                                        {complex.type.label === 'Residential' ? 'ابراج سكنية' : 'ابراج تجارية'}
                                     </p>
 
                                 </div>
@@ -65,20 +90,20 @@ export default function page() {
                                 <div className="flex flex-col justify-center items-center w-[122px]">
                                     <div className="flex items-center gap-1">
                                         <p className="text-[#D3D9E1] text-right text-[20px] font-medium leading-[140%]">
-                                            K
+                                            {complex.years}
                                         </p>
                                         <p className="text-[#D3D9E1] text-right text-[19px] font-bold leading-[140%]">
-                                            12.2
+                                            سنوات
                                         </p>
                                     </div>
                                     <p className="text-[#AAB7CB] text-center text-[12px] font-normal leading-[120%]">
-                                        عقار سكني
+                                        {complex.type.label === 'Residential' ? 'عقار سكني' : 'عقار تجاري'}
                                     </p>
                                 </div>
                             </div>
                             <div className="flex flex-col items-center gap-1 self-stretch">
                                 <p className="text-text-main text-[20px] font-normal leading-[140%]">
-                                    المجمع الذهبي للأبراج.
+                                    {complex.name.ar || complex.name.en}
                                 </p>
                             </div>
                         </div>
@@ -116,7 +141,7 @@ export default function page() {
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9995 21C10.801 21 4.5 15.8984 4.5 10.5633C4.5 6.38664 7.8571 3 11.9995 3C16.1419 3 19.5 6.38664 19.5 10.5633C19.5 15.8984 13.198 21 11.9995 21Z" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                                 <p className="text-text-main text-right text-[14px] font-light leading-[140%]">
-                                    بغداد/اليرموك/شارع نادي الصيد
+                                    {complex.governorate.name.ar || complex.governorate.name.en}/{complex.location}
                                 </p>
                             </div>
                         </div>
@@ -236,8 +261,7 @@ export default function page() {
                                 </svg>
                             </div>
                             <p className=' overflow-hidden text-text-gray3 text-ellipsis typography-body-14-light h-fit self-stretch'>
-                                مجمع اليرموك هو مجمع سكني حديث مصمم بمعايير عالية ليوفر بيئة معيشية راقية وآمنة للسكان. يتميز بتصميم عصري يدمج بين المساحات الخضراء الواسعة والمرافق المتكاملة، مما يجعل الحياة اليومية أكثر راحة وسهولة.
-                                يوفر المجمع مجموعة متنوعة من الخدمات التي تشمل الأمان، الترفيه، التعليم، والتسوق، مما يجعله خيارًا مثاليًا للعائلات الباحثة عن حياة متكاملة داخل بيئة آمنة ومريحة.
+                                {complex.description.ar || complex.description.en}
                             </p>
                             <Button mode="text" className='w-full '>
                                 قراءة المزيد
@@ -258,28 +282,31 @@ export default function page() {
                                 <div className="flex w-full flex-col justify-center   self-stretch">
                                     <HeaderItem title="️المرافق والخدمات العامة" />
                                     <div className="flex flex-col items-end self-stretch">
-                                        <ServiceItem text="️المرافق والخدمات العامة" />
-                                        <ServiceItem text="مطاعم" />
-                                        <ServiceItem text="مركز صحي" />
-                                        <ServiceItem text="قاعة مناسبات" />
+                                        {complex.advantages
+                                            .filter(adv => adv.type.value === 0) // Complex level advantages
+                                            .map(advantage => (
+                                                <ServiceItem key={advantage.id} text={advantage.title.ar || advantage.title.en} />
+                                            ))}
                                     </div>
                                 </div>
                                 <div className="flex w-full flex-col justify-center  self-stretch">
-                                    <HeaderItem title="️المرافق والخدمات العامة" />
+                                    <HeaderItem title="مميزات المنزل" />
                                     <div className="flex flex-col items-end self-stretch">
-                                        <ServiceItem text="️المرافق والخدمات العامة" />
-                                        <ServiceItem text="مطاعم" />
-                                        <ServiceItem text="مركز صحي" />
-                                        <ServiceItem text="قاعة مناسبات" />
+                                        {complex.advantages
+                                            .filter(adv => adv.type.value === 1) // House level advantages
+                                            .map(advantage => (
+                                                <ServiceItem key={advantage.id} text={advantage.title.ar || advantage.title.en} />
+                                            ))}
                                     </div>
                                 </div>
                                 <div className="flex w-full flex-col justify-center  self-stretch">
-                                    <HeaderItem title="️المرافق والخدمات العامة" />
+                                    <HeaderItem title="مميزات الشقة" />
                                     <div className="flex flex-col items-end self-stretch">
-                                        <ServiceItem text="️المرافق والخدمات العامة" />
-                                        <ServiceItem text="مطاعم" />
-                                        <ServiceItem text="مركز صحي" />
-                                        <ServiceItem text="قاعة مناسبات" />
+                                        {complex.advantages
+                                            .filter(adv => adv.type.value === 2) // Apartment level advantages
+                                            .map(advantage => (
+                                                <ServiceItem key={advantage.id} text={advantage.title.ar || advantage.title.en} />
+                                            ))}
                                     </div>
                                 </div>
                             </div>
@@ -290,11 +317,17 @@ export default function page() {
                     </div>
                     <div className="flex flex-col gap-4 self-stretch">
                         <p className='text-white typography-title-24-light'>
-                            المدن
+                            معلومات الاتصال
                         </p>
-                        <div className="flex items-start content-start gap-6 self-stretch flex-wrap">
-                            <CardProperty />
-                            <CardProperty />
+                        <div className="flex flex-col gap-4 self-stretch">
+                            {complex.phones.map(phone => (
+                                <div key={phone.id} className="flex items-center gap-2">
+                                    <span className="text-text-gray1">
+                                        {phone.type.label === 'whatsapp' ? 'واتساب:' : 'هاتف:'}
+                                    </span>
+                                    <span className="text-text-main">{phone.number}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
