@@ -8,7 +8,7 @@ import { useCitiesInfinite } from '@/hooks/useCitiesInfinite';
 import { useInView } from 'react-intersection-observer';
 import { CityItem } from '@/types/citiesType';
 
-export default function CitiesPage({ params }: { params: { id: string } }) {
+export default function CitiesPage({ params }: any) {
     const developerId = params.id;
     console.log(developerId);
     const { ref: loadMoreRef, inView } = useInView();

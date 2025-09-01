@@ -17,7 +17,7 @@ export default function Page() {
   const allCities = dataCity?.pages.flatMap(page => page.items) || [];
 
   return (
-    <div className=' w-full h-full pt-[121px] flex flex-col gap-4'>
+    <div className=' w-full h-full pt-[121px] flex flex-col gap-4' style={{ paddingTop: "20px" }}>
       <div
         className="bg-cover bg-no-repeat bg-center pointer-events-none h-full w-full absolute inset-0"
         style={{

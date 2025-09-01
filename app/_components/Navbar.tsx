@@ -49,15 +49,15 @@ export default function Navbar() {
     return (
         <div className='flex pt-4 pb-2 px-4 md:px-16 justify-between items-center  '>
             <div className='relative z-10 xl:flex hidden items-center gap-6 self-stretch'>
-                <div className='flex items-center gap-2'>
+                {/* <div className='flex items-center gap-2'>
                     <button className='flex py-3 px-6 justify-center items-center'>
                         <p className="text-[#B8C6E3] text-right  text-[14px] font-light leading-[140%]">تسجيل</p>
                     </button>
                     <button className='rounded-[32px] flex py-2.5 border border-stroke-border px-6 justify-center items-center'>
                         <p className="text-[#B8C6E3] whitespace-nowrap text-right  text-[14px] font-light leading-[140%]">أنشاء حساب</p>
                     </button>
-                </div>
-                <LanguageSwitcher />
+                </div> */}
+                {/* <LanguageSwitcher /> */}
             </div>
             <div className=" relative z-10  xl:flex hidden h-12 p-1 items-center gap-4 rounded-[40px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]">
                 <NavbarButton text="الرئيسية" pathname={pathname} path="/ar" />
@@ -79,8 +79,10 @@ export default function Navbar() {
                 </svg>
             </div>
             <div className='relative z-10 and currency flex h-[60px] items-center gap-[56px]'>
-                <SelectCurrency />
-                {IsnadSvg}
+                {/* <SelectCurrency /> */}
+                <Link href="/ar">
+                    {IsnadSvg}
+                </Link>
             </div>
             {isOpen && (
                 <div
@@ -109,12 +111,15 @@ export default function Navbar() {
                             <p className="text-white text-center text-[14px] font-light leading-[140%]"
                             >اغلاق</p>
                         </div>
-                        {IsnadSvg}
+                        <Link href="/ar">
+                            {IsnadSvg}
+                        </Link>
                     </div>
                     <div className="space-y-2">
                         <NavbarButtonMobile text="الرئيسية" pathname={pathname} path="/ar" />
                         <NavbarButtonMobile text="المجمعات السكنية" pathname={pathname} path="/ar/residential-complexes" />
-                        <NavbarButtonMobile text="العقارات العامة" pathname={pathname} path="/ar/real-estate" />
+                        <NavbarButtonMobile text="المدن" pathname={pathname} path="/ar/cities" />
+                        <NavbarButtonMobile text="المطورين" pathname={pathname} path="/ar/developers" />
                         <NavbarButtonMobile text="الشركات" pathname={pathname} path="/ar/companies" />
                     </div>
                     {/* <div className="border-t border-white/10 pt-4 space-y-2">
@@ -126,7 +131,7 @@ export default function Navbar() {
                         </button>
                     </div> */}
                     <div className="border-t border-white/10 pt-4">
-                        <LanguageSwitcher />
+                        {/* <LanguageSwitcher /> */}
                     </div>
                 </div>
             </div>

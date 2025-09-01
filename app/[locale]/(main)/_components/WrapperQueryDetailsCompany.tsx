@@ -1,5 +1,5 @@
 'use client';
-import { getCompanyDetails } from '@/actions/componies'
+import { getCompanyById } from '@/actions/componies';
 import { Button } from '@/app/_components/Button';
 import Department from '@/app/_components/Department'
 import { companyTypeDetails } from '@/types/companiesType';
@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 export default function WrapperQueryDetailsCompany({ id, locale = "ar" }: { id: string, locale: "ar" | "en" }) {
     const { data, isLoading } = useQuery<companyTypeDetails>({
         queryKey: ['company-details', id],
-        queryFn: () => getCompanyDetails({ id }),
+        queryFn: () => getCompanyById(id),
     })
     const { t } = useTranslation('home_transtion');
     return (

@@ -50,7 +50,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
 
                 <div className="flex absolute top-56 left-1/2 -translate-x-1/2 w-full h-full flex-col items-center gap-4 z-[2] p-4">
                     <div className="flex flex-col gap-2 items-stretch w-full max-w-[698px]">
-                        <div className="flex items-center gap-4 self-stretch ltr:flex-row-reverse rtl:flex-row-reverse">
+                        <div className="flex gap-4 self-stretch ltr:flex-row-reverse rtl:flex-row-reverse bg-gradient-to-r from-bg-bg-2/0  to-bg-bg-2/50 rounded-full">
                             <div className="flex flex-col justify-center ltr:items-start rtl:items-start gap-1 flex-1">
                                 {isLoading ? (
                                     <div className="w-40 h-[24px] bg-secondary-800 animate-pulse rounded-md"></div>
@@ -60,14 +60,14 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                                 {isLoading ? (
                                     <div className="w-20 h-[12px] bg-secondary-800 animate-pulse rounded-md"></div>
                                 ) : (
-                                    <p className="text-[#AAB7CB] text-center text-[12px] font-normal leading-[120%]">
+                                    <p className="text-[#fff] text-center text-[12px] font-normal  leading-[120%]">
                                         {company?.type?.name?.[locale] || '-'}
                                     </p>
                                 )}
                             </div>
-                            <div className="w-[48px] h-[48px] rounded-full bg-white">
+                            <div className="w-[48px] h-[48px] rounded-full relative   shadow-2xl bg-white">
                                 {company?.logo && !isLoading && (
-                                    <Image src={company.logo} alt="logo" width={48} height={48} className="rounded-full object-cover" />
+                                    <Image src={company.logo} alt="logo" fill className="rounded-full object-cover shadow-2xl" />
                                 )}
                             </div>
                         </div>

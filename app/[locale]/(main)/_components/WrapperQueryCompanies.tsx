@@ -1,5 +1,5 @@
 'use client'
-import { getCompanies } from '@/actions/componies'
+import { getcompanies } from '@/actions/componies'
 import Company from '@/app/_components/Company'
 import { CompaniesResponse } from '@/types/companiesType'
 import { useQuery } from '@tanstack/react-query'
@@ -10,7 +10,7 @@ export default function WrapperQueryCompanies({ initialCompanies, locale }: { in
     const { t } = useTranslation('home_transtion');
     const { data, isLoading, error } = useQuery<CompaniesResponse>({
         queryKey: ['companies', locale],
-        queryFn: getCompanies,
+        queryFn: () => getcompanies(),
         initialData: initialCompanies
     })
 
