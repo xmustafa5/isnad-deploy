@@ -83,7 +83,11 @@ export default function Page() {
 
         </div>
       </div>
-      <Abs />
+      <div className='flex gap-4 flex-col z-10 '>
+        <h1 className='text-xl font-bold text-white'> عروض حصرية</h1>
+        <Abs />
+
+      </div>
     </div>
   )
 }

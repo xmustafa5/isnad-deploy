@@ -1,25 +1,31 @@
 import axios from "axios";
 
-export async function getCompanies() {
+const API_BASE_URL = "https://ops.isnad-iq.com/api";
+
+export async function getcompanies(
+  page: number = 1,
+  perPage: number = 10
+): Promise<any> {
   try {
-    const response = await axios.get(
-      "https://isnad-website.mem-iq.com/api/companies"
-    );
+    const response = await axios.get(`${API_BASE_URL}/companies`, {
+      params: {
+        page,
+        per_page: perPage,
+      },
+    });
     return response.data;
   } catch (error) {
-    console.log(error);
+    console.error("Error fetching companies:", error);
+    throw error;
   }
 }
-export async function getCompanyDetails({ id }: { id: string }) {
+
+export async function getCompanyById(id: string): Promise<{ item: any }> {
   try {
-    const response = await axios.get(
-      `https://isnad-website.mem-iq.com/api/companies/${id}`
-    );
+    const response = await axios.get(`${API_BASE_URL}/companies/${id}`);
     return response.data;
   } catch (error) {
-    return {
-      success: false,
-      return: error,
-    };
+    console.error("Error fetching complex by ID:", error);
+    throw error;
   }
 }

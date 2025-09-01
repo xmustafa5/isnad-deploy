@@ -1,7 +1,13 @@
-"use client";
-import React from "react";
-import { useQuery } from "@tanstack/react-query";
-import { getAdvertisements } from "@/actions/advertisements";
+'use client';
+import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { getAdvertisements } from '@/actions/advertisements';
+import {
+    Marquee,
+    MarqueeContent,
+    MarqueeFade,
+    MarqueeItem,
+} from '@/components/ui/shadcn-io/marquee';
 
 export interface Advertisement {
     id: string;
@@ -15,7 +21,7 @@ export interface Advertisement {
 
 function Abs() {
     const { data, isLoading, error } = useQuery({
-        queryKey: ["advertisements"],
+        queryKey: ['advertisements'],
         queryFn: getAdvertisements,
     });
 
@@ -24,45 +30,32 @@ function Abs() {
     if (error)
         return <div className="text-center text-red-500">خطأ في تحميل الإعلانات</div>;
 
-    // ✅ نعرض بس المرئي ونكررهم حتى يصير infinite
-    const ads = data?.items?.filter((ad) => ad.is_visible.value === 1) || [];
-    const loopedAds = [...ads, ...ads];
-
     return (
-        <div className="w-full overflow-hidden z-10">
-            <div className="flex gap-4 animate-scroll">
-                {loopedAds.map((ad, idx) => (
-                    <a
-                        key={`${ad.id}-${idx}`}
-                        href={ad.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-shrink-0 w-64 h-40 rounded-xl overflow-hidden shadow-lg bg-gray-900 hover:scale-105 transition-transform"
-                    >
-                        <img
-                            src={ad.img}
-                            alt="Advertisement"
-                            className="w-full h-full object-cover"
-                        />
-                    </a>
-                ))}
-            </div>
-
-            {/* 🔑 CSS animation */}
-            <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-scroll {
-          animation: scroll 20s linear infinite;
-          width: max-content;
-        }
-      `}</style>
+        <div className="w-full overflow-hidden z-10" dir='ltr'>
+            <Marquee>
+                <MarqueeFade side="left" />
+                <MarqueeFade side="right" />
+                <MarqueeContent className="flex gap-4">
+                    {data?.items
+                        ?.filter((ad) => ad.is_visible.value === 1)
+                        .map((ad) => (
+                            <MarqueeItem key={ad.id} className="flex-shrink-0 w-64 h-40">
+                                <a
+                                    href={ad.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block w-full h-full overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform bg-gray-900"
+                                >
+                                    <img
+                                        src={ad.img}
+                                        alt="Advertisement"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </a>
+                            </MarqueeItem>
+                        ))}
+                </MarqueeContent>
+            </Marquee>
         </div>
     );
 }

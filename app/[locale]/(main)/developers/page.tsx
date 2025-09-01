@@ -32,7 +32,7 @@ const DevelopersPage = () => {
                 )}
 
                 {/* Instagram stories style */}
-                <div className="flex gap-6 overflow-x-auto scrollbar-hide px-2">
+                <div className="flex gap-6  flex-wrap px-2">
                     {data?.items?.map((developer: any) => (
                         developer.cities.length > 0 ? (
                             <Link
