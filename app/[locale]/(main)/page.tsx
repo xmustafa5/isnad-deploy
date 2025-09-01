@@ -1,25 +1,23 @@
 "use client";
-import { Button } from '@/app/_components/Button'
-import { useComplexesInfinite } from '@/hooks/useComplexesInfinite';
-import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import React, { useState } from 'react'
+import { getDevelopers } from '@/actions/developers';
+import { useCitiesInfinite } from '@/hooks/useCitiesInfinite';
+import { cn } from '@/lib/utils';
+import { useQuery } from '@tanstack/react-query';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import Abs from './_components/Abs';
 
 export default function Page() {
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    isLoading,
-    error
-  } = useComplexesInfinite();
-  const allComplexes = React.useMemo(() => {
-    if (!data?.pages) return [];
-    return data.pages.flatMap(page => page.items);
-  }, [data?.pages]);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["developers"],
+    queryFn: () => getDevelopers(),
+  });
+  const { data: dataCity, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading: isloadingCity, error: errorCity } = useCitiesInfinite(1);
+  const allCities = dataCity?.pages.flatMap(page => page.items) || [];
+
   return (
-    <div className=' w-full h-full pt-[121px] flex flex-col xl:flex-row '>
+    <div className=' w-full h-full pt-[121px] flex flex-col gap-4'>
       <div
         className="bg-cover bg-no-repeat bg-center pointer-events-none h-full w-full absolute inset-0"
         style={{
@@ -28,120 +26,149 @@ export default function Page() {
           backgroundColor: "lightgray",
         }}
       ></div>
-      <div className='w-full xl:w-1/2 xl:h-full flex flex-col '>
-        {/* <div className='h-0 shrink-0 w-full xl:h-1/2 '></div> */}
-        <div className='flex items-center   pb-4 relative z-10 flex-col xl:flex-row w-full xl:pt-[260px]  '>
-          <div className="flex flex-col justify-center   shrink-0   h-full w-full">
-            <div className="flex flex-col justify-center gap-6  h-full w-full">
-              <div className="text-white xl:text-[56px] text-[32px] font-normal leading-normal">
-                <p className='xl:max-w-[569px] max-w-full'>
-                  البحــــــث عن عقـــــارك المثالي لم يكن أسهل
-                </p>
-                <p>
-                  <span className='font-bold'>من ألان</span> !
-                </p>
+      <div className='flex gap-4 flex-col z-10 '>
+
+        <h1 className='text-xl font-bold text-white'>المطورين</h1>
+        <div className="flex gap-6 overflow-x-auto scrollbar-hide px-2 z-10">
+          {data?.items?.map((developer: any) => (
+            <div
+              key={developer.id}
+              className="flex flex-col items-center flex-shrink-0 cursor-pointer group"
+            >
+              {/* Circle border like IG stories */}
+              <div className="p-[3px] bg-gradient-to-tr from-pink-500 via-purple-500 to-indigo-500 rounded-full">
+                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center overflow-hidden">
+                  <img
+                    src={developer.logo || "/images/developer-placeholder.png"}
+                    alt={developer.name.ar}
+                    className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform"
+                  />
+                </div>
               </div>
-              <p className='text-white text-[16px] font-light w-[300px] sm:w-[412px] '>اكتشف عقارات فاخرة تجمع بين التصميم الأنيق، الموقع المثالي، والمرافق المتكاملة لتناسب أسلوب حياتك</p>
-              <div className='flex gap-4 pt-6 sm:flex-row flex-col items-center xl:items-start'>
-                <Button>
-                  ابدء البحث الان
-                </Button>
-                <Button mode="default" variant="gray">
-                  تواصل معنا
-                </Button>
-              </div>
+              <p className="mt-2 text-sm text-gray-200 truncate w-20 text-center">
+                {developer.name.ar}
+              </p>
             </div>
-          </div>
+          ))}
 
         </div>
       </div>
-
-      <div className=' h-fit pb-7 justify-center items-center flex flex-col relative z-10 w-full xl:w-1/2'>
-        <div className='flex w-full h-1/2 flex-col justify-center relative'>
-
-          <div className="flex w-[320px] h-1/2 flex-col justify-center gap-4 relative xl:m-0 mt-6">
-            <div className="flex items-center gap-[52px] self-stretch">
-              <PresentationNumber number="230+" title="عقارات مميزة متاحة الآن للتأجير أو الشراء" />
-              <PresentationNumber number="230+" title="عقارات مميزة متاحة الآن للتأجير أو الشراء" />
-            </div>
-            <div className="flex flex-col items-start gap-6 self-stretch relative top-[20px]">
-              <div className="flex items-center gap-3.5 self-stretch ">
-                <p className="text-white absolute right-[0px] text-[14px] font-light leading-[1.2] whitespace-nowrap">
-                  انضم الئ عقارات اسناد
-                </p>
-                <div className="flex items-center absolute left-[0px]">
-                  <ImageCarve image="/images/card.png" zIndex={0} position="left-[0px]" />
-                  <ImageCarve image="/images/city.png" zIndex={4} position="left-[30px]" />
-                  <ImageCarve image="/images/details.png" zIndex={6} position="left-[60px]" />
-                  <ImageCarve image="/images/details.png" zIndex={10} position="left-[90px]" />
-                </div>
-
-              </div>
-              <Button mode="default" variant="gray" className='w-full top-2 relative'>
-                سجل مجمعك
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                  <path d="M16 16.8047L8 8.80469M8 8.80469V14.8047M8 8.80469H14" stroke="#FBF5EF" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </Button>
-            </div>
-          </div>
+      <div className='flex gap-4 flex-col z-10 '>
+        <h1 className='text-xl font-bold text-white'>تعرف على مدننا ومجمعاتنا</h1>
+        <div className='flex gap-6'>
+          <ComplexCard />
+          <CityCard />
         </div>
+      </div>
+      <div className='flex gap-4 flex-col z-10 '>
+        <div className='flex justify-between'>
 
-        <div className="flex items-center gap-4 mt-24 w-full">
-          <div className="flex flex-col gap-4 self-stretch w-full">
-            <p className='text-white typography-title-24-light'>
-              عقارات مشابهه
+          <h1 className='text-xl font-bold text-white'>المدن العقارية</h1>
+          <Link href={"/cities"} className='self-start bg-white/20 backdrop-blur-md text-white text-sm px-3 py-1 hover:bg-white/30 transition flex rounded-full'>
+            <p className='text-[#e9e9e9]'>
+              عرض الكل
             </p>
-            <div className="flex scroll-white pb-4 items-start content-start gap-6 self-stretch overflow-x-auto w-full snap-x snap-mandatory">
-              {allComplexes.slice(0, 10).map((complex) => (
-                <div key={complex.id} className="flex p-1 flex-col justify-center items-end">
-                  <div className="w-[298px] h-[296px] relative rounded-[20px] border-[2px] border-[#DE7432]">
-                    <div className="flex items-center gap-[10px] px-4 py-2">
-                      {/* ...your SVG and label here... */}
-                      <p className='text-white text-[12px] font-normal leading-[140%]'>عقار مميز</p>
-                      {/* ...your SVG here... */}
-                    </div>
-                    <CardProperty complex={complex} />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M17 12H7M7 12L11 16M7 12L11 8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+
+          </Link>
+        </div>
+        <div className="flex gap-6 overflow-x-auto scroll-white  px-2 z-10">
+          {allCities.map((city) => (
+            <>
+              <CardCity key={city.id} city={city} />
+            </>
+          ))}
+
         </div>
       </div>
-
+      <Abs />
     </div>
   )
 }
-function Abs() {
+
+function ComplexCard() {
   return (
-    <div></div>
-  )
-}
-function PresentationNumber({ number, title }: { number: string, title: string }) {
-  return (
-    <div className="flex w-[134px] flex-col">
-      <div className='flex gap-1 items-center'>
-        <p className="text-white text-[40px] font-normal leading-normal">
-          {number}
-        </p>
+    <div className="relative w-64 h-80 rounded-2xl overflow-hidden shadow-lg">
+      {/* Background Image */}
+      <img
+        src="/images/building.jpg" // replace with your image path
+        alt="Building"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {/* Overlay */}
+      <div
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,24,47,0)_41.78%,rgba(8,24,47,0.9)_84.1%),url('/images/building.jpg')] bg-cover bg-center"
+      />
+      {/* Content */}
+      <div className="relative h-full flex flex-col justify-end p-4 text-white ">
+        {/* Top Button */}
+        <div className='flex  items-end justify-end absolute w-full top-10 left-0'>
+
+          <Link
+            href="/complexes"
+            className="self-start bg-white/20 backdrop-blur-md text-white text-sm px-3 py-1 hover:bg-white/30 transition"
+          >
+            ← عرض المجمعات
+          </Link>
+        </div>
+
+        {/* Bottom Content */}
+        <div className="text-center">
+          <p className="text-4xl font-bold">10+</p>
+          <p className="mt-2 text-sm leading-relaxed">
+            مجمعات سكنية تثق بنا <br />
+            والخدمات التي نقدمها
+          </p>
+        </div>
       </div>
-      <p className="text-white text-[12px] leading-[140%]">
-        {title}
-      </p>
     </div>
-  )
-}
-function ImageCarve({ image, zIndex, position }: { image: string, zIndex: number, position: string }) {
-  return (
-    <div className={cn(`size-[49px] border-[2.3px] overflow-hidden border-[rgba(255,255,255,0.08)] rounded-full  hover:z-[100] transition-all duration-300 absolute`, zIndex && `z-[${zIndex}]`, position && ` ${position}`)}>
-      <Image src={image} alt="logo" fill className='object-cover' />
-    </div>
-  )
+  );
 }
 
-const CardProperty = React.memo(function CardProperty({ complex }: { complex: any }) {
-  // Format price to readable format
+function CityCard() {
+  return (
+    <div className="relative w-64 h-80 rounded-2xl overflow-hidden shadow-lg">
+      {/* Background Image */}
+      <img
+        src="/images/city2.jpg" // replace with your city image path
+        alt="City"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {/* Overlay */}
+      <div
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_50%,var(--bg-primary,rgba(197,115,64,0.9))_90%),url('/images/city.jpg')] bg-cover bg-center"
+      />
+
+      {/* Content */}
+      <div className="relative h-full flex flex-col justify-end p-4 text-white">
+        {/* Top Button */}
+        <div className='flex  items-end justify-end absolute w-full top-10 left-0'>
+          <Link
+            href="/cities"
+            className="self-start bg-white/20 backdrop-blur-md text-white text-sm px-3 py-1 hover:bg-white/30 transition"
+          >
+            ← عرض المدن
+          </Link>
+        </div>
+
+        {/* Bottom Content */}
+        <div className="text-center">
+          <p className="text-4xl font-bold">5+</p>
+          <p className="mt-2 text-sm leading-relaxed">
+            مدن رئيسية نعمل بها <br />
+            والمشاريع التي نقدمها
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CardCity({ city }: { city: any }) {
   const formatPrice = (price: number) => {
     if (price >= 1000000) {
       return `${(price / 1000000).toFixed(1)}M`;
@@ -150,8 +177,6 @@ const CardProperty = React.memo(function CardProperty({ complex }: { complex: an
     }
     return price.toString();
   };
-
-  // Get status label based on built_status
   const getStatusLabel = (status: number) => {
     switch (status) {
       case 0:
@@ -174,50 +199,124 @@ const CardProperty = React.memo(function CardProperty({ complex }: { complex: an
         return "bg-[rgba(128,128,128,0.25)]"; // Gray for unknown
     }
   };
-
   return (
-    <div
-      className="flex h-[253px] min-w-full relative overflow-hidden max-w-[536px] p-[16px] justify-end items-end gap-[8px] flex-1 rounded-[18px] border border-stroke-border bg-[linear-gradient(180deg,rgba(8,24,47,0)_0%,var(--opacity-secondary-90,rgba(8,24,47,0.81))_86.5%),url('/images/company.png')] bg-[lightgray] bg-cover bg-no-repeat bg-center snap-center">
-      <div
-        className="flex items-center gap-1 px-3 z-40 py-2 absolute top-0 -right-0.5 rounded-bl-[24px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[65px]"
-      >
-        <p className="text-text-main typography-body-14-light">{complex.type?.label === 'Residential' ? 'شهري' : 'سنوي'}</p>
-        <p className="text-text-main text-[18px] font-normal leading-[140%]">/</p>
-        <p className="text-text-main text-[18px] font-normal leading-[140%]">{formatPrice(complex.max_price)} IQD</p>
+    <Link
+      href={`/cities/${city.id}`}
+      className="flex flex-col justify-end items-end h-[296px] min-w-[330px] overflow-hidden max-w-[540px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px]
+       bg-[lightgray] bg-center bg-cover bg-no-repeat relative"
+      style={{
+        backgroundImage: `url(${city.background_img || "/images/city.png"})`,
+      }}
+    >
+      {/* Blur circle like residential */}
+      <div className="absolute right-[-45.31px] z-30 bottom-[-133.309px] w-[346.619px] h-[346.619px] rounded-full bg-[rgba(8,24,47,0.8)] blur-[54px]"></div>
+
+      {/* Decorative SVG background like residential */}
+      <div className="absolute w-full h-[191.715px] right-0 bottom-[-5.239px] z-20">
+        <RectangleComplexSvg />
       </div>
-      <div
-        onClick={() => { }}
-        className="flex items-center gap-2 p-2 absolute left-4 top-4 rounded-[12px] cursor-pointer"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path fillRule="evenodd" clipRule="evenodd" d="M20.6449 11.915C21.6665 8.7294 20.4794 5.07389 17.1421 3.99873C16.2781 3.72338 15.3615 3.65915 14.4683 3.80996C13.5751 3.96175 12.7296 4.57863 12.0037 5.1235C11.2749 4.5835 10.4304 3.96953 9.53816 3.81872C8.64592 3.66693 7.73034 3.72921 6.86632 3.99873C3.52896 5.08362 2.33218 8.7294 3.35383 11.915C4.93007 16.9678 12.0037 20.2711 12.0037 20.2711C12.0037 20.2711 18.9713 17.0261 20.6449 11.915Z" fill="none" stroke="#FBF5EF" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </div>
-      <div className="flex flex-col items-end gap-[8px] flex-1" >
-        <div className="flex flex-col justify-center items-end gap-[8px] self-stretch">
-          <p className='text-text-main w-full typography-body-16-medium'>{complex.name?.ar || complex.name?.en}</p>
-          <div className="flex justify-end items-center gap-[8px] self-stretch">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
-              <path fillRule="evenodd" clipRule="evenodd" d="M1.48926 8.39054C1.50367 4.14996 4.95302 0.723964 9.19361 0.738326C13.4342 0.752779 16.8602 4.20213 16.8458 8.44272V8.52968C16.7936 11.2862 15.2545 13.834 13.3675 15.8253C12.2884 16.946 11.0833 17.9381 9.77621 18.7818C9.42672 19.0842 8.90832 19.0842 8.55882 18.7818C6.61033 17.5136 4.90019 15.9124 3.50665 14.0514C2.26461 12.4286 1.55942 10.459 1.48926 8.41663V8.39054Z" stroke="#B8C6E3" strokeLinecap="round" strokeLinejoin="round" />
-              <path opacity="0.4" d="M9.16741 10.9999C10.5265 10.9999 11.6283 9.8981 11.6283 8.53899C11.6283 7.17989 10.5265 6.07812 9.16741 6.07812C7.80831 6.07812 6.70654 7.17989 6.70654 8.53899C6.70654 9.8981 7.80831 10.9999 9.16741 10.9999Z" stroke="#B8C6E3" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <p className='text-text-gray2 w-full  typography-body-14-light'>{complex.governorate?.name?.ar || complex.governorate?.name?.en}/{complex.location}</p>
+
+      {/* Info */}
+      <div className="info flex flex-col gap-2 z-30 w-full">
+        <div className="flex gap-4 w-full">
+          {/* City icon/logo placeholder */}
+          <div className="size-[56px] rounded-full bg-bg-secondry overflow-hidden">
+            <img
+              src={city.logo || "/images/city-icon.png"}
+              alt={city.name || city.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <p className="text-text-main typography-subtitle-18-Light">
+              {city.name.ar}
+            </p>
+            <div className="flex gap-2">
+              <p className="text-text-gray1 text-[12px]">
+                {city.total_units} وحدة
+              </p>
+              <p className="text-text-gray1 text-[12px]">
+                {city.years} سنوات
+              </p>
+            </div>
           </div>
         </div>
-        <div className="flex  items-center content-center gap-[8px] self-stretch flex-wrap">
-          <div className="flex justify-center items-center gap-[4px] px-[16px] py-[6px] rounded-[10px] border border-[rgba(234,28,28,0.05)] bg-opacity-secondary-10 backdrop-blur-[65px]">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-              <path d="M7.48078 15.827L5.25344 15.8314C4.79185 15.8324 4.41745 15.4579 4.41846 14.9964L4.4233 12.7695" stroke="#B8C6E3" strokeWidth="0.833333" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M4.83154 15.416L7.75144 12.4961" stroke="#B8C6E3" strokeWidth="0.833333" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M4.42477 7.23225L4.41992 5.00507C4.41892 4.54342 4.79342 4.16892 5.25507 4.16992L7.48225 4.17477" stroke="#B8C6E3" strokeWidth="0.833333" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M16.076 12.7695L16.0809 14.9967C16.0819 15.4584 15.7074 15.8329 15.2457 15.8319L13.0186 15.827" stroke="#B8C6E3" strokeWidth="0.833333" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M13.0171 4.17447L15.2449 4.16992C15.7066 4.16898 16.081 4.54357 16.0799 5.00525L16.0746 7.23196" stroke="#B8C6E3" strokeWidth="0.833333" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M15.6666 4.58398L12.7466 7.50395" stroke="#B8C6E3" strokeWidth="0.833333" strokeLinecap="round" strokeLinejoin="round" />
+
+        <div className="border-t border-opacity-white-10 flex pt-3 gap-2 flex-col">
+          <p className='text-text-gray1 typography-body-14-medium'>
+            من {formatPrice(city.min_price)} الى {formatPrice(city.max_price)} IQD
+          </p>
+          {/* <p className="text-text-gray1 typography-body-14-medium">
+                      عدد المشاريع: {city.total_units || 0}
+                  </p> */}
+          <div className="flex gap-2 items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M14.5 10.9878C14.5 9.60654 13.3808 8.4873 12.0005 8.4873C10.6192 8.4873 9.5 9.60654 9.5 10.9878C9.5 12.3681 10.6192 13.4873 12.0005 13.4873C13.3808 13.4873 14.5 12.3681 14.5 10.9878Z"
+                stroke="#EEF5FF"
+                strokeWidth="0.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M11.9995 21.4873C10.801 21.4873 4.5 16.3857 4.5 11.0506C4.5 6.87394 7.8571 3.4873 11.9995 3.4873C13.3808 13.4873 19.5 6.87394 19.5 11.0506C19.5 16.3857 13.198 21.4873 11.9995 21.4873Z"
+                stroke="#EEF5FF"
+                strokeWidth="0.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
-            <p className='text-text-main typography-body-14-light'>{complex.area || '---'}م</p>
+            <p className="text-text-gray1 typography-body-14-light flex items-center">
+              {city.governorate.name.ar || "غير محدد"}
+            </p>
           </div>
         </div>
       </div>
-    </div>
+      <div className={`flex items-center justify-center gap-2  h-[36px]  py-2 absolute left-4 top-4 rounded-[16px] border border-white/10 ${getStatusBgColor(city.built_status.value)} backdrop-blur-[14px]`}>
+        <p className="text-[#EEF5FF] text-[14px] font-[400] leading-[140%] whitespace-nowrap px-2">
+          {getStatusLabel(city.built_status.value)}
+        </p>
+      </div>
+    </Link>
   );
-});
+}
+function RectangleComplexSvg() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="537" height="192" viewBox="0 0 537 192" fill="none">
+      <path d="M536.683 54.9912V0H487.859C504.127 18.3228 520.415 36.6684 536.683 54.9912Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M146.473 54.9912V0H97.6486C113.917 18.3228 130.205 36.6684 146.473 54.9912Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M439.034 54.9912H487.859V0C471.591 18.3228 455.303 36.6684 439.034 54.9912Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M439.217 54.9912V0H390.393C406.661 18.3228 422.949 36.6684 439.217 54.9912Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M341.568 54.9912H390.392V0C374.124 18.3228 357.836 36.6684 341.568 54.9912Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M341.568 54.9912V0H292.743C309.011 18.3228 325.3 36.6684 341.568 54.9912Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M243.919 54.9912H292.744V0C276.476 18.3228 260.187 36.6684 243.919 54.9912Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M244.122 54.9912V0H195.297C211.565 18.3228 227.854 36.6684 244.122 54.9912Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M146.474 54.9912H195.298V0C179.03 18.3228 162.742 36.6684 146.474 54.9912Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M48.8247 191.715V54.9688H0.000270656C16.2683 100.558 32.5566 146.125 48.8247 191.715Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M48.8245 191.715H97.6489V54.9688C81.3809 100.558 65.0925 146.125 48.8245 191.715Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M48.8247 54.9912V0H0.000270656C16.2683 18.3228 32.5566 36.6684 48.8247 54.9912Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M48.8235 54.9912H97.6479V0C81.3799 18.3228 65.0916 36.6684 48.8235 54.9912Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M536.683 191.715V54.9688H487.859C504.127 100.558 520.415 146.125 536.683 191.715Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M146.473 191.715V54.9688H97.6486C113.917 100.558 130.205 146.125 146.473 191.715Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M439.034 191.715H487.859V54.9688C471.591 100.558 455.303 146.125 439.034 191.715Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M439.217 191.715V54.9688H390.393C406.661 100.558 422.949 146.125 439.217 191.715Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M341.568 191.715H390.392V54.9688C374.124 100.558 357.836 146.125 341.568 191.715Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M341.568 191.715V54.9688H292.743C309.011 100.558 325.3 146.125 341.568 191.715Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M243.919 191.715H292.744V54.9688C276.476 100.558 260.187 146.125 243.919 191.715Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M244.123 191.715V54.9688H195.298C211.566 100.558 227.855 146.125 244.123 191.715Z" fill="#2e2e4cba" fillOpacity="0.3" />
+      <path d="M146.473 191.715H195.297V54.9688C179.029 100.558 162.741 146.125 146.473 191.715Z" fill="#2e2e4cba" fillOpacity="0.3" />
+    </svg>
+  );
+}
+
