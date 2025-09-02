@@ -89,9 +89,10 @@ export default function Page() {
                             </div>
                         </div>
                     </div>
-                </div>   <div className="flex items-start gap-4 self-stretch">
+                </div>
+                <div className="flex items-start gap-4 self-stretch">
 
-                    <div className="flex items-start gap-4 self-stretch">
+                    <div className="flex items-start gap-4 self-stretch w-full">
                         {complex.phones.map((phone: any) => {
                             if (phone.type.value === 0) {
                                 // 📞 Phone
@@ -102,7 +103,7 @@ export default function Page() {
                                             e.stopPropagation();
                                             window.open(`tel:${phone.number}`, "_self");
                                         }}
-                                        className="flex cursor-pointer h-10 px-8 py-[11px] justify-center items-center gap-2 rounded-[16px] border border-[rgba(255,255,255,0.11)]"
+                                        className="flex w-full cursor-pointer h-10 px-8 py-[11px] justify-center items-center gap-2 rounded-[16px] border border-[rgba(255,255,255,0.11)]"
                                     >
                                         {svgphone}
                                     </button>
@@ -122,7 +123,7 @@ export default function Page() {
                                                 "_blank"
                                             );
                                         }}
-                                        className="flex cursor-pointer h-10 px-8 py-[11px] justify-center items-center gap-2 rounded-[16px] border border-[rgba(255,255,255,0.11)]"
+                                        className="flex w-full cursor-pointer h-10 px-8 py-[11px] justify-center items-center gap-2 rounded-[16px] border border-[rgba(255,255,255,0.11)]"
                                     >
                                         {svgwhatsapp}
                                     </button>
@@ -185,9 +186,6 @@ export default function Page() {
                 </div>
                 <FeatureAndServies item={complex} />
                 <RowDevloperAndRingPrice item={complex} />
-
-
-
             </div>
         </div>
     )

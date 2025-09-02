@@ -5,7 +5,7 @@ const RowDevloperAndRingPrice = ({ item }: any) => {
     return (
         <div className="flex flex-col items-start gap-6 self-stretch">
             <div className="flex flex-col items-start gap-4 self-stretch">
-                <div className="grid grid-cols-2 gap-4 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                     {item?.developer &&
                         <div className="flex item-center justify-between  gap-2 p-4 rounded-[12px] border text-white border-white/10 bg-white/5">
                             <div className="flex item-center  gap-2 p-4 rounded-[12px]  text-white ">
@@ -36,7 +36,7 @@ function PriceCard({ item }: any) {
     console.log(item);
 
     return (
-        <div className="w-[420px] rounded-[16px] overflow-hidden  border-white/10 bg-white/5">
+        <div className="w-[100%] rounded-[16px] overflow-hidden  border-white/10 bg-white/5">
             {/* Top Section */}
             <div className="flex justify-between items-center bg-[#0B1D34] px-6 py-4 text-white text-sm">
                 {/* Right side */}

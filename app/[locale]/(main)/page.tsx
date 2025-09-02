@@ -112,7 +112,7 @@ function ComplexCard() {
         <div className='flex  items-end justify-end absolute w-full top-10 left-0'>
 
           <Link
-            href="/complexes"
+            href="/residential-complexes"
             className="self-start bg-white/20 backdrop-blur-md text-white text-sm px-3 py-1 hover:bg-white/30 transition"
           >
             ← عرض المجمعات
