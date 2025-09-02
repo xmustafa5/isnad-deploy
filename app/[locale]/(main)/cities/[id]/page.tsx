@@ -4,6 +4,9 @@ import Link from 'next/link';
 import React from 'react'
 import { useCityById } from '@/hooks/useCityById';
 import { useParams } from 'next/navigation';
+import { svgphone, svgwhatsapp } from '@/public/svg/svg';
+import FeatureAndServies from '../../residential-complexes/_components/FeatureAndServies';
+import RowDevloperAndRingPrice from '../../_components/RowDevloperAndRingPrice';
 
 export default function CityDetailPage() {
     const params = useParams();
@@ -50,10 +53,10 @@ export default function CityDetailPage() {
                     <div className='flex flex-col items-start gap-4 self-stretch'>
                         <div className="flex flex-col items-center gap-2 self-stretch">
                             <div className="flex justify-center items-end gap-[25px] self-stretch">
-                                <div className="flex flex-col justify-center items-center w-[122px] h-[42px]">
+                                {/* <div className="flex flex-col justify-center items-center w-[122px] h-[42px]">
                                     <div className="flex items-center gap-1">
                                         <p className="text-[#D3D9E1] text-right text-[19px] font-bold leading-[140%]">
-                                            {city.total_units}+
+                                            {city.total_units}+s
                                         </p>
 
                                     </div>
@@ -61,11 +64,11 @@ export default function CityDetailPage() {
                                         {city.type.label === 'Residential' ? 'ابراج سكنية' : 'ابراج تجارية'}
                                     </p>
 
-                                </div>
+                                </div> */}
                                 <div className="flex justify-center items-center w-[80px] h-[80px] overflow-hidden rounded-[145.455px] border-[3.333px] border-[rgba(255,255,255,0.09)]" style={{ backgroundColor: "var(--bg-secondry, #08182F)" }}>
                                     <img src={city.logo || "/images/city-icon.png"} alt="city-icon" className="w-full h-full object-cover" />
                                 </div>
-                                <div className="flex flex-col justify-center items-center w-[122px]">
+                                {/* <div className="flex flex-col justify-center items-center w-[122px]">
                                     <div className="flex items-center gap-1">
                                         <p className="text-[#D3D9E1] text-right text-[20px] font-medium leading-[140%]">
                                             {city.years}
@@ -77,7 +80,7 @@ export default function CityDetailPage() {
                                     <p className="text-[#AAB7CB] text-center text-[12px] font-normal leading-[120%]">
                                         {city.type.label === 'Residential' ? 'عقار سكني' : 'عقار تجاري'}
                                     </p>
-                                </div>
+                                </div> */}
                             </div>
                             <div className="flex flex-col items-center gap-1 self-stretch">
                                 <p className="text-text-main text-[20px] font-normal leading-[140%]">
@@ -95,11 +98,56 @@ export default function CityDetailPage() {
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9995 21C10.801 21 4.5 15.8984 4.5 10.5633C4.5 6.38664 7.8571 3 11.9995 3C16.1419 3 19.5 6.38664 19.5 10.5633C19.5 15.8984 13.198 21 11.9995 21Z" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                                 <p className="text-text-main text-right text-[14px] font-light leading-[140%]">
-                                    {city.governorate.name.ar || city.governorate.name.en}/{city.location}
+                                    {city.governorate.name.ar || city.governorate.name.en}
                                 </p>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="flex items-start gap-4 self-stretch">
+
+                    <div className="flex items-start gap-4 self-stretch">
+                        {city.phones.map((phone: any) => {
+                            if (phone.type.value === 0) {
+                                // 📞 Phone
+                                return (
+                                    <button
+                                        key={phone.id}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            window.open(`tel:${phone.number}`, "_self");
+                                        }}
+                                        className="flex cursor-pointer h-10 px-8 py-[11px] justify-center items-center gap-2 rounded-[16px] border border-[rgba(255,255,255,0.11)]"
+                                    >
+                                        {svgphone}
+                                    </button>
+                                );
+                            }
+
+                            if (phone.type.value === 1) {
+                                // 💬 WhatsApp (add country code if needed)
+                                const countryCode = "964"; // Iraq example
+                                return (
+                                    <button
+                                        key={phone.id}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            window.open(
+                                                `https://wa.me/${countryCode}${phone.number}`,
+                                                "_blank"
+                                            );
+                                        }}
+                                        className="flex cursor-pointer h-10 px-8 py-[11px] justify-center items-center gap-2 rounded-[16px] border border-[rgba(255,255,255,0.11)]"
+                                    >
+                                        {svgwhatsapp}
+                                    </button>
+                                );
+                            }
+
+                            return null;
+                        })}
+                    </div>
+
                 </div>
             </div>
             <div className="flex flex-col gap-8 flex-1">
@@ -150,110 +198,14 @@ export default function CityDetailPage() {
 
                     </div>
                 </div>
-                <div className="flex flex-col justify-center items-end gap-4 self-stretch px-6 py-4 rounded-[16px] border"
-                    style={{
-                        borderColor: "var(--stroke-border, #212F43)",
-                        backgroundColor: "var(--opacity-white-5, rgba(255, 255, 255, 0.05))",
-                        backdropFilter: "blur(9px)",
-                    }}
-                >
-                    <FeatureItem title="مميزات والخدمات" />
-                    <div className="flex items-start gap-4 self-stretch overflow-y-auto">
-                        <div className="flex w-full flex-col justify-center   self-stretch">
-                            <div className="flex  items-end self-stretch flex-wrap gap-2">
-                                {city.advantages
-
-                                    .map((advantage: any) => (
-                                        <ServiceItem key={advantage.id} text={advantage.title.ar || advantage.title.en} />
-                                    ))}
-                            </div>
-                        </div>
+                <FeatureAndServies item={city} />
 
 
-                    </div>
-                </div>
 
-                <div className="flex flex-col items-start gap-6 self-stretch">
-                    <div className="flex flex-col items-start gap-4 self-stretch">
-                        <h2 className='text-white typography-title-24-bold'>معلومات الاتصال</h2>
-                        <div className="flex flex-col gap-4 w-full">
-                            {city.phones.map((phone: any) => (
-                                <div key={phone.id} className="flex items-center justify-between p-4 rounded-[12px] border border-white/10 bg-white/5">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-4 h-4 bg-primary rounded-full"></div>
-                                        <p className="text-text-main text-[14px] font-normal leading-[140%]">
-                                            {phone.type.label}
-                                        </p>
-                                    </div>
-                                    <p className="text-text-main text-[14px] font-medium leading-[140%]">
-                                        {phone.number}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+                <RowDevloperAndRingPrice item={city} />
 
-                <div className="flex flex-col items-start gap-6 self-stretch">
-                    <div className="flex flex-col items-start gap-4 self-stretch">
-                        <h2 className='text-white typography-title-24-bold'>معلومات إضافية</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                            <div className="flex flex-col gap-2 p-4 rounded-[12px] border border-white/10 bg-white/5">
-                                <p className="text-text-gray1 text-[12px] font-normal leading-[120%]">السعر الأدنى</p>
-                                <p className="text-text-main text-[16px] font-medium leading-[140%]">
-                                    {city.min_price?.toLocaleString()} دينار عراقي
-                                </p>
-                            </div>
-                            <div className="flex flex-col gap-2 p-4 rounded-[12px] border border-white/10 bg-white/5">
-                                <p className="text-text-gray1 text-[12px] font-normal leading-[120%]">السعر الأقصى</p>
-                                <p className="text-text-main text-[16px] font-medium leading-[140%]">
-                                    {city.max_price?.toLocaleString()} دينار عراقي
-                                </p>
-                            </div>
-                            <div className="flex flex-col gap-2 p-4 rounded-[12px] border border-white/10 bg-white/5">
-                                <p className="text-text-gray1 text-[12px] font-normal leading-[120%]">دفعة مقدمة</p>
-                                <p className="text-text-main text-[16px] font-medium leading-[140%]">
-                                    {city.payment_introduction?.toLocaleString()} دينار عراقي
-                                </p>
-                            </div>
-                            <div className="flex flex-col gap-2 p-4 rounded-[12px] border border-white/10 bg-white/5">
-                                <p className="text-text-gray1 text-[12px] font-normal leading-[120%]">الحالة</p>
-                                <p className="text-text-main text-[16px] font-medium leading-[140%]">
-                                    {city.built_status.label}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                {city.developer && (
-                    <div className="flex flex-col items-start gap-6 self-stretch">
-                        <div className="flex flex-col items-start gap-4 self-stretch">
-                            <h2 className='text-white typography-title-24-bold'>المطور</h2>
-                            <div className="flex items-center gap-4 p-4 rounded-[12px] border border-white/10 bg-white/5 w-full">
-                                {city.developer.logo && (
-                                    <div className="w-16 h-16 rounded-lg overflow-hidden">
-                                        <Image
-                                            src={city.developer.logo}
-                                            alt={`شعار ${city.developer.name.ar}`}
-                                            width={64}
-                                            height={64}
-                                            className="object-cover w-full h-full"
-                                        />
-                                    </div>
-                                )}
-                                <div className="flex flex-col gap-1">
-                                    <p className="text-text-main text-[16px] font-medium leading-[140%]">
-                                        {city.developer.name.ar}
-                                    </p>
-                                    <p className="text-text-gray1 text-[14px] font-normal leading-[140%]">
-                                        مطور المدينة
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
+
             </div>
         </div>
     )
@@ -286,4 +238,47 @@ function ServiceItem({ text, svg }: { text: string, svg?: string }) {
             <p className='text-text-gray2 typography-body-14-light'>{text}</p>
         </div>
     )
+}
+function PriceCard({ item }: any) {
+    return (
+        <div className="w-[420px] rounded-[16px] overflow-hidden  border-white/10 bg-white/5">
+            {/* Top Section */}
+            <div className="flex justify-between items-center bg-[#0B1D34] px-6 py-4 text-white text-sm">
+                {/* Right side */}
+                <div className='flex flex-col  w-full'>
+
+                    <p>
+                        مقدمة:
+                    </p>
+                    <p className="text-[#F58634] font-medium">25% <span className='text-[#97A8BF]'> من السعر
+                    </span></p>
+
+                </div>
+                {/* Divider */}
+                <div className="w-px h-6 bg-white/20 mx-4" />
+                <div className='flex flex-col  w-full'>
+
+                    <p>
+                        تقسيط لغاية :
+                    </p>
+                    <p className="text-[#F58634] font-medium">{item.years} <span className='text-[#97A8BF]'> سنوات
+                    </span></p>
+
+                </div>
+
+                {/* Left side */}
+
+            </div>
+
+            {/* Bottom Section */}
+            <div className=" bg-white/5 px-6 py-4">
+                <p className="text-[#8795A1] text-sm font-medium text-right">
+                    ريح السعر
+                </p>
+                <p className='text-white'>
+                    تبدا الاسعار من {item?.min_price} الى {item?.max_price} د.ع
+                </p>
+            </div>
+        </div>
+    );
 }

@@ -39,20 +39,9 @@ export default function CitiesPage() {
     return (
         <div className='flex flex-col gap-8'>
             <div className="flex flex-col items-start gap-4 self-stretch">
-                <div className="flex justify-between items-center self-stretch">
-                    <div className="flex flex-col items-start gap-2 self-stretch">
-                        <h1 className='text-white typography-title-32-bold'>المدن</h1>
-                        {/* <p className='text-text-gray1 typography-body-16-light'>اكتشف المدن المتاحة</p> */}
-                    </div>
-                    {/* <div className='flex gap-2'>
-                        <Button variant="gray" className='w-fit p-4'>فلترة</Button>
-                        <Button variant="gray" className='w-fit p-4'>ترتيب</Button>
-                    </div> */}
-                </div>
+
                 <div className="flex items-center gap-2 self-stretch">
-                    <p className='text-text-gray1 typography-body-14-light'>
-                        إجمالي المدن: {allCities.length}
-                    </p>
+
                 </div>
             </div>
 
@@ -213,9 +202,15 @@ function CardCity({ city }: { city: any }) {
                                 strokeLinejoin="round"
                             />
                         </svg>
-                        <p className="text-text-gray1 typography-body-14-light flex items-center">
-                            {city.governorate.name.ar || "غير محدد"}
-                        </p>
+                        <a
+                            href={city.location.startsWith("http") ? city.location : `https://${city.location}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-text-gray1 typography-body-14-light flex items-center"
+                        >
+                            {city.governorate.name.ar || city.governorate.name.en}/
+                        </a>
                     </div>
                 </div>
             </div>
