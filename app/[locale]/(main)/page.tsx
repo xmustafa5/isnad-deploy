@@ -11,6 +11,8 @@ import DeveloperHomePage from './_components/DeveloperHomePage';
 import CityAndComplexe from './_components/CityAndComplexe';
 import RealEstateCities from './_components/RealEstateCities';
 import HeroSectionTitle from './_components/HeroSectionTitle';
+import RealEstateComplexe from './_components/RealEstateComplexe';
+import RealEstateCompines from './_components/RealEstateCompines';
 
 export default function Page() {
 
@@ -39,7 +41,9 @@ export default function Page() {
         </div >
         <div className="flex flex-col content-between gap-12   ">
           <DeveloperHomePage />
+          <RealEstateComplexe />
           <Abs />
+          <RealEstateCompines />
         </div>
       </div>
     </div>

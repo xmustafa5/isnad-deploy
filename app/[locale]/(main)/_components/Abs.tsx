@@ -8,6 +8,7 @@ import {
     MarqueeFade,
     MarqueeItem,
 } from '@/components/ui/shadcn-io/marquee';
+import Image from 'next/image';
 
 export interface Advertisement {
     id: string;
@@ -41,17 +42,18 @@ function Abs() {
                         {data?.items
                             ?.filter((ad) => ad.is_visible.value === 1)
                             .map((ad) => (
-                                <MarqueeItem key={ad.id} className="flex-shrink-0 w-64 h-40">
+                                <MarqueeItem key={ad.id} className="flex-shrink-0  gap-8">
                                     <a
                                         href={ad.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="block w-full h-full overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform bg-gray-900"
+                                        className="flex relative overflow-hidden w-[410px] shrink-0 h-[230.63px] p-2 items-start  rounded-[32px]"
                                     >
-                                        <img
+                                        <Image
+                                            fill
                                             src={ad.img}
                                             alt="Advertisement"
-                                            className="w-full h-full object-cover"
+                                            className="shrin object-center object-cover"
                                         />
                                     </a>
                                 </MarqueeItem>

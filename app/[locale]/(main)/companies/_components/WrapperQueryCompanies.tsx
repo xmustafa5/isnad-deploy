@@ -34,7 +34,7 @@ export default function WrapperQueryCompanies({ locale }: { locale: 'en' | 'ar' 
                             </div>
                         </div> :
                             data?.items?.map((company: any) => (
-                                <Company key={company.id} company={company} locale={locale} />
+                                <Company key={company.id} company={company} />
                             ))}
                     </div>
                 </div>
