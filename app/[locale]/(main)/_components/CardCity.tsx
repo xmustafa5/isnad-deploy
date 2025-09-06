@@ -64,7 +64,7 @@ function CardCity({ city }: { city: any }) {
     return (
         <Link
             href={`/cities/${city.id}`}
-            className="flex flex-col justify-end items-end h-[296px] min-w-[330px] overflow-hidden max-w-[540px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px]
+            className="flex flex-col justify-end items-end h-[296px] min-w-[330px] overflow-hidden max-w-[440px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px]
          bg-[lightgray] bg-center bg-cover bg-no-repeat relative"
             style={{
                 backgroundImage: `url(${city.background_img || "/images/city.png"})`,
