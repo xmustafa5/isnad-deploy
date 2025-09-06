@@ -29,6 +29,8 @@ function RectangleComplexSvg() {
     );
 }
 function CardCity({ city }: { city: any }) {
+    console.log(city);
+
     const formatPrice = (price: number) => {
         if (price >= 1000000) {
             return `${(price / 1000000).toFixed(1)}M`;
@@ -123,7 +125,7 @@ function CardCity({ city }: { city: any }) {
                         <p
                             className="text-text-gray1 typography-body-14-light flex items-center"
                         >
-                            {city.governorate.name.ar || city.governorate.name.en}/
+                            {city.governorate.name.ar || city.governorate.name.en}
                         </p>
 
                     </a>

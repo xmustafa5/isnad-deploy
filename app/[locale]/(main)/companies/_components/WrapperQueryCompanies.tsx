@@ -19,11 +19,8 @@ export default function WrapperQueryCompanies({ locale }: { locale: 'en' | 'ar' 
 
 
                 <div className='flex flex-col w-full gap-4'>
-                    <h1 className='text-white typography-title-32-bold'>الشركات</h1>
                     <div className="flex items-center gap-2 self-stretch">
-                        <p className='text-text-gray1 typography-body-14-light'>
-                            إجمالي الشركات: {data?.items?.length}
-                        </p>
+
                     </div>
 
 

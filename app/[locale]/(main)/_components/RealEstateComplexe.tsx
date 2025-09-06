@@ -23,7 +23,7 @@ const RealEstateComplexe = () => {
             <div className='flex justify-between'>
 
                 <h1 className='text-xl font-bold text-white'>المجمعات السكنية</h1>
-                <Link href={"/cities"} className='self-start bg-white/20 backdrop-blur-md text-white text-sm px-3 py-1 hover:bg-white/30 transition flex rounded-full'>
+                <Link href={"/residential-complexes"} className='self-start bg-white/20 backdrop-blur-md text-white text-sm px-3 py-1 hover:bg-white/30 transition flex rounded-full'>
                     <p className='text-[#e9e9e9]'>
                         عرض الكل
                     </p>

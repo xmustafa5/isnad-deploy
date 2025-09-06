@@ -48,61 +48,30 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                     />
                 )}
 
-                <div className="flex absolute top-56 left-1/2 -translate-x-1/2 w-full h-full flex-col items-center gap-4 z-[2] p-4">
-                    <div className="flex flex-col gap-2 items-stretch w-full max-w-[698px]">
-                        <div className="flex gap-4 self-stretch ltr:flex-row-reverse rtl:flex-row-reverse bg-gradient-to-r from-bg-bg-2/0  to-bg-bg-2/50 rounded-full">
-                            <div className="flex flex-col justify-center ltr:items-start rtl:items-start gap-1 flex-1">
-                                {isLoading ? (
-                                    <div className="w-40 h-[24px] bg-secondary-800 animate-pulse rounded-md"></div>
-                                ) : (
-                                    <p className="text-[#FBF5EF] typography-subtitle-18-Light">{company?.name?.[locale]}</p>
-                                )}
-                                {isLoading ? (
-                                    <div className="w-20 h-[12px] bg-secondary-800 animate-pulse rounded-md"></div>
-                                ) : (
-                                    <p className="text-[#fff] text-center text-[12px] font-normal  leading-[120%]">
-                                        {company?.type?.name?.[locale] || '-'}
-                                    </p>
-                                )}
-                            </div>
-                            <div className="w-[48px] h-[48px] rounded-full relative   shadow-2xl bg-white">
-                                {company?.logo && !isLoading && (
-                                    <Image src={company.logo} alt="logo" fill className="rounded-full object-cover shadow-2xl" />
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
             {/* Branches Section */}
             {company?.branches?.length > 0 && (
                 <div className="w-full mt-6 flex flex-col gap-2">
                     <p className="text-white typography-title-24-light">الفروع</p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <div
+
+                        className="flex flex-wrap md:grid-cols-2 gap-2">
                         {company.branches.map((branch: any) => (
-                            <div key={branch.id} className="p-4 border border-white/10 rounded-md">
+                            <a
+                                href={branch.location?.startsWith("http") ? branch.location : `https://${branch.location}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={branch.id}
+                                className="p-4 border w-fit border-white/10 rounded-md cursor-pointer hover:border-white/20 transition-colors">
                                 <p className="text-[#FBF5EF] font-semibold">{branch.governorate?.name?.[locale]}</p>
-                                <p className="text-[#AAB7CB] text-sm">{branch.location}</p>
-                            </div>
+                                <p className="text-[#AAB7CB] text-sm"></p>
+                            </a>
                         ))}
                     </div>
                 </div>
             )}
-
-            {/* Departments Section */}
-            {company?.departments?.length > 0 && (
-                <div className="w-full mt-6 flex flex-col gap-2">
-                    <p className="text-white typography-title-24-light">الأقسام والخصومات</p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                        {company.departments.map((department: any) => (
-                            <Department key={department.id} department={department} locale={locale} />
-                        ))}
-                    </div>
-                </div>
-            )}
-
-            {/* Links / Social Media Section */}
             {company?.links?.length > 0 && (
                 <div className="w-full mt-6 flex flex-col gap-2">
                     <p className="text-white typography-title-24-light">حسابات السوشيل ميديا</p>
@@ -125,6 +94,20 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                     </div>
                 </div>
             )}
+            {/* Departments Section */}
+            {company?.departments?.length > 0 && (
+                <div className="w-full mt-6 flex flex-col gap-2">
+                    <p className="text-white typography-title-24-light">الأقسام والخصومات</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                        {company.departments.map((department: any) => (
+                            <Department key={department.id} department={department} locale={locale} />
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* Links / Social Media Section */}
+
         </div>
     );
 }

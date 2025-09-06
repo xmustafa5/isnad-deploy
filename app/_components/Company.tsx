@@ -105,11 +105,11 @@ function Company({ company }: { company: any }) {
                     )}
                 </div>
             </div>
-            <div className={`flex items-center justify-center gap-2  h-[36px]  py-2 absolute left-4 top-4 rounded-[16px] border border-white/10 ${getVisibilityBgColor(company.is_visible)} backdrop-blur-[14px]`}>
+            {/* <div className={`flex items-center justify-center gap-2  h-[36px]  py-2 absolute left-4 top-4 rounded-[16px] border border-white/10 ${getVisibilityBgColor(company.is_visible)} backdrop-blur-[14px]`}>
                 <p className="text-[#EEF5FF] text-[14px] font-[400] leading-[140%] whitespace-nowrap px-2">
                     {getVisibilityLabel(company.is_visible)}
                 </p>
-            </div>
+            </div> */}
         </Link>
     );
 }

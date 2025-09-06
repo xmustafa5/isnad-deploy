@@ -1,4 +1,5 @@
 import { Button } from "@/app/_components/Button"
+import Link from "next/link"
 
 const HeroSectionTitle = () => {
 
@@ -15,12 +16,14 @@ const HeroSectionTitle = () => {
 
             </div>
             <div className="flex  items-center gap-4">
-                <Button >
-                    ابدء البحث الان
+                <Button asChild >
+                    <Link href="/residential-complexes">
+                        ابدء البحث الان
+                    </Link>
                 </Button>
-                <Button variant="gray">
+                {/* <Button variant="gray">
                     تواصل معنا
-                </Button>
+                </Button> */}
             </div>
 
         </div>

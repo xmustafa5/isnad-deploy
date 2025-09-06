@@ -17,37 +17,37 @@ import RealEstateCompines from './_components/RealEstateCompines';
 export default function Page() {
 
 
-  return (
-    <div className=' w-full h-full pt-[121px] flex flex-col gap-4' style={{ paddingTop: "20px" }}>
-      <div
-        className="bg-cover bg-no-repeat bg-center pointer-events-none h-full w-full absolute inset-0"
-        style={{
-          backgroundImage:
-            "linear-gradient(180deg, rgba(0, 0, 0, 0.37) 0%, rgba(0, 0, 0, 0.39) 78.5%), url('/images/home.jpg')",
-          backgroundColor: "lightgray",
-        }}
-      >
-      </div >
-      <div className='w-full flex gap-4  z-10 h-fit'>
-        <HeroSectionTitle />
-        <CityAndComplexe />
-      </div>
-      <RealEstateCities />
-      <div className=' relative z-10 w-full pt-12 '>
-        <div
-          className=" bg-[#071427] translate-x-[10%]  w-[117.5%] pointer-events-none h-full  absolute inset-0"
+    return (
+        <div className=' w-full h-full pt-[121px] flex flex-col gap-4' style={{ paddingTop: "20px" }}>
+            <div
+                className="bg-cover bg-no-repeat bg-center pointer-events-none h-full w-full absolute inset-0"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(180deg, rgba(0, 0, 0, 0.37) 0%, rgba(0, 0, 0, 0.39) 78.5%), url('/images/home.jpg')",
+                    backgroundColor: "lightgray",
+                }}
+            >
+            </div >
+            <div className='w-full flex gap-4  z-10 h-fit'>
+                <HeroSectionTitle />
+                <CityAndComplexe />
+            </div>
+            <RealEstateCities />
+            <div className=' relative z-10 w-full pt-12 '>
+                <div
+                    className="  translate-x-[10%]  w-[117.5%] pointer-events-none h-full  absolute inset-0"
 
-        >s
-        </div >
-        <div className="flex flex-col content-between gap-12   ">
-          <DeveloperHomePage />
-          <RealEstateComplexe />
-          <Abs />
-          <RealEstateCompines />
+                >s
+                </div >
+                <div className="flex flex-col content-between gap-12   ">
+                    <DeveloperHomePage />
+                    <RealEstateComplexe />
+                    <Abs />
+                    <RealEstateCompines />
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  )
+    )
 }
 
 
