@@ -10,7 +10,7 @@ const HeroSectionTitle = () => {
                 <p className="w-[569px] text-white text-right font-[var(--main-font,'Expo Arabic')] text-[48px] not-italic font-normal leading-normal">
                     شركة عراقية مختصة في مجال التسويق العقاري
                 </p>
-                <p className="text-white text-right font-[Alilato] text-[16px] not-italic font-light leading-[150%] w-[412px] [font-feature-settings:'liga'_off,'clig'_off]">
+                <p className="text-white text-right  text-[16px] not-italic font-light leading-[150%] w-[412px] [font-feature-settings:'liga'_off,'clig'_off]">
                     "اكتشف عقارات فاخرة تجمع بين التصميم الأنيق، الموقع المثالي، والمرافق المتكاملة لتناسب أسلوب حياتك."
                 </p>
 
