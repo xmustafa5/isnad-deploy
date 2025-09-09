@@ -29,12 +29,8 @@ export default function Page() {
 
             {/* Hero Section */}
             <div className='w-full flex flex-col lg:flex-row gap-2 md:gap-4 z-10 h-fit'>
-                <div className='w-full '>
-                    <HeroSectionTitle />
-                </div>
-                <div className='w-full'>
-                    <CityAndComplexe />
-                </div>
+                <HeroSectionTitle />
+                <CityAndComplexe />
             </div>
 
             {/* Cities Section */}

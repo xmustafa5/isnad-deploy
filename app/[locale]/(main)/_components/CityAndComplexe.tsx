@@ -6,7 +6,7 @@ const CityAndComplexe = () => {
     return (
         <div className='flex gap-4 flex-col z-10 lg:w-1/2 '>
             <h1 className='text-xl font-bold text-white'>تعرف على مدننا ومجمعاتنا</h1>
-            <div className='flex gap-6'>
+            <div className='flex gap-6 w-full'>
                 <ComplexCard />
                 <CityCard />
             </div>
@@ -16,7 +16,7 @@ const CityAndComplexe = () => {
 export default CityAndComplexe
 function ComplexCard() {
     return (
-        <div className="relative w-64 h-80 rounded-2xl overflow-hidden shadow-lg">
+        <div className="relative w-full  h-80 rounded-2xl overflow-hidden shadow-lg">
             {/* Background Image */}
             <img
                 src="/images/building.jpg" // replace with your image path
@@ -56,7 +56,7 @@ function ComplexCard() {
 
 function CityCard() {
     return (
-        <div className="relative w-64 h-80 rounded-2xl overflow-hidden shadow-lg">
+        <div className="relative w-full h-80 rounded-2xl overflow-hidden shadow-lg">
             {/* Background Image */}
             <img
                 src="/images/city2.jpg" // replace with your city image path
