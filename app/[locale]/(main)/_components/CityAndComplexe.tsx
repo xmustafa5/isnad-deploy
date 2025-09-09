@@ -4,7 +4,7 @@ import Link from "next/link";
 const CityAndComplexe = () => {
 
     return (
-        <div className='flex gap-4 flex-col z-10 w-1/2 '>
+        <div className='flex gap-4 flex-col z-10 lg:w-1/2 '>
             <h1 className='text-xl font-bold text-white'>تعرف على مدننا ومجمعاتنا</h1>
             <div className='flex gap-6'>
                 <ComplexCard />

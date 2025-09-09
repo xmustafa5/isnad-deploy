@@ -2,10 +2,10 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { getComplexes } from "@/actions/complexes";
 import { ComplexesResponse } from "@/types/complexesType";
 
-export function useComplexesInfinite() {
+export function useComplexesInfinite(developerId?: string) {
   return useInfiniteQuery({
-    queryKey: ["complexes"],
-    queryFn: ({ pageParam = 1 }) => getComplexes(pageParam, 10),
+    queryKey: ["complexes", developerId],
+    queryFn: ({ pageParam = 1 }) => getComplexes(pageParam, 10, developerId),
     getNextPageParam: (lastPage: ComplexesResponse) => {
       if (lastPage.current_page < lastPage.total_pages) {
         return lastPage.current_page + 1;

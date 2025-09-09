@@ -18,3 +18,13 @@ export async function getDevelopers(page: number = 1, perPage: number = 10, isVi
     throw error;
   }
 }
+
+export async function getDeveloperById(id: string) {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/developers/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching developer by ID:", error);
+    throw error;
+  }
+}

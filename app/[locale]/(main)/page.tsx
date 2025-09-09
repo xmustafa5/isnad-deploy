@@ -15,31 +15,37 @@ import RealEstateComplexe from './_components/RealEstateComplexe';
 import RealEstateCompines from './_components/RealEstateCompines';
 
 export default function Page() {
-
-
     return (
-        <div className=' w-full h-full pt-[121px] flex flex-col gap-4' style={{ paddingTop: "20px" }}>
+        <div className='w-full h-full pt-4 md:pt-5 lg:pt-[121px] flex flex-col gap-2 md:gap-4 px-2 md:px-4 lg:px-0'>
+            {/* Background Image */}
             <div
-                className="bg-cover bg-no-repeat bg-center pointer-events-none h-full w-full absolute inset-0"
+                className="bg-cover bg-no-repeat bg-center md:bg-top pointer-events-none h-full w-full absolute inset-0"
                 style={{
                     backgroundImage:
                         "linear-gradient(180deg, rgba(0, 0, 0, 0.37) 0%, rgba(0, 0, 0, 0.39) 78.5%), url('/images/home.jpg')",
                     backgroundColor: "lightgray",
                 }}
-            >
-            </div >
-            <div className='w-full flex gap-4  z-10 h-fit'>
-                <HeroSectionTitle />
-                <CityAndComplexe />
-            </div>
-            <RealEstateCities />
-            <div className=' relative z-10 w-full pt-12 '>
-                <div
-                    className="  translate-x-[10%]  w-[117.5%] pointer-events-none h-full  absolute inset-0"
+            />
 
-                >s
-                </div >
-                <div className="flex flex-col content-between gap-12   ">
+            {/* Hero Section */}
+            <div className='w-full flex flex-col lg:flex-row gap-2 md:gap-4 z-10 h-fit'>
+                <div className='w-full '>
+                    <HeroSectionTitle />
+                </div>
+                <div className='w-full'>
+                    <CityAndComplexe />
+                </div>
+            </div>
+
+            {/* Cities Section */}
+            <div className='z-10'>
+                <RealEstateCities />
+            </div>
+
+            {/* Main Content Sections */}
+            <div className='relative z-10 w-full pt-6 md:pt-8 lg:pt-12'>
+                {/* Remove the problematic background div */}
+                <div className="flex flex-col gap-6 md:gap-8 lg:gap-12 pb-6 md:pb-8 lg:pb-12">
                     <DeveloperHomePage />
                     <RealEstateComplexe />
                     <Abs />
@@ -49,5 +55,3 @@ export default function Page() {
         </div>
     )
 }
-
-

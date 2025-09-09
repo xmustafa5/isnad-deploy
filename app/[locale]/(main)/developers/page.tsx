@@ -34,7 +34,7 @@ const DevelopersPage = () => {
                 {/* Instagram stories style */}
                 <div className="flex gap-6  flex-wrap px-2">
                     {data?.items?.map((developer: any) => (
-                        developer.cities.length > 0 ? (
+                        true ? (
                             <Link
                                 href={`/developers/${developer.id}`}
                                 key={developer.id}
