@@ -16,7 +16,7 @@ import RealEstateCompines from './_components/RealEstateCompines';
 
 export default function Page() {
     return (
-        <div className='w-full h-full pt-4 md:pt-5 lg:pt-[121px] flex flex-col gap-2 md:gap-4 px-2 md:px-4 lg:px-0'>
+        <div className='w-full h-full pt-4 md:pt-5 lg:pt-[121px] flex flex-col  gap-6 px-2 md:px-4 lg:px-0'>
             {/* Background Image */}
             <div
                 className="bg-cover bg-no-repeat bg-center md:bg-top pointer-events-none h-full w-full absolute inset-0"
@@ -26,9 +26,10 @@ export default function Page() {
                     backgroundColor: "lightgray",
                 }}
             />
+            <DeveloperHomePage className="flex md:hidden" />
 
             {/* Hero Section */}
-            <div className='w-full flex flex-col lg:flex-row gap-2 md:gap-4 z-10 h-fit'>
+            <div className='w-full flex flex-col lg:flex-row gap-2 gap-4 px-2 z-10 h-fit'>
                 <HeroSectionTitle />
                 <CityAndComplexe />
             </div>
@@ -39,10 +40,10 @@ export default function Page() {
             </div>
 
             {/* Main Content Sections */}
-            <div className='relative z-10 w-full pt-6 md:pt-8 lg:pt-12'>
+            <div className='relative z-10 w-full '>
                 {/* Remove the problematic background div */}
-                <div className="flex flex-col gap-6 md:gap-8 lg:gap-12 pb-6 md:pb-8 lg:pb-12">
-                    <DeveloperHomePage />
+                <div className="flex flex-col gap-8  pb-6 md:pb-8 lg:pb-12">
+                    <DeveloperHomePage className="hidden md:flex" />
                     <RealEstateComplexe />
                     <Abs />
                     <RealEstateCompines />

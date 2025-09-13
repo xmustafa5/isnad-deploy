@@ -22,7 +22,7 @@ const RealEstateComplexe = () => {
         <div className='flex gap-4 flex-col z-10 '>
             <div className='flex justify-between'>
 
-                <h1 className='text-xl font-bold text-white'>المجمعات السكنية</h1>
+                <h1 className='text-right font-normal text-[22px] leading-[1.4] text-white'>المجمعات السكنية</h1>
                 <Link href={"/residential-complexes"} className='self-start bg-white/20 backdrop-blur-md text-white text-sm px-3 py-1 hover:bg-white/30 transition flex rounded-full'>
                     <p className='text-[#e9e9e9]'>
                         عرض الكل

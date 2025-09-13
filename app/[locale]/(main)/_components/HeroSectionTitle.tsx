@@ -4,7 +4,7 @@ import Link from "next/link"
 const HeroSectionTitle = () => {
 
     return (
-        <div className="flex w-1/2 z-10 flex-col justify-center  gap-12">
+        <div className="flex w-1/2 z-10 flex-col justify-center  gap-12 hidden md:flex">
             <div className="flex flex-col justify-center  gap-6 ">
 
                 <p className="lg:w-[569px] w-[300px]  text-white text-right font-[var(--main-font,'Expo Arabic')] text-[38px] lg:text-[48px] not-italic font-normal leading-normal">
