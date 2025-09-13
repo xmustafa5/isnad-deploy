@@ -5,7 +5,7 @@ const CityAndComplexe = () => {
 
     return (
         <div className='flex gap-4 flex-col z-10 lg:w-1/2 '>
-            <h1 className='text-xl font-bold text-white'>تعرف على مدننا ومجمعاتنا</h1>
+            {/* <h1 className='text-    xl font-bold text-white'>تعرف على مدننا ومجمعاتنا</h1> */}
             <div className='flex gap-6 w-full'>
                 <ComplexCard />
                 <CityCard />
@@ -26,23 +26,29 @@ function ComplexCard() {
 
             {/* Overlay */}
             <div
-                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,24,47,0)_41.78%,rgba(8,24,47,0.9)_84.1%),url('/images/building.jpg')] bg-cover bg-center"
+                className="absolute  inset-0 bg-[linear-gradient(180deg,rgba(8,24,47,0)_41.78%,rgba(8,24,47,0.9)_84.1%),url('/images/building.jpg')] bg-cover bg-center"
             />
             {/* Content */}
-            <div className="relative h-full flex flex-col justify-end p-4 text-white ">
+            <div className="relative h-full flex flex-col justify-end p-6 text-white ">
                 {/* Top Button */}
                 <div className='flex  items-end justify-end absolute w-full top-10 left-0'>
 
+
                     <Link
-                        href="/residential-complexes"
-                        className="self-start bg-white/20 backdrop-blur-md text-white text-sm px-3 py-1 hover:bg-white/30 transition"
+                        href="/cities"
+                        className="self-start flex items-center gap-1 py-[6px]  px-4 rounded-s-md overflow-hidden text-white text-sm px-3 py-1 hover:bg-white/30 transition border border-white/10 bg-black/5 backdrop-blur-[5.5px]"
                     >
-                        ← عرض المجمعات
+                        <p>
+                            عرض المجمعات
+                        </p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10" fill="none">
+                            <path d="M10.5 5H0.5M0.5 5L4.5 1M0.5 5L4.5 9" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                     </Link>
                 </div>
 
                 {/* Bottom Content */}
-                <div className="text-center">
+                <div className="text-start">
                     <p className="text-4xl font-bold">10+</p>
                     <p className="mt-2 text-sm leading-relaxed">
                         مجمعات سكنية تثق بنا <br />
@@ -70,19 +76,24 @@ function CityCard() {
             />
 
             {/* Content */}
-            <div className="relative h-full flex flex-col justify-end p-4 text-white">
+            <div className="relative h-full flex flex-col justify-end p-6 text-white ">
                 {/* Top Button */}
                 <div className='flex  items-end justify-end absolute w-full top-10 left-0'>
                     <Link
                         href="/cities"
-                        className="self-start bg-white/20 backdrop-blur-md text-white text-sm px-3 py-1 hover:bg-white/30 transition"
+                        className="self-start flex items-center gap-1 py-[6px]  px-4 rounded-s-md overflow-hidden text-white text-sm px-3 py-1 hover:bg-white/30 transition border border-white/10 bg-black/5 backdrop-blur-[5.5px]"
                     >
-                        ← عرض المدن
+                        <p>
+                            عرض المدن
+                        </p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10" fill="none">
+                            <path d="M10.5 5H0.5M0.5 5L4.5 1M0.5 5L4.5 9" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                     </Link>
                 </div>
 
                 {/* Bottom Content */}
-                <div className="text-center">
+                <div className="text-start">
                     <p className="text-4xl font-bold">5+</p>
                     <p className="mt-2 text-sm leading-relaxed">
                         مدن رئيسية نعمل بها <br />

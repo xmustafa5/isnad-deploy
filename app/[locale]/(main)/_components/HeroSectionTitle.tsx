@@ -16,7 +16,7 @@ const HeroSectionTitle = () => {
 
             </div>
             <div className="flex  items-center gap-4">
-                <Button asChild >
+                <Button asChild className="rounded-[60px]" >
                     <Link href="/residential-complexes">
                         ابدء البحث الان
                     </Link>

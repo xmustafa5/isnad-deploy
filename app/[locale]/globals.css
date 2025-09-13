@@ -206,7 +206,7 @@ body {
 ::-webkit-scrollbar-track {
   background: transparent;
 }
-
+/* 
 .scroll-white::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -214,14 +214,14 @@ body {
 }
 
 .scroll-white::-webkit-scrollbar-thumb {
-  background-color: #fff;
+  background-color: #ffffff60;
   border-radius: 4px;
   border: none;
 }
 
 .scroll-white::-webkit-scrollbar-thumb:hover {
   background-color: #e55143;
-}
+} */
 
 /*---break---*/
 

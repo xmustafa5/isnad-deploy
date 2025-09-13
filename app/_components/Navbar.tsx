@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { IsnadSvg } from '@/public/svg/login';
 import Link from 'next/link';
+import { Button } from './Button';
 export default function Navbar() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
@@ -48,17 +49,14 @@ export default function Navbar() {
 
     return (
         <div className='flex pt-4 pb-2 px-4 md:px-16 justify-between items-center  '>
-            <div className='relative z-10 xl:flex hidden items-center gap-6 self-stretch'>
-                {/* <div className='flex items-center gap-2'>
-                    <button className='flex py-3 px-6 justify-center items-center'>
-                        <p className="text-[#B8C6E3] text-right  text-[14px] font-light leading-[140%]">تسجيل</p>
-                    </button>
-                    <button className='rounded-[32px] flex py-2.5 border border-stroke-border px-6 justify-center items-center'>
-                        <p className="text-[#B8C6E3] whitespace-nowrap text-right  text-[14px] font-light leading-[140%]">أنشاء حساب</p>
-                    </button>
-                </div> */}
-                {/* <LanguageSwitcher /> */}
+
+            <div className='relative z-10 and currency flex h-[60px] items-center gap-[56px]'>
+                {/* <SelectCurrency /> */}
+                <Link href="/ar">
+                    {IsnadSvg}
+                </Link>
             </div>
+
             <div className=" relative z-10  xl:flex hidden h-12 p-1 items-center gap-4 rounded-[40px] bg-[rgba(8,24,47,0.10)] backdrop-blur-[68.5px]">
                 <NavbarButton text="الرئيسية" pathname={pathname} path="/ar" />
                 <NavbarButton text="المجمعات السكنية" pathname={pathname} path="/ar/residential-complexes" />
@@ -78,11 +76,20 @@ export default function Navbar() {
                     <path d="M4.32007 12.7549H19.6801" stroke="white" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </div>
-            <div className='relative z-10 and currency flex h-[60px] items-center gap-[56px]'>
-                {/* <SelectCurrency /> */}
-                <Link href="/ar">
-                    {IsnadSvg}
-                </Link>
+            <div className='relative z-10 xl:flex hidden items-center gap-6 self-stretch'>
+                {/* <div className='flex items-center gap-2'>
+                    <button className='flex py-3 px-6 justify-center items-center'>
+                        <p className="text-[#B8C6E3] text-right  text-[14px] font-light leading-[140%]">تسجيل</p>
+                    </button>
+                    <button className='rounded-[32px] flex py-2.5 border border-stroke-border px-6 justify-center items-center'>
+                        <p className="text-[#B8C6E3] whitespace-nowrap text-right  text-[14px] font-light leading-[140%]">أنشاء حساب</p>
+                    </button>
+                </div> */}
+                {/* <LanguageSwitcher /> */}
+                <Button variant="gray" className='w-fit px-4  bg-white/5 backdrop-blur-[8.5px] rounded-[40px] px-4 py-2 w-[115px] h-[40px] '>
+                    تواصل معنا
+
+                </Button>
             </div>
             {isOpen && (
                 <div
@@ -135,6 +142,7 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
+
         </div>
     )
 }
