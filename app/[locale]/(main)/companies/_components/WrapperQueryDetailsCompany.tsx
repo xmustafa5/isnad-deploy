@@ -49,7 +49,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
         <div className='flex gap-8 xl:flex-row flex-col'>
             {/* Left Sidebar - Company Info Card */}
             <div
-                className="rounded-[16px] h-fit bg-cover bg-no-repeat bg-center pt-[152px] xl:w-[400px] w-full"
+                className="rounded-[16px] border border-[#212F43] h-fit bg-cover bg-no-repeat bg-center pt-[152px] xl:w-[400px] w-full"
                 style={{
                     backgroundImage: `
   linear-gradient(
@@ -87,17 +87,16 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                             <div className="flex justify-center w-full gap-3 pb-3">
                                 <button
                                     onClick={() => setShowBranchesModal(true)}
-                                    className="flex w-1/2 items-center gap-2 px-4 py-2 bg-[rgba(255,255,255,0.1)] backdrop-blur-sm border border-[rgba(255,255,255,0.2)] rounded-[12px] hover:bg-[rgba(255,255,255,0.15)] transition-colors"
+                                    className="flex w-1/2 items-center justify-center gap-2 px-4 py-2 bg-[rgba(255,255,255,0.1)] backdrop-blur-sm border border-[rgba(255,255,255,0.2)] rounded-[12px] hover:bg-[rgba(255,255,255,0.15)] transition-colors"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                        <path d="M3 21h18" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M5 21V7l8-4v18" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M19 21V11l-6-4" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M8.28197 3H16.7163C19.6643 3 21.4993 5.08111 21.4993 8.02618V15.9731C21.4993 18.9182 19.6643 20.9993 16.7154 20.9993H8.28197C5.33398 20.9993 3.5 18.9182 3.5 15.9731V8.02618C3.5 5.08111 5.34274 3 8.28197 3Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M12.7158 13.8103C12.7158 15.7153 14.9652 17.5357 15.3933 17.5357C15.8214 17.5357 18.0708 15.7153 18.0708 13.8103C18.0708 12.3315 16.8722 11.1328 15.3933 11.1328C13.9145 11.1328 12.7158 12.3315 12.7158 13.8103Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M15.3936 13.7952V13.7852" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path opacity="0.4" d="M3.55469 8.21094H21.4898M9.26172 8.31641V21.0012" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-                                    <span className="text-text-main text-[14px] font-medium">عرض الفروع</span>
-                                    <div className="bg-[rgba(255,255,255,0.2)] rounded-full px-2 py-1">
-                                        <span className="text-text-main text-[12px]">{company.branches.length}</span>
-                                    </div>
+                                    <span className="text-[#B8C6E3] text-[14px] font-medium">عرض الفروع</span>
+
                                 </button>
                                 <Button className="w-1/2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
@@ -121,7 +120,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                                     </p>
                                 </div>
                             )}
-                            {company.branches?.length > 0 && (
+                            {/* {company.branches?.length > 0 && (
                                 <div className="flex items-center gap-2 self-stretch">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <path d="M3 21h18" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -132,52 +131,34 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                                         {company.branches.length} فرع
                                     </p>
                                 </div>
-                            )}
+                            )} */}
                         </div>
                     </div>
                 </div>
                 {/* Contact Buttons */}
                 <div className="flex items-start gap-4 self-stretch px-6 pb-4">
                     <div className="flex items-start gap-4 self-stretch w-full">
-                        {company.phones?.map((phone: any) => {
-                            if (phone.type?.value === 0) {
-                                return (
-                                    <button
-                                        key={phone.id}
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            window.open(`tel:${phone.number}`, "_self");
-                                        }}
-                                        className="flex w-full cursor-pointer h-10 px-8 py-[11px] justify-center items-center gap-2 rounded-[16px] border border-[rgba(255,255,255,0.11)]"
-                                    >
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </button>
-                                );
-                            }
-                            if (phone.type?.value === 1) {
-                                const countryCode = "964";
-                                return (
-                                    <button
-                                        key={phone.id}
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            window.open(
-                                                `https://wa.me/${countryCode}${phone.number}`,
-                                                "_blank"
-                                            );
-                                        }}
-                                        className="flex w-full cursor-pointer h-10 px-8 py-[11px] justify-center items-center gap-2 rounded-[16px] border border-[rgba(255,255,255,0.11)]"
-                                    >
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </button>
-                                );
-                            }
-                            return null;
-                        })}
+                        {company?.links?.map((itemLink) => (
+                            <div key={itemLink.id} className="flex relative flex-col items-center px-2 py-1 gap-2 flex-[1_0_0]">
+                                <div className="flex items-center  gap-2">
+                                    {itemLink?.icon?.image ? (
+                                        <div className="w-6 h-6">
+                                            <img
+                                                src={itemLink.icon.image}
+                                                alt="icon"
+                                                className="w-full h-full object-contain filter brightness-0 invert"
+                                                style={{
+                                                    filter: 'brightness(0) invert(1)',
+                                                }}
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div className="w-6 h-6 bg-white/20 rounded"></div>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+
                     </div>
                 </div>
             </div>
@@ -281,42 +262,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                 )}
 
                 {/* Social Media Links */}
-                {company.links?.length > 0 && (
-                    <div
-                        className="flex flex-col justify-center items-end gap-4 self-stretch px-6 py-4 rounded-[16px] border"
-                        style={{
-                            borderColor: "var(--stroke-border, #212F43)",
-                            backgroundColor: "var(--opacomplex-white-5, rgba(255, 255, 255, 0.05))",
-                            backdropFilter: "blur(9px)",
-                        }}
-                    >
-                        <div className="flex flex-col items-end gap-[7px] self-stretch rounded-[16px]">
-                            <div className="flex items-center gap-2 w-full">
-                                <p className='text-text-gray1 typography-body-14-medium'>حسابات السوشيل ميديا</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </div>
-                            <div className="flex flex-wrap gap-3 w-full">
-                                {company.links.map((link: any) => (
-                                    <Link
-                                        key={link.id}
-                                        href={`http://${link.url}`}
-                                        className="w-[60px] h-[60px] relative border border-[rgba(238,238,238,0.1)] rounded-[12px] overflow-hidden hover:border-white/20 transition-colors"
-                                        target="_blank"
-                                    >
-                                        <Image
-                                            src={link?.icon?.image || '/fallback.jpg'}
-                                            alt="social"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                )}
+
             </div>
 
             {/* Branches Modal */}
