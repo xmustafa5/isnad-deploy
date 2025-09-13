@@ -9,7 +9,7 @@ export async function getDevelopers(page: number = 1, perPage: number = 10, isVi
       params: {
         page,
         per_page: perPage,
-        is_visible: isVisible,
+        is_visible: true,
       },
     });
     return response.data;

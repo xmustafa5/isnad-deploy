@@ -24,7 +24,7 @@ export default function WrapperQueryCompanies({ locale }: { locale: 'en' | 'ar' 
                     </div>
 
 
-                    <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 w-full max-w-[1400px]">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {error ? null : isLoading ? <div>
                             <div className="w-full h-full flex justify-center items-center">
                                 <div className="w-full h-[256px] bg-gray-800 border-t-transparent border-b-transparent border-r-transparent border-l-transparent border-white rounded-2xl animate-pulse"></div>

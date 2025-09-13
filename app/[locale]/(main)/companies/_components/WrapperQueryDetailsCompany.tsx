@@ -17,6 +17,17 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
     const company = data?.item;
     const { t } = useTranslation('home_transtion');
     const [showBranchesModal, setShowBranchesModal] = useState(false);
+    const [expandedBranches, setExpandedBranches] = useState<Set<number>>(new Set());
+
+    const toggleBranchExpansion = (branchIndex: number) => {
+        const newExpanded = new Set(expandedBranches);
+        if (newExpanded.has(branchIndex)) {
+            newExpanded.delete(branchIndex);
+        } else {
+            newExpanded.add(branchIndex);
+        }
+        setExpandedBranches(newExpanded);
+    };
 
     if (isLoading) {
         return (
@@ -70,27 +81,34 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                                 </p>
                             </div>
                         </div>
-                        
+
                         {/* Show Branches Button */}
                         {company.branches?.length > 0 && (
-                            <div className="flex justify-center w-full pb-3">
+                            <div className="flex justify-center w-full gap-3 pb-3">
                                 <button
                                     onClick={() => setShowBranchesModal(true)}
-                                    className="flex items-center gap-2 px-4 py-2 bg-[rgba(255,255,255,0.1)] backdrop-blur-sm border border-[rgba(255,255,255,0.2)] rounded-[12px] hover:bg-[rgba(255,255,255,0.15)] transition-colors"
+                                    className="flex w-1/2 items-center gap-2 px-4 py-2 bg-[rgba(255,255,255,0.1)] backdrop-blur-sm border border-[rgba(255,255,255,0.2)] rounded-[12px] hover:bg-[rgba(255,255,255,0.15)] transition-colors"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                        <path d="M3 21h18" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-                                        <path d="M5 21V7l8-4v18" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-                                        <path d="M19 21V11l-6-4" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path d="M3 21h18" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M5 21V7l8-4v18" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M19 21V11l-6-4" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                     <span className="text-text-main text-[14px] font-medium">عرض الفروع</span>
                                     <div className="bg-[rgba(255,255,255,0.2)] rounded-full px-2 py-1">
                                         <span className="text-text-main text-[12px]">{company.branches.length}</span>
                                     </div>
                                 </button>
+                                <Button className="w-1/2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.6303 12.8742C15.3365 16.5795 16.4384 12.0313 18.7983 14.3893C21.0738 16.6648 22.3813 17.1197 19.4996 20.0024C19.1378 20.2915 16.8438 23.7833 8.78158 15.723C0.719323 7.66267 4.20727 5.36582 4.49729 5.005C7.38678 2.11551 7.8349 3.43077 10.1104 5.70531C12.4693 8.06423 7.92414 9.16901 11.6303 12.8742Z" stroke="#EEF5FF" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M14.3613 5.03981V3M18.0105 6.48926L19.4528 5.04694M19.4597 10.1383H21.4996" stroke="#EEF5FF" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    اتصال
+                                </Button>
                             </div>
                         )}
-                        
+
                         <div className="flex flex-col justify-center items-end gap-2 pb-3 self-stretch border-b border-white/10">
                             {company.governorate && (
                                 <div className="flex items-center gap-2 self-stretch">
@@ -106,9 +124,9 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                             {company.branches?.length > 0 && (
                                 <div className="flex items-center gap-2 self-stretch">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M3 21h18" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
-                                        <path d="M5 21V7l8-4v18" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
-                                        <path d="M19 21V11l-6-4" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path d="M3 21h18" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M5 21V7l8-4v18" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M19 21V11l-6-4" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                     <p className="text-text-main text-right text-[14px] font-light leading-[140%]">
                                         {company.branches.length} فرع
@@ -133,7 +151,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                                         className="flex w-full cursor-pointer h-10 px-8 py-[11px] justify-center items-center gap-2 rounded-[16px] border border-[rgba(255,255,255,0.11)]"
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                     </button>
                                 );
@@ -153,7 +171,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                                         className="flex w-full cursor-pointer h-10 px-8 py-[11px] justify-center items-center gap-2 rounded-[16px] border border-[rgba(255,255,255,0.11)]"
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                     </button>
                                 );
@@ -167,7 +185,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
             {/* Right Content Area */}
             <div className="flex flex-col gap-8 flex-1">
                 {/* Back Button */}
-                <div className="flex justify-between items-center self-stretch">
+                {/* <div className="flex justify-between items-center self-stretch">
                     <Link
                         href={`/companies`}
                         className="flex items-center gap-2 w-[48px] p-3 rounded-[16px] border border-white/15 bg-black/20 backdrop-blur"
@@ -178,7 +196,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                             <path opacity="0.4" d="M20.5 12H4.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </Link>
-                </div>
+                </div> */}
 
                 {/* Company Description */}
                 {company.description && (
@@ -207,7 +225,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                 )}
 
                 {/* Branches Section */}
-                {company.branches?.length > 0 && (
+                {/* {company.branches?.length > 0 && (
                     <div
                         className="flex flex-col justify-center items-end gap-4 self-stretch px-6 py-4 rounded-[16px] border"
                         style={{
@@ -216,13 +234,13 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                             backdropFilter: "blur(9px)",
                         }}
                     >
-                        <div className="flex flex-col items-end gap-[7px] self-stretch rounded-[16px]">
+                        {/* <div className="flex flex-col items-end gap-[7px] self-stretch rounded-[16px]">
                             <div className="flex items-center gap-2 w-full">
                                 <p className='text-text-gray1 typography-body-14-medium'>الفروع</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M3 21h18" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M5 21V7l8-4v18" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M19 21V11l-6-4" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M3 21h18" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M5 21V7l8-4v18" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M19 21V11l-6-4" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </div>
                             <div className="flex flex-wrap gap-2 w-full">
@@ -238,27 +256,20 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                                     </a>
                                 ))}
                             </div>
-                        </div>
-                    </div>
-                )}
+                        </div> */}
+                {/* </div>
+                )} */}
 
                 {/* Departments Section */}
                 {company.departments?.length > 0 && (
                     <div
-                        className="flex flex-col justify-center items-end gap-4 self-stretch px-6 py-4 rounded-[16px] border"
-                        style={{
-                            borderColor: "var(--stroke-border, #212F43)",
-                            backgroundColor: "var(--opacomplex-white-5, rgba(255, 255, 255, 0.05))",
-                            backdropFilter: "blur(9px)",
-                        }}
+                        className="flex flex-col justify-center items-end gap-4 self-stretch rounded-[16px] "
+
                     >
                         <div className="flex flex-col items-end gap-[7px] self-stretch rounded-[16px]">
                             <div className="flex items-center gap-2 w-full">
-                                <p className='text-text-gray1 typography-body-14-medium'>الأقسام والخصومات</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <line x1="7" y1="7" x2="7.01" y2="7" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
+                                <p className='text-white text-[24px] '>الأقسام والخصومات</p>
+
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                                 {company.departments.map((department: any) => (
@@ -283,7 +294,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                             <div className="flex items-center gap-2 w-full">
                                 <p className='text-text-gray1 typography-body-14-medium'>حسابات السوشيل ميديا</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </div>
                             <div className="flex flex-wrap gap-3 w-full">
@@ -307,83 +318,117 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                     </div>
                 )}
             </div>
-            
+
             {/* Branches Modal */}
-            {showBranchesModal && (
-                <div 
-                    className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-                    onClick={() => setShowBranchesModal(false)}
-                >
-                    <div 
-                        className="bg-[#1a2332] rounded-[16px] border border-[rgba(255,255,255,0.1)] w-full max-w-[400px] max-h-[80vh] overflow-hidden"
-                        onClick={(e) => e.stopPropagation()}
+            {
+                showBranchesModal && (
+                    <div
+                        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                        onClick={() => setShowBranchesModal(false)}
                     >
-                        {/* Modal Header */}
-                        <div className="flex items-center justify-between p-4 border-b border-[rgba(255,255,255,0.1)]">
-                            <h3 className="text-white text-[18px] font-medium">فروع الشركة</h3>
-                            <button
-                                onClick={() => setShowBranchesModal(false)}
-                                className="flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.2)] transition-colors"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <path d="M18 6L6 18" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M6 6l12 12" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                            </button>
-                        </div>
-                        
-                        {/* Modal Content */}
-                        <div className="overflow-y-auto max-h-[60vh]">
-                            {company.branches?.map((branch: any, index: number) => (
-                                <div key={branch.id} className="p-4 border-b border-[rgba(255,255,255,0.05)] last:border-b-0">
-                                    <div className="flex items-start gap-3">
-                                        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(255,255,255,0.1)] mt-1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                                <path fillRule="evenodd" clipRule="evenodd" d="M14.5 10.5005C14.5 9.11924 13.3808 8 12.0005 8C10.6192 8 9.5 9.11924 9.5 10.5005C9.5 11.8808 10.6192 13 12.0005 13C13.3808 13 14.5 11.8808 14.5 10.5005Z" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
-                                                <path fillRule="evenodd" clipRule="evenodd" d="M11.9995 21C10.801 21 4.5 15.8984 4.5 10.5633C4.5 6.38664 7.8571 3 11.9995 3C16.1419 3 19.5 6.38664 19.5 10.5633C19.5 15.8984 13.198 21 11.9995 21Z" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
-                                            </svg>
-                                        </div>
-                                        <div className="flex-1">
-                                            <div className="flex items-start justify-between">
-                                                <div>
-                                                    <p className="text-white text-[16px] font-medium">
-                                                        {branch.governorate?.name?.[locale] || branch.governorate?.name?.en}
-                                                    </p>
-                                                    {branch.address && (
-                                                        <p className="text-text-gray1 text-[14px] mt-1">
-                                                            {branch.address}
-                                                        </p>
-                                                    )}
-                                                </div>
-                                                <div className="flex items-center gap-1 bg-[rgba(255,255,255,0.1)] rounded-[8px] px-2 py-1">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none">
-                                                        <path d="M9 11H15" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-                                                    </svg>
-                                                    <span className="text-white text-[12px]">{company.branches.length - index} فرع</span>
-                                                </div>
+                        <div
+                            className="bg-[#1a2332] rounded-[16px] border border-[rgba(255,255,255,0.1)] w-full max-w-[400px] max-h-[80vh] overflow-hidden"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* Modal Header */}
+                            <div className="flex items-center justify-between p-4 border-b border-[rgba(255,255,255,0.1)]">
+                                <h3 className="text-white text-[18px] font-medium">فروع الشركة</h3>
+                                <button
+                                    onClick={() => setShowBranchesModal(false)}
+                                    className="flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.2)] transition-colors"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path d="M18 6L6 18" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M6 6l12 12" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            {/* Modal Content */}
+                            <div className="overflow-y-auto max-h-[60vh]">
+                                {company.branches?.map((branch: any, index: number) => (
+                                    <div key={branch.id} className="p-4 border-b border-[rgba(255,255,255,0.05)] last:border-b-0">
+                                        <div className="flex items-start gap-3">
+                                            <div className="flex items-center p-2 gap-2 rounded-[16px] bg-white/10">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <path opacity="0.4" fillRule="evenodd" clipRule="evenodd" d="M14.7368 10.8064C14.7368 9.43255 13.6236 8.31934 12.2507 8.31934C10.8769 8.31934 9.76367 9.43255 9.76367 10.8064C9.76367 12.1792 10.8769 13.2924 12.2507 13.2924C13.6236 13.2924 14.7368 12.1792 14.7368 10.8064Z" stroke="#FBF5EF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path fillRule="evenodd" clipRule="evenodd" d="M12.2498 21.2499C12.2498 21.2499 4.97391 16.5107 4.79058 10.5972C4.66185 6.44502 8.12963 2.75 12.2498 2.75C16.3699 2.75 19.8368 6.44496 19.7099 10.5972C19.5255 16.6319 12.2498 21.2499 12.2498 21.2499Z" stroke="#FBF5EF" strokeWidth="1.5" strokeLinecap="round" />
+                                                </svg>
                                             </div>
-                                            {branch.location && (
-                                                <a
-                                                    href={branch.location?.startsWith("http") ? branch.location : `https://${branch.location}`}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="inline-flex items-center gap-1 mt-2 text-blue-400 hover:text-blue-300 transition-colors text-[14px]"
-                                                >
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none">
-                                                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                                    </svg>
-                                                    عرض الموقع
-                                                </a>
-                                            )}
+                                            <div className="flex-1 flex item-center justify-center flex-col">
+                                                <div className="flex items-center justify-between w-full">
+                                                    <div>
+                                                        <p className="text-white text-[16px] font-medium">
+                                                            {branch.governorate?.name?.[locale] || branch.governorate?.name?.en}
+                                                        </p>
+                                                        {branch.address && (
+                                                            <p className="text-text-gray1 text-[14px] mt-1">
+                                                                {branch.address}
+                                                            </p>
+                                                        )}
+                                                    </div>
+                                                    <div
+                                                        onClick={() => toggleBranchExpansion(index)}
+                                                        className="flex items-center gap-1 rounded-[8px] px-2 py-1 cursor-pointer hover:bg-white/5 transition-colors"
+                                                    >
+                                                        <p className="text-[#97A8BF] text-[12px]">{company.branches.length - index} فروع</p>
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="20"
+                                                            height="20"
+                                                            viewBox="0 0 20 20"
+                                                            fill="none"
+                                                            className={`transition-transform duration-200 ${expandedBranches.has(index) ? 'rotate-180' : ''}`}
+                                                        >
+                                                            <path d="M4.375 7.08366L10.2083 12.917" stroke="white" strokeWidth="1.25" strokeLinecap="square" />
+                                                            <path opacity="0.4" d="M10.208 12.917L16.0413 7.08366" stroke="white" strokeWidth="1.25" strokeLinecap="square" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                {expandedBranches.has(index) && (
+                                                    <div className="mt-3 p-3 bg-white/5 rounded-[8px] border border-white/10">
+                                                        <div className="space-y-2">
+                                                            <p className="text-white text-[14px] font-medium">
+                                                                {branch.name || branch.governorate?.name?.[locale] || branch.governorate?.name?.en || 'اسم الفرع غير محدد'}
+                                                            </p>
+                                                            {branch.address && (
+                                                                <p className="text-text-gray1 text-[12px]">
+                                                                    <span className="text-white">العنوان:</span> {branch.address}
+                                                                </p>
+                                                            )}
+                                                            {branch.phone && (
+                                                                <p className="text-text-gray1 text-[12px]">
+                                                                    <span className="text-white">الهاتف:</span> {branch.phone}
+                                                                </p>
+                                                            )}
+                                                            {branch.email && (
+                                                                <p className="text-text-gray1 text-[12px]">
+                                                                    <span className="text-white">البريد الإلكتروني:</span> {branch.email}
+                                                                </p>
+                                                            )}
+                                                            {branch.location && (
+                                                                <a
+                                                                    href={branch.location.startsWith("http") ? branch.location : `https://${branch.location}`}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    className="text-blue-400 text-[12px] hover:text-blue-300 transition-colors"
+                                                                >
+                                                                    عرض الموقع على الخريطة
+                                                                </a>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                                {/* Collapsible Branch Details */}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )
+            }
+        </div >
     );
 }

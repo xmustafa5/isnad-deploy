@@ -14,6 +14,7 @@ export async function getComplexes(
         page,
         per_page: perPage,
         ...(developerId && { developer_id: developerId }),
+        is_visible: 1,
       },
     });
     return response.data;

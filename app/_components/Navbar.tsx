@@ -61,7 +61,7 @@ export default function Navbar() {
                 <NavbarButton text="الرئيسية" pathname={pathname} path="/ar" />
                 <NavbarButton text="المجمعات السكنية" pathname={pathname} path="/ar/residential-complexes" />
                 <NavbarButton text="المدن" pathname={pathname} path="/ar/cities" />
-                <NavbarButton text="المطورين" pathname={pathname} path="/ar/developers" />
+                {/* <NavbarButton text="المطورين" pathname={pathname} path="/ar/developers" /> */}
                 <NavbarButton text="الشركات" pathname={pathname} path="/ar/companies" />
 
             </div>
@@ -126,7 +126,7 @@ export default function Navbar() {
                         <NavbarButtonMobile text="الرئيسية" pathname={pathname} path="/ar" />
                         <NavbarButtonMobile text="المجمعات السكنية" pathname={pathname} path="/ar/residential-complexes" />
                         <NavbarButtonMobile text="المدن" pathname={pathname} path="/ar/cities" />
-                        <NavbarButtonMobile text="المطورين" pathname={pathname} path="/ar/developers" />
+                        {/* <NavbarButtonMobile text="المطورين" pathname={pathname} path="/ar/developers" /> */}
                         <NavbarButtonMobile text="الشركات" pathname={pathname} path="/ar/companies" />
                     </div>
                     {/* <div className="border-t border-white/10 pt-4 space-y-2">

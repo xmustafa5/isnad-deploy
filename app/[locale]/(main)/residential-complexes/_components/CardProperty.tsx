@@ -8,9 +8,27 @@ const CardProperty = memo(function CardProperty({ complex }: { complex: ComplexI
     // Format price to readable format
     const formatPrice = (price: number) => {
         if (price >= 1000000) {
-            return `${(price / 1000000).toFixed(1)}M`;
+            const millions = price / 1000000;
+            // If it's a whole number, don't show decimal
+            if (millions % 1 === 0) {
+                return `${millions.toFixed(0)} مليون`;
+            }
+            // If decimal is .0, don't show it
+            if (millions % 1 === 0.5) {
+                return `${millions.toFixed(0)}.5 مليون`;
+            }
+            return `${millions.toFixed(1)} مليون`;
         } else if (price >= 1000) {
-            return `${(price / 1000).toFixed(1)}K`;
+            const thousands = price / 1000;
+            // If it's a whole number, don't show decimal
+            if (thousands % 1 === 0) {
+                return `${thousands.toFixed(0)} الف`;
+            }
+            // If decimal is .0, don't show it
+            if (thousands % 1 === 0.5) {
+                return `${thousands.toFixed(0)}.5 الف`;
+            }
+            return `${thousands.toFixed(1)} الف`;
         }
         return price.toString();
     };
@@ -41,10 +59,12 @@ const CardProperty = memo(function CardProperty({ complex }: { complex: ComplexI
     const router = useRouter();
 
     return (
-        <Link href={`/residential-complexes/${complex.id}`} className="flex flex-col justify-end items-end h-[296px] min-w-[330px] overflow-hidden max-w-[440px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px]
-         bg-[lightgray] bg-center bg-cover bg-no-repeat relative"
+        <Link
+            href={`/residential-complexes/${complex.id}`}
+            className="flex !h-[238px] flex-col justify-end items-end h-[296px] min-w-[330px] overflow-hidden max-w-[440px] min-h-[237.99px] max-h-[446.231px] p-4 gap-2 flex-[1_0_0] rounded-[16px]
+     bg-[lightgray] bg-center bg-cover bg-no-repeat relative"
             style={{
-                backgroundImage: `url(${complex.background_img})`,
+                backgroundImage: `url(${complex.background_img || "/images/city.png"})`,
             }}
         >
             <div className="absolute right-[-45.31px] z-30 bottom-[-133.309px] w-[346.619px] h-[346.619px] rounded-full bg-[rgba(8,24,47,0.8)] blur-[54px]"></div>
@@ -78,7 +98,7 @@ const CardProperty = memo(function CardProperty({ complex }: { complex: ComplexI
                 </div>
                 <div className='border-t border-opacity-white-10 flex pt-3 gap-2 flex-col'>
                     <p className='text-text-gray1 typography-body-14-medium'>
-                        من {formatPrice(complex.min_price)} الى {formatPrice(complex.max_price)} IQD
+                        من {formatPrice(complex.min_price)} الى {formatPrice(complex.max_price)} دينار عراقي
                     </p>
                     <a
                         href={complex.location.startsWith("http") ? complex.location : `https://${complex.location}`}
@@ -93,7 +113,7 @@ const CardProperty = memo(function CardProperty({ complex }: { complex: ComplexI
                         <p
                             className="text-text-gray1 typography-body-14-light flex items-center"
                         >
-                            {complex.governorate.name.ar || complex.governorate.name.en}/
+                            {complex.governorate.name.ar || complex.governorate.name.en}
                         </p>
 
                     </a>

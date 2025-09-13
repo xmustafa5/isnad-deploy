@@ -33,9 +33,27 @@ function CardCity({ city }: { city: any }) {
 
     const formatPrice = (price: number) => {
         if (price >= 1000000) {
-            return `${(price / 1000000).toFixed(1)}M`;
+            const millions = price / 1000000;
+            // If it's a whole number, don't show decimal
+            if (millions % 1 === 0) {
+                return `${millions.toFixed(0)} مليون`;
+            }
+            // If decimal is .0, don't show it
+            if (millions % 1 === 0.5) {
+                return `${millions.toFixed(0)}.5 مليون`;
+            }
+            return `${millions.toFixed(1)} مليون`;
         } else if (price >= 1000) {
-            return `${(price / 1000).toFixed(1)}K`;
+            const thousands = price / 1000;
+            // If it's a whole number, don't show decimal
+            if (thousands % 1 === 0) {
+                return `${thousands.toFixed(0)} الف`;
+            }
+            // If decimal is .0, don't show it
+            if (thousands % 1 === 0.5) {
+                return `${thousands.toFixed(0)}.5 الف`;
+            }
+            return `${thousands.toFixed(1)} الف`;
         }
         return price.toString();
     };
@@ -98,16 +116,16 @@ function CardCity({ city }: { city: any }) {
                             <p className="text-text-gray1 text-[12px]">
                                 {city.total_units} وحدة
                             </p>
-                            <p className="text-text-gray1 text-[12px]">
+                            {/* <p className="text-text-gray1 text-[12px]">
                                 {city.years} سنوات
-                            </p>
+                            </p> */}
                         </div>
                     </div>
                 </div>
 
                 <div className="border-t border-opacity-white-10 flex pt-3 gap-2 flex-col">
                     <p className='text-text-gray1 typography-body-14-medium'>
-                        من {formatPrice(city.min_price)} الى {formatPrice(city.max_price)} IQD
+                        من {formatPrice(city.min_price)} - {formatPrice(city.max_price)} دينار عراقي
                     </p>
                     {/* <p className="text-text-gray1 typography-body-14-medium">
                         عدد المشاريع: {city.total_units || 0}

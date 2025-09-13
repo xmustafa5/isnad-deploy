@@ -15,25 +15,24 @@ export default function DeveloperPage({ params }: any) {
     const { ref: loadMoreComplexesRef, inView: complexesInView } = useInView();
     const { ref: loadMoreCitiesRef, inView: citiesInView } = useInView();
     const { data: dataDeveloper } = useDeveloperById(developerId)
-    
-    // Fetch complexes
-    const { 
-        data: complexesData, 
-        fetchNextPage: fetchNextComplexesPage, 
-        hasNextPage: hasNextComplexesPage, 
-        isFetchingNextPage: isFetchingNextComplexes, 
-        isLoading: isLoadingComplexes, 
-        error: complexesError 
+
+    const {
+        data: complexesData,
+        fetchNextPage: fetchNextComplexesPage,
+        hasNextPage: hasNextComplexesPage,
+        isFetchingNextPage: isFetchingNextComplexes,
+        isLoading: isLoadingComplexes,
+        error: complexesError
     } = useComplexesInfinite(developerId);
-    
+
     // Fetch cities
-    const { 
-        data: citiesData, 
-        fetchNextPage: fetchNextCitiesPage, 
-        hasNextPage: hasNextCitiesPage, 
-        isFetchingNextPage: isFetchingNextCities, 
-        isLoading: isLoadingCities, 
-        error: citiesError 
+    const {
+        data: citiesData,
+        fetchNextPage: fetchNextCitiesPage,
+        hasNextPage: hasNextCitiesPage,
+        isFetchingNextPage: isFetchingNextCities,
+        isLoading: isLoadingCities,
+        error: citiesError
     } = useCitiesInfinite(1, undefined, developerId);
 
     useEffect(() => {
@@ -41,7 +40,7 @@ export default function DeveloperPage({ params }: any) {
             fetchNextComplexesPage();
         }
     }, [complexesInView, hasNextComplexesPage, isFetchingNextComplexes, fetchNextComplexesPage]);
-    
+
     useEffect(() => {
         if (citiesInView && hasNextCitiesPage && !isFetchingNextCities) {
             fetchNextCitiesPage();
@@ -73,7 +72,7 @@ export default function DeveloperPage({ params }: any) {
 
     return (
         <div className='flex gap-8 xl:flex-row flex-col '>
-            {developer && (
+            {/* {developer && (
                 <div
                     className="rounded-[16px] h-fit bg-cover bg-no-repeat bg-center pt-[152px] xl:w-[400px] w-full"
                     style={{
@@ -138,11 +137,11 @@ export default function DeveloperPage({ params }: any) {
                         </div>
                     </div>
                 </div>
-            )}
+            )} */}
 
 
             <div className="flex-1 flex flex-col gap-8">
-                <div className="flex justify-between items-center self-stretch">
+                <div className="flex justify-start gap-4 items-center self-stretch">
                     <Link
                         href={`/developers`}
                         className="flex items-center gap-2 w-[48px] p-3 rounded-[16px] border border-white/15 bg-black/20 backdrop-blur"
@@ -153,9 +152,10 @@ export default function DeveloperPage({ params }: any) {
                             <path opacity="0.4" d="M20.5 12H4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </Link>
+                    <h1 className='text-white typography-title-32-bold'> {developer?.name?.ar}</h1>
                 </div>
 
-                <div
+                {/* <div
                     className="flex flex-col justify-center items-end gap-4 self-stretch px-6 py-4 rounded-[16px] border"
                     style={{
                         borderColor: "var(--stroke-border, #212F43)",
@@ -182,7 +182,7 @@ export default function DeveloperPage({ params }: any) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 {/* Cities Section */}
                 {allCities.length > 0 && (
@@ -193,7 +193,7 @@ export default function DeveloperPage({ params }: any) {
                                 ({allCities.length} مدينة)
                             </p>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className='flex overflow-y-auto max-h-[calc(95.3vh-100px)] py-4 items-center content-start gap-[24px] self-stretch justify-center xl:justify-start flex-wrap'>
                             {allCities.map((city) => (
                                 <CardCity key={city.id} city={city} />
                             ))}
@@ -221,7 +221,7 @@ export default function DeveloperPage({ params }: any) {
                                 ({allComplexes.length} مجمع)
                             </p>
                         </div>
-                        <div className="flex flex-wrap gap-6 justify-center xl:justify-start">
+                        <div className='flex overflow-y-auto max-h-[calc(95.3vh-100px)] py-4 items-center content-start gap-[24px] self-stretch justify-center xl:justify-start flex-wrap'>
                             {allComplexes.map((complex) => (
                                 <CardProperty key={complex.id} complex={complex} />
                             ))}
