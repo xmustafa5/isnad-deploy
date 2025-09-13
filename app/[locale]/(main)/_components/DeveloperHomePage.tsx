@@ -11,7 +11,7 @@ const DeveloperHomePage = ({ className }: any) => {
     });
     return (
         <div className={cn('flex gap-4 flex-col z-10 ', className)}>
-            <h1 className='text-right font-normal text-[22px] leading-[1.4] text-white'>المطورين</h1>
+            <h1 className='text-right font-normal text-[22px] leading-[1.4] text-white'>المطورين العقارين</h1>
             <div className="flex gap-6 overflow-x-auto scrollbar-hide px-2 z-10">
                 {data?.items?.map((developer: any) => (
                     <div

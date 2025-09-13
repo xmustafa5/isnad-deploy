@@ -18,8 +18,10 @@ export default function Page() {
     return (
         <div className='w-full h-full pt-4 md:pt-5 lg:pt-[121px] flex flex-col  gap-6 px-2 md:px-4 lg:px-0'>
             {/* Background Image */}
+            <div className="h-screen  md:hidden flex bg-gradient-to-l from-[#08182F] via-[#213458] to-[#213458] absolute inset-0">
+                s </div>
             <div
-                className="bg-cover bg-no-repeat bg-center md:bg-top pointer-events-none h-full w-full absolute inset-0"
+                className="bg-cover hidden md:flex bg-no-repeat bg-center md:bg-top pointer-events-none h-full w-full absolute inset-0"
                 style={{
                     backgroundImage:
                         "linear-gradient(180deg, rgba(0, 0, 0, 0.37) 0%, rgba(0, 0, 0, 0.39) 78.5%), url('/images/home.jpg')",
