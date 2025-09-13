@@ -368,7 +368,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = 'ar' }: { id: 
                                                         )}
                                                     </div>
                                                     <div
-                                                        onClick={() => toggleBranchExpansion(index)}
+                                                        onClick={() => toggleBranchExpansion(bran)}
                                                         className="flex items-center gap-1 rounded-[8px] px-2 py-1 cursor-pointer hover:bg-white/5 transition-colors"
                                                     >
                                                         <p className="text-[#97A8BF] text-[12px]">{company.branches.length - index} فروع</p>
